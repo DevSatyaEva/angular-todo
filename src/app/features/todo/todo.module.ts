@@ -8,6 +8,7 @@ import { TodoListComponent } from './components/todo-list/todo-list.component';
 import { TodoFormComponent } from './components/todo-form/todo-form.component';
 import { TodoItemComponent } from './components/todo-item/todo-item.component';
 import { TodoDetailComponent } from './components/todo-detail/todo-detail.component';
+import { HighlightOverdueDirective } from 'src/app/shared/directives/highlight-overdue.directive';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { TodoDetailComponent } from './components/todo-detail/todo-detail.compon
     TodoFormComponent,
     TodoItemComponent,
     TodoDetailComponent,
+    HighlightOverdueDirective, // Declare it here
   ],
   imports: [CommonModule, FormsModule, TodoRoutingModule], // Import FormsModule if using two-way binding and  features service inside feature providers: [TodoService],
 })

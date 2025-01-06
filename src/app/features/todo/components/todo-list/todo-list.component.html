@@ -16,7 +16,7 @@
     </li>
   </ul> -->
 
-<div *ngFor="let todo of todos; let i = index">
+<div *ngFor="let todo of todos; let i = index" [appHighlightOverdue]="todo">
   <!-- Use TodoItemComponent -->
   <app-todo-item
     [todo]="todo"
