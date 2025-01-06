@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { TodoService } from 'src/app/core/todo.service';
 
 @Component({
@@ -7,9 +7,14 @@ import { TodoService } from 'src/app/core/todo.service';
   styleUrls: ['./todo-form.component.scss'],
 })
 export class TodoFormComponent {
+  @ViewChild('todoInput') todoInput!: ElementRef;
   todoText: string = '';
 
   constructor(private todoService: TodoService) {}
+
+  ngAfterViewInit() {
+    this.todoInput.nativeElement.focus(); // Set focus on the input field
+  }
 
   addTodo() {
     if (this.todoText.trim()) {

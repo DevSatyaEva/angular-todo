@@ -1,4 +1,4 @@
-<ul class="list-group">
+<!-- <ul class="list-group">
     <li
       *ngFor="let todo of todoService.getTodos(); let i = index"
       class="list-group-item d-flex justify-content-between align-items-center"
@@ -12,7 +12,57 @@
         />
         <span [class.text-decoration-line-through]="todo.completed">{{ todo.text }}</span>
       </div>
-      <button class="btn btn-danger btn-sm" (click)="deleteTodo(i)">Delete</button>
+      <button class="btn btn-danger btn-sm" (click)="deleteTodoHandler(i)">Delete</button>
     </li>
-  </ul>
-  
+  </ul> -->
+
+<div *ngFor="let todo of todos; let i = index">
+  <!-- Use TodoItemComponent -->
+  <app-todo-item
+    [todo]="todo"
+    [index]="i"
+    (delete)="deleteTodoHandler($event)"
+    (edit)="editTodoHandler($event)"
+    (viewDetail)="navigateToDetail(todo)"
+    (toggleComplete)="toggleCompleteHandler($event)"
+  ></app-todo-item>
+</div>
+
+<!-- Edit Modal -->
+<div
+  class="modal"
+  tabindex="-1"
+  role="dialog"
+  [class.show]="editTodoData"
+  style="display: block"
+  *ngIf="editTodoData"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Edit To-Do</h5>
+        <button
+          type="button"
+          class="btn-close"
+          (click)="cancelEditHandler()"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <input
+          type="text"
+          [(ngModel)]="editTodoData.text"
+          class="form-control"
+          placeholder="Edit To-Do Text"
+        />
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" (click)="cancelEditHandler()">
+          Cancel
+        </button>
+        <button class="btn btn-primary" (click)="saveEditHandler(editTodoData)">
+          Save Changes
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,13 +1,13 @@
 <form (ngSubmit)="addTodo()" class="mb-3">
-    <div class="input-group">
-      <input
-        type="text"
-        class="form-control"
-        [(ngModel)]="todoText"
-        name="todo"
-        placeholder="Add a new to-do"
-      />
-      <button class="btn btn-primary" type="submit">Add</button>
-    </div>
-  </form>
-  
+  <div class="input-group">
+    <input
+      #todoInput
+      type="text"
+      class="form-control"
+      [(ngModel)]="todoText"
+      name="todo"
+      placeholder="Add a new to-do"
+    />
+    <button class="btn btn-success" type="submit">Add</button>
+  </div>
+</form>

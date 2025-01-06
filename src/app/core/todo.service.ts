@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
+import { Todo } from '../shared/todo.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TodoService {
-  private todos: any[] = [];
+  private todos: Todo[] = [];
 
   constructor() {
     this.loadTodos();
@@ -23,12 +24,28 @@ export class TodoService {
     return this.todos;
   }
 
+  getTodoById(id: number) {
+    return this.todos.find((todo) => todo.id === id);
+  }
+
   addTodo(todo: any) {
-    this.todos.push(todo);
+    // Generate a new id for the new todo item
+    const newId =
+      this.todos.length > 0 ? Math.max(...this.todos.map((t) => t.id)) + 1 : 1; // Start from 1 if no todos exist
+
+    console.log('newid', newId);
+
+    // Create a new todo with the generated id
+    const newTodo: Todo = { ...todo, id: newId }; // Ensure the id is added here
+
+    // Push the new todo into the array
+    this.todos.push(newTodo);
+
+    // Save to local storage
     this.saveTodos();
   }
 
-  updateTodo(index: number, updatedTodo: any) {
+  updateTodo(index: number, updatedTodo: Todo) {
     this.todos[index] = updatedTodo;
     this.saveTodos();
   }
