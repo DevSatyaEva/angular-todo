@@ -23,7 +23,7 @@
     [index]="i"
     (delete)="deleteTodoHandler($event)"
     (edit)="editTodoHandler($event)"
-    (viewDetail)="navigateToDetail(todo)"
+    (viewDetail)="navigateToDetail($event)"
     (toggleComplete)="toggleCompleteHandler($event)"
   ></app-todo-item>
 </div>

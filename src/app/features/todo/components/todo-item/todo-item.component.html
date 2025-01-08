@@ -20,9 +20,28 @@
 
   <!-- Display Buttons -->
   <div class="d-flex gap-2 bg-light">
-    <button class="btn btn-sm btn-primary" (click)="onEdit()">Edit</button>
-    <button class="btn btn-sm btn-danger" (click)="onDelete()">Delete</button>
-    <button class="btn btn-sm btn-info" (click)="onViewDetail()">
+    <button
+      class="btn btn-sm btn-primary"
+      (click)="onEdit()"
+      (mouseenter)="showTooltip('Edit this task', $event)"
+      (mouseleave)="hideTooltip()"
+    >
+      Edit
+    </button>
+    <button
+      class="btn btn-sm btn-danger"
+      (click)="onDelete()"
+      (mouseenter)="showTooltip('Delete this task', $event)"
+      (mouseleave)="hideTooltip()"
+    >
+      Delete
+    </button>
+    <button
+      class="btn btn-sm btn-info"
+      (click)="onViewDetail()"
+      (mouseenter)="showTooltip('View task details', $event)"
+      (mouseleave)="hideTooltip()"
+    >
       View Details
     </button>
   </div>

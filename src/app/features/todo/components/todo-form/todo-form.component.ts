@@ -17,6 +17,7 @@ export class TodoFormComponent {
   }
 
   addTodo() {
+    console.log('rendering.....');
     if (this.todoText.trim()) {
       this.todoService.addTodo({ text: this.todoText, completed: false });
       this.todoText = '';
