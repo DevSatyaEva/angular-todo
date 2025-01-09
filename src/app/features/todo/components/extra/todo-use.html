@@ -1,0 +1,60 @@
+<div class="dropdown-wrapper position-relative" [ngStyle]="dropdownStyle">
+  <!-- Search Input -->
+  <!-- <input
+      id="dropdownInput"
+      type="text"
+      class="form-control"
+      placeholder="Search..."
+      [(ngModel)]="searchText"
+      (input)="onSearchChange()"
+      (keydown)="onKeyDown($event)"
+      (focus)="onFocus($event)"
+    /> -->
+
+  <input
+    type="text"
+    [formControl]="searchControl"
+    placeholder="Search..."
+    class="form-control"
+    (keydown)="onKeyDown($event)"
+  />
+
+  <ul
+    *ngIf="filteredOptions.length > 0"
+    class="dropdown-menu"
+    [ngStyle]="dropdownStyle"
+  >
+    <li
+      *ngFor="let option of filteredOptions; let i = index"
+      (click)="onSelect(option)"
+      [class.active]="i === selectedIndex"
+      class="dropdown-item"
+    >
+      {{ option }}
+    </li>
+
+    <!-- No values found message -->
+    <li *ngIf="filteredOptions.length === 0" class="dropdown-item text-muted">
+      No values found.
+    </li>
+  </ul>
+
+  <!-- Selected Value Display -->
+  <!-- <p *ngIf="selectedValue">Selected Value: {{ selectedValue }}</p> -->
+
+  <!-- Dropdown Items -->
+  <!-- <ul *ngIf="searchText" class="dropdown-menu show" [ngStyle]="dropdownStyle">
+      <li
+        *ngFor="let item of filteredItems; let i = index"
+        [class.selected]="i === selectedIndex"
+        (click)="selectItem(item)"
+        class="dropdown-item"
+      >
+        {{ item }}
+      </li>
+  
+       <li *ngIf="filteredItems.length === 0" class="dropdown-item text-muted">
+        No values found
+      </li> 
+    </ul> -->
+</div>

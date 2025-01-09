@@ -1,0 +1,33 @@
+.dropdown-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+input.form-control {
+  width: 100%;
+  padding: 8px;
+}
+
+ul.dropdown-menu {
+  display: block !important;
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  right: 0;
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 1050;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+li.dropdown-item {
+  padding: 8px;
+  cursor: pointer;
+}
+
+li.dropdown-item.active {
+  background-color: #8396aa;
+  color: white;
+}

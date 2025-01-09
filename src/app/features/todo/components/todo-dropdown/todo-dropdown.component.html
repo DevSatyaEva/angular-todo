@@ -1,0 +1,33 @@
+<div class="dropdown-wrapper">
+  <!-- Search Input -->
+  <input
+    id="dropdownInput"
+    type="text"
+    [formControl]="searchControl"
+    placeholder="Search..."
+    class="form-control"
+    (keydown)="onKeyDown($event)"
+    (focus)="onFocus()"
+    (input)="onInputChange()"
+  />
+
+  <!-- Dropdown Menu -->
+  <ul *ngIf="filteredOptions.length > 0" class="dropdown-menu">
+    <li
+      *ngFor="let option of filteredOptions; let i = index"
+      (click)="onSelect(option)"
+      [class.active]="i === selectedIndex"
+      class="dropdown-item"
+    >
+      {{ option }}
+    </li>
+  </ul>
+
+  <div
+    *ngIf="filteredOptions.length === 0"
+    class="dropdown-item-text text-muted my-2 shadow-sm rounded-3 mx-auto p-2"
+  >
+    No values found.
+  </div>
+  <!-- No Results -->
+</div>
