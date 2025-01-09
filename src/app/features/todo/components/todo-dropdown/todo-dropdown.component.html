@@ -1,15 +1,30 @@
 <div class="dropdown-wrapper">
-  <!-- Search Input -->
-  <input
-    id="dropdownInput"
-    type="text"
-    [formControl]="searchControl"
-    placeholder="Search..."
-    class="form-control"
-    (keydown)="onKeyDown($event)"
-    (focus)="onFocus()"
-    (input)="onInputChange()"
-  />
+  <!-- Input Wrapper -->
+  <div class="input-wrapper">
+    <!-- Selected Value (Read-Only) -->
+    <input
+      *ngIf="!isEditing"
+      id="selectedValueInput"
+      type="text"
+      [value]="selectedValue"
+      class="form-control selected-value"
+      readonly
+      placeholder="start searching..."
+      (focus)="startEditing()"
+    />
+
+    <!-- Search Input (Editable) -->
+    <input
+      *ngIf="isEditing"
+      id="searchInput"
+      type="text"
+      [formControl]="searchControl"
+      class="form-control search-input"
+      placeholder="start searching..."
+      (blur)="onBlur()"
+      (keydown)="onKeyDown($event)"
+    />
+  </div>
 
   <!-- Dropdown Menu -->
   <ul *ngIf="filteredOptions.length > 0" class="dropdown-menu">
@@ -23,11 +38,11 @@
     </li>
   </ul>
 
+  <!-- No Results Found -->
   <div
-    *ngIf="filteredOptions.length === 0"
+    *ngIf="filteredOptions.length === 0 && searchControl.value"
     class="dropdown-item-text text-muted my-2 shadow-sm rounded-3 mx-auto p-2"
   >
     No values found.
   </div>
-  <!-- No Results -->
 </div>

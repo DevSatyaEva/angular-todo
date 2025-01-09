@@ -7,48 +7,54 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./todo-dropdown.component.scss'],
 })
 export class TodoDropdownComponent implements OnInit {
-  @Input() options: string[] = []; // List of dropdown options from parent todo component
-  @Output() itemSelected = new EventEmitter<string>(); // Emit selected item
+  @Input() options: string[] = [];
+  @Output() itemSelected = new EventEmitter<string>();
 
-  searchControl = new FormControl(''); // Reactive search input FormControl
-  filteredOptions: string[] = []; // Filtered options for the dropdown
-
-  selectedIndex = 0; // Track keyboard navigation
-  selectedValue: string | null = null; // Store the currently selected value
+  searchControl = new FormControl('');
+  filteredOptions: string[] = [];
+  selectedIndex = 0;
+  selectedValue: string | null = null;
+  isEditing = false;
 
   ngOnInit() {
-    console.log('Dropdown options received:', this.options);
-    // Initialize the dropdown with all options visible
     this.filteredOptions = [];
-
-    // Filter options based on search input
     this.searchControl.valueChanges.subscribe((searchText) => {
-      this.filterOptions(searchText);
+      if (this.isEditing) {
+        this.filterOptions(searchText || '');
+      }
     });
   }
 
-  filterOptions(searchText: string | null) {
+  filterOptions(searchText: string) {
     if (searchText) {
       this.filteredOptions = this.options.filter((option) =>
         option.toLowerCase().includes(searchText.toLowerCase())
       );
+    } else if (this.selectedValue) {
+      // If search text is empty, show the selected value
+      this.filteredOptions = [this.selectedValue];
     } else {
-      this.filteredOptions = this.selectedValue ? [this.selectedValue] : []; // Keep selected value if no search
+      this.filteredOptions = [];
     }
-    console.log('Filtered options:', this.filteredOptions); // Debug log
-    this.selectedIndex = 0; // Reset index when filtering
+    this.selectedIndex = 0;
   }
 
-  // Handle item selection
-  onSelect(option: string) {
-    this.selectedValue = option; // Store the selected value
-    this.itemSelected.emit(option); // Emit selected value to parent
-    this.searchControl.setValue(option, { emitEvent: false }); // Set selected value in input without triggering the subscription
-    this.filteredOptions = []; // Close the dropdown after selection
-    this.setCursorAtStart(); // Set the cursor at the start
+  startEditing() {
+    this.isEditing = true;
+    this.searchControl.setValue('');
+    setTimeout(() => {
+      const input = document.getElementById('searchInput') as HTMLInputElement;
+      input?.focus();
+    }, 0);
   }
 
-  // Handle keyboard events for navigation  (ArrowUp, ArrowDown, Enter)
+  onBlur() {
+    if (!this.searchControl.value) {
+      this.isEditing = false;
+      this.filteredOptions = [];
+    }
+  }
+
   onKeyDown(event: KeyboardEvent) {
     if (event.key === 'ArrowDown') {
       this.selectedIndex = Math.min(
@@ -62,32 +68,16 @@ export class TodoDropdownComponent implements OnInit {
     }
   }
 
-  setCursorAtStart() {
-    // Using setTimeout to ensure the DOM is updated before focusing
-    setTimeout(() => {
-      const inputElement = document.getElementById(
-        'dropdownInput'
-      ) as HTMLInputElement;
-      if (inputElement) {
-        inputElement.setSelectionRange(0, 0); // Set cursor position at the start
-        inputElement.focus(); // Focus the input
-      }
-    }, 0);
+  onSelect(option: string) {
+    this.selectedValue = option;
+    this.itemSelected.emit(option);
+    this.isEditing = false;
+    this.filteredOptions = [option];
   }
 
-  // Triggered when input field is focused
-  onFocus() {
+  resetToSelectedValue() {
     if (!this.searchControl.value && this.selectedValue) {
-      // Restore selected value if search is empty
-      this.searchControl.setValue(this.selectedValue);
-    }
-    this.setCursorAtStart(); // Ensure the cursor is at the start
-  }
-
-  // Handle input change and reset selected value if user starts searching
-  onInputChange() {
-    if (this.searchControl.value) {
-      this.selectedValue = null; // Clear the selected value when typing
+      this.searchControl.setValue('');
     }
   }
 }
