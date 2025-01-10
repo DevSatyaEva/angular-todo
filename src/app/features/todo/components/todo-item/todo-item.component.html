@@ -1,7 +1,6 @@
 <div
   class="todo-item d-flex justify-content-between align-items-center p-2 mb-3 border rounded"
 >
-  <!-- Checkbox to mark as completed -->
   <div class="d-flex gap-2">
     <div class="form-check">
       <input
@@ -10,15 +9,12 @@
         [checked]="todo.completed"
         (change)="onToggleComplete()"
       />
-      <label class="form-check-label"></label>
     </div>
-    <!-- Display Todo Text -->
     <div (click)="onViewDetail()" class="todo-text bg-light">
       <span [class.completed]="todo.completed">{{ todo.text }}</span>
     </div>
   </div>
 
-  <!-- Display Buttons -->
   <div class="d-flex gap-2 bg-light">
     <button
       class="btn btn-sm btn-primary"

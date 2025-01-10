@@ -18,7 +18,7 @@ export class TodoItemComponent {
   constructor(private tooltipService: TooltipService) {}
 
   showTooltip(content: string, event: MouseEvent): void {
-    const target = event.currentTarget as HTMLElement;
+    const target = event.currentTarget as HTMLElement; // The button itself
     this.tooltipService.showTooltip(content, target);
   }
 
