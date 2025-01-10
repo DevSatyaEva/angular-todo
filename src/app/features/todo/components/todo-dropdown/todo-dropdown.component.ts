@@ -1,5 +1,20 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  Overlay,
+  OverlayConfig,
+  PositionStrategy,
+  ScrollStrategy,
+} from '@angular/cdk/overlay';
+import { ComponentPortal } from '@angular/cdk/portal';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  ViewContainerRef,
+} from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { TodoDropdownContainerComponent } from '../todo-dropdown-container/todo-dropdown-container.component'; // Import the new container component
 
 @Component({
   selector: 'app-todo-dropdown',
@@ -15,14 +30,114 @@ export class TodoDropdownComponent implements OnInit {
   selectedIndex = 0;
   selectedValue: string | null = null;
   isEditing = false;
+  overlayRef: any;
+
+  constructor(
+    private overlay: Overlay, // Inject Angular CDK's Overlay
+    private viewContainerRef: ViewContainerRef // This is needed to attach the portal dynamically
+  ) {}
 
   ngOnInit() {
+    window.addEventListener('resize', this.onResize.bind(this));
     this.filteredOptions = [];
     this.searchControl.valueChanges.subscribe((searchText) => {
       if (this.isEditing) {
         this.filterOptions(searchText || '');
       }
     });
+  }
+
+  ngOnDestroy() {
+    window.removeEventListener('resize', this.onResize.bind(this));
+  }
+
+  onResize() {
+    if (this.overlayRef) {
+      this.hideDropdown();
+      // Optionally, re-trigger showDropdown with the updated position.
+    }
+  }
+
+  showDropdown(target: HTMLElement) {
+    // Hide existing dropdown if any
+    this.hideDropdown();
+
+    // Get the position of the input field and the available space
+    const targetRect = target.getBoundingClientRect();
+    const viewportHeight = window.innerHeight;
+
+    // Calculate available space above and below
+    const spaceBelow = viewportHeight - targetRect.bottom;
+    const spaceAbove = targetRect.top;
+
+    // Determine the position strategy based on the available space
+    let positionStrategy: PositionStrategy;
+
+    if (spaceBelow > spaceAbove) {
+      // Position dropdown below
+      positionStrategy = this.overlay
+        .position()
+        .flexibleConnectedTo(target)
+        .withPositions([
+          {
+            originX: 'start',
+            originY: 'bottom',
+            overlayX: 'start',
+            overlayY: 'top',
+          },
+        ]);
+    } else {
+      // Position dropdown above
+      positionStrategy = this.overlay
+        .position()
+        .flexibleConnectedTo(target)
+        .withPositions([
+          {
+            originX: 'start',
+            originY: 'top',
+            overlayX: 'start',
+            overlayY: 'bottom',
+          },
+        ]);
+    }
+
+    // Define the scroll strategy to reposition the dropdown when scrolling
+    const scrollStrategy: ScrollStrategy =
+      this.overlay.scrollStrategies.reposition();
+
+    // Create an OverlayConfig to configure the overlay
+    const overlayConfig: OverlayConfig = new OverlayConfig({
+      positionStrategy,
+      scrollStrategy,
+      hasBackdrop: true, // Optional: adds a backdrop to the dropdown
+    });
+
+    // Create the overlay and attach the TodoDropdownContainerComponent dynamically
+    this.overlayRef = this.overlay.create(overlayConfig);
+    const portal = new ComponentPortal(
+      TodoDropdownContainerComponent,
+      this.viewContainerRef
+    );
+
+    // Attach the portal to the overlay
+    const componentRef = this.overlayRef.attach(portal); // Attach the component using attach() method
+    const dropdownComponent = componentRef.instance; // Access the component instance
+
+    // Set the input properties for the dropdown component
+    dropdownComponent.options = this.filteredOptions;
+    dropdownComponent.selectedValue = this.selectedValue;
+
+    // Listen for item selection
+    dropdownComponent.itemSelected.subscribe((selected: string) => {
+      this.itemSelected.emit(selected);
+      this.hideDropdown();
+    });
+  }
+
+  hideDropdown() {
+    if (this.overlayRef) {
+      this.overlayRef.dispose();
+    }
   }
 
   filterOptions(searchText: string) {

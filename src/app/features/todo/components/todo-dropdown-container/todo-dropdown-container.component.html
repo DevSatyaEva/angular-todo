@@ -1,0 +1,15 @@
+<div class="dropdown-container">
+  <!-- Search Input -->
+  <input type="text" [(ngModel)]="searchQuery" placeholder="Search..." />
+
+  <!-- Dropdown Options -->
+  <ul>
+    <li
+      *ngFor="let option of options"
+      (click)="selectOption(option)"
+      [class.selected]="option === selectedValue"
+    >
+      {{ option }}
+    </li>
+  </ul>
+</div>
