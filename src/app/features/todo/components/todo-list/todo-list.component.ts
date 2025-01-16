@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, SimpleChange, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import { TodoService } from 'src/app/core/todo.service';
 import { Todo } from 'src/app/shared/types/todo.model';
@@ -9,10 +9,46 @@ import { Todo } from 'src/app/shared/types/todo.model';
   styleUrls: ['./todo-list.component.scss'],
 })
 export class TodoListComponent {
-  todos = this.todoService.getTodos(); // Fetch todos from the service
-  editTodoData: any = null; // Temporarily stores the todo being edited
+  // testing purpose
+  parentData = 'Hello from parent!';
+  // tetsing learn
+  @Input() searchTerm: string = ''; // search text recieved from parent
+  @Input() statusFilter: string | boolean | null = ''; // Status filter received from parent
 
-  constructor(public todoService: TodoService, private router: Router) {}
+  todos: Todo[] = [];
+  editTodoData: any = null; // Temporarily stores the todo being edited
+  filteredTodos: Todo[] = [];
+
+  constructor(public todoService: TodoService, private router: Router) {} // is instantiated, initializing its properties like todos, filteredTodos, and services (todoService and router).
+
+  ngOnInit(): void {
+    this.todos = this.todoService.getTodos(); // Fetch all todos initially
+    this.filteredTodos = [...this.todos]; // Initialize filteredTodos
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    // console.log('running....');
+    if (changes['searchTerm'] || changes['statusFilter']) {
+      this.applyFilters();
+    }
+  }
+
+  private applyFilters(): void {
+    // Convert the filter term to lowercase for case-insensitive filtering
+    const searchValue = this.searchTerm.toLowerCase();
+    console.log(searchValue, 'searchTerm.......');
+
+    this.filteredTodos = this.todos.filter((todo: Todo) => {
+      const matchesSearch = todo.text?.toLowerCase().includes(searchValue);
+
+      const matchesStatus =
+        this.statusFilter === ''
+          ? true
+          : todo.completed === JSON.parse(this.statusFilter as string);
+
+      return matchesSearch && matchesStatus;
+    });
+  }
 
   // Handles deletion of a to-do item
   deleteTodoHandler(index: number) {

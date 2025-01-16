@@ -21,6 +21,8 @@ export class TodoComponent {
     'Write tests',
     'write feedback',
   ];
+  searchTerm: string = ''; // Tracks the search term input
+  completedStatus: string = ''; // variable initalization which tract the filter drop down.
 
   // todoList = this.todoService.getTodos(); // Fetch todos from the service
 

@@ -1,4 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { TodoService } from 'src/app/core/todo.service';
 
 @Component({
@@ -10,7 +11,8 @@ export class TodoFormComponent {
   @ViewChild('todoInput') todoInput!: ElementRef;
   todoText: string = '';
 
-  constructor(private todoService: TodoService) {}
+  todoForm!: FormGroup; // Define the Reactive Form
+  constructor(private todoService: TodoService, private fb: FormBuilder) {}
 
   ngAfterViewInit() {
     this.todoInput.nativeElement.focus(); // Set focus on the input field

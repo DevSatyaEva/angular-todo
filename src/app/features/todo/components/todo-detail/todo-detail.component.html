@@ -1,4 +1,28 @@
-<div>
-  <h2>{{ todo.text }}</h2>
+<div *ngIf="todo">
+  <h2>{{ todo.text | uppercase }}</h2>
   <p>Completed: {{ todo.completed ? "Yes" : "No" }}</p>
+
+  <button
+    class="btn-dark border px-2 py-1 d-inline-block rounded-2 bg-black text-white cursor-pointer"
+    [routerLink]="['/todo', todo.id - 1]"
+  >
+    Previous
+  </button>
+  <button
+    class="btn-dark border px-2 py-1 d-inline-block rounded-2 bg-black text-white cursor-pointer"
+    [routerLink]="['/todo', todo.id + 1]"
+  >
+    Next
+  </button>
+</div>
+<div *ngIf="!todo">
+  <p class="bg-white rounded-1 p-2 shadow my-3 text-center text-danger">
+    No Todo available in the id
+  </p>
+  <button
+    class="btn-dark border px-2 py-1 d-inline-block rounded-2 bg-black text-white cursor-pointer"
+    [routerLink]="['/todo']"
+  >
+    Go home
+  </button>
 </div>

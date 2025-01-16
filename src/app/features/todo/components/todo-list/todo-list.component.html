@@ -15,8 +15,12 @@
       <button class="btn btn-danger btn-sm" (click)="deleteTodoHandler(i)">Delete</button>
     </li>
   </ul> -->
+<!-- <app-child [inputData]="parentData"></app-child> -->
 
-<div *ngFor="let todo of todos; let i = index" [appHighlightOverdue]="todo">
+<div
+  *ngFor="let todo of filteredTodos; let i = index"
+  [appHighlightOverdue]="todo"
+>
   <!-- Use TodoItemComponent -->
   <app-todo-item
     [todo]="todo"
