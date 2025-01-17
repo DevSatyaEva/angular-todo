@@ -12,6 +12,7 @@ import { HighlightOverdueDirective } from 'src/app/shared/directives/highlight-o
 import { TodoDropdownComponent } from './components/todo-dropdown/todo-dropdown.component';
 import { TodoDropdownContainerComponent } from './components/todo-dropdown-container/todo-dropdown-container.component';
 import { ChildComponent } from './components/child/child.component';
+import { ParentComponent } from './components/parent/parent.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ChildComponent } from './components/child/child.component';
     TodoDropdownComponent,
     TodoDropdownContainerComponent,
     ChildComponent,
+    ParentComponent,
   ],
   imports: [CommonModule, FormsModule, ReactiveFormsModule, TodoRoutingModule], // Import FormsModule if using two-way binding and  features service inside feature providers: [TodoService],
 })

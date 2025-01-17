@@ -1,1 +1,27 @@
-<p>child works!</p>
+<div class="">
+  <!-- Modal Header -->
+  <div class="">
+    <ng-content select="[header]"></ng-content>
+    <div *ngIf="!hasHeader">Default Header</div>
+  </div>
+
+  <!-- Modal Body -->
+  <ng-content></ng-content>
+  <!-- Modal Body -->
+
+  <!-- Modal Footer -->
+  <div class="">
+    <ng-content select="[footer]"></ng-content>
+    <div *ngIf="!hasFooter">Default Footer</div>
+  </div>
+</div>
+
+<!-- Toggle Content -->
+<div class="">
+  <ng-container *ngIf="isPrimary; else secondaryContent">
+    <ng-content select="[primary]"></ng-content>
+  </ng-container>
+  <ng-template #secondaryContent>
+    <ng-content select="[secondary]"></ng-content>
+  </ng-template>
+</div>

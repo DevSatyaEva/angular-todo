@@ -9,9 +9,6 @@ import { Todo } from 'src/app/shared/types/todo.model';
   styleUrls: ['./todo-list.component.scss'],
 })
 export class TodoListComponent {
-  // testing purpose
-  parentData = 'Hello from parent!';
-  // tetsing learn
   @Input() searchTerm: string = ''; // search text recieved from parent
   @Input() statusFilter: string | boolean | null = ''; // Status filter received from parent
 

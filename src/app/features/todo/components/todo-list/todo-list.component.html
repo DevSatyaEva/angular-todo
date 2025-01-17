@@ -15,10 +15,6 @@
       <button class="btn btn-danger btn-sm" (click)="deleteTodoHandler(i)">Delete</button>
     </li>
   </ul> -->
-<app-child [inputData]="parentData">
-  <p #projectedContent>This is projected content from the parent! todo list</p>
-</app-child>
-
 <div
   *ngFor="let todo of filteredTodos; let i = index"
   [appHighlightOverdue]="todo"
