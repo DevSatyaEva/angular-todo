@@ -30,14 +30,14 @@ export class TodoListComponent {
     }
   }
 
-  ngDoCheck(): void {
-    console.log('...ng do check runnning...'); // it detects every actions
-  }
+  // ngDoCheck(): void {
+  //   console.log('...ng do check runnning...'); // it detects every actions
+  // }
 
   private applyFilters(): void {
     // Convert the filter term to lowercase for case-insensitive filtering
     const searchValue = this.searchTerm.toLowerCase();
-    console.log(searchValue, 'searchTerm.......');
+    // console.log(searchValue, 'searchTerm.......');
 
     this.filteredTodos = this.todos.filter((todo: Todo) => {
       const matchesSearch = todo.text?.toLowerCase().includes(searchValue);

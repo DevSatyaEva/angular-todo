@@ -7,31 +7,59 @@ import {
   ContentChild,
   AfterContentInit,
   ElementRef,
+  TemplateRef,
 } from '@angular/core';
 
 @Component({
   selector: 'app-child',
   templateUrl: './child.component.html',
 })
-export class ChildComponent implements AfterContentInit {
+export class ChildComponent implements AfterContentInit, OnInit {
   // Inputs from parent
   @Input() inputData!: string;
   @Input() isPrimary = true;
 
-  // Message and state variables
-  message: string = '';
-  hasHeader = false;
-  hasFooter = false;
+  // Inputs for dynamic templates
+  @Input() headerTemplate?: TemplateRef<any>;
+  @Input() footerTemplate?: TemplateRef<any>;
+
+  @ContentChild('header', { static: false }) headerContent?: ElementRef;
+  @ContentChild('footer', { static: false }) footerContent?: ElementRef;
 
   // Projected content queries
   @ContentChild('projectedContent', { static: false })
   projectedContent!: ElementRef;
 
+  // Message and state variables
+  message: string = '';
+  hasHeader = false;
+  hasFooter = false;
   projectedText: string = '';
-  @ContentChild('[header]') headerContent?: ElementRef;
-  @ContentChild('[footer]') footerContent?: ElementRef;
+
+  ngOnInit(): void {
+    console.log('....conmtnet', this.headerContent?.nativeElement.textContent);
+
+    console.log('Has Header...ong ininit :', this.hasHeader);
+    console.log('Has Footer,.l,skmjkfk', this.hasFooter);
+  }
 
   ngAfterContentInit(): void {
+    console.log(
+      'Header Content:',
+      this.headerContent?.nativeElement.textContent
+    );
+    console.log(
+      'Footer Content:',
+      this.footerContent?.nativeElement.textContent
+    );
+
+    //   // Check if projected content exists
+    this.hasHeader = !!this.headerContent; // Detect static header content
+    this.hasFooter = !!this.footerContent; // Detect static footer content
+
+    console.log('Has Header:', this.hasHeader);
+    console.log('Has Footer:', this.hasFooter);
+
     // Access the projected content
     if (this.projectedContent) {
       this.projectedText = this.projectedContent.nativeElement.textContent;

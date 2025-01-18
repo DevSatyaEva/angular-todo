@@ -1,3 +1,33 @@
+<!-- <app-child
+  [headerTemplate]="dynamicHeader"
+  [footerTemplate]="dynamicFooter"
+  [inputData]="parentData"
+  [isPrimary]="false"
+>
+  <p #projectedContet>THIS IS THE TEXT HERE FROM THE PARENT</p>
+  <div header>static Header Content</div>
+  <div footer>static Footer Content</div>
+</app-child> -->
+
+<!-- Dynamic Templates -->
+<!-- <ng-template #dynamicHeader>
+  <div class="custom-header">
+    <h3>Dynamic teamplete Header</h3>
+  </div>
+</ng-template> -->
+<!-- 
+<ng-template #dynamicFooter>
+  <div class="custom-footer">
+    <p>Dynamic Footer temeplate</p>
+  </div>
+</ng-template> -->
+
+<!-- Without Dynamic Templates: -->
+
 <app-child [inputData]="parentData" [isPrimary]="false">
-  <p #projectedContent>This is projected content!</p>
+  <div #header>Static Header Content</div>
+  <div #footer>Static Footer Content</div>
 </app-child>
+
+<!-- Without Dynamic or Static Content: -->
+<!-- <app-child [inputData]="parentData" [isPrimary]="false"></app-child> -->

@@ -1,19 +1,29 @@
 <div class="">
   <!-- Modal Header -->
-  <div class="">
-    <ng-content select="[header]"></ng-content>
-    <div *ngIf="!hasHeader">Default Header</div>
-  </div>
+  <!-- <div class="">
+    <ng-container *ngIf="headerTemplate; else defaultHeader">
+      <ng-container *ngTemplateOutlet="headerTemplate"></ng-container>
+    </ng-container>
+    <ng-template #defaultHeader>
+      <ng-content select="[header]"></ng-content>
+      <div *ngIf="!hasHeader">Default Header</div>
+    </ng-template>
+  </div> -->
 
   <!-- Modal Body -->
-  <ng-content></ng-content>
+  <!-- <ng-content></ng-content> -->
   <!-- Modal Body -->
 
   <!-- Modal Footer -->
-  <div class="">
-    <ng-content select="[footer]"></ng-content>
-    <div *ngIf="!hasFooter">Default Footer</div>
-  </div>
+  <!-- <div class="">
+    <ng-container *ngIf="footerTemplate; else defaultFooter">
+      <ng-container *ngTemplateOutlet="footerTemplate"></ng-container>
+    </ng-container>
+    <ng-template #defaultFooter>
+      <ng-content select="[footer]"></ng-content>
+      <div *ngIf="!hasFooter">Default Footer</div>
+    </ng-template>
+  </div> -->
 </div>
 
 <!-- Toggle Content -->
@@ -24,4 +34,41 @@
   <ng-template #secondaryContent>
     <ng-content select="[secondary]"></ng-content>
   </ng-template>
+</div>
+
+<div class="border-top border-2 border-danger p-3">
+  <!-- Modal Header -->
+  <div>
+    <!-- Check conditions for the header -->
+    <ng-container *ngIf="headerTemplate; else checkStaticHeader">
+      <ng-container *ngTemplateOutlet="headerTemplate"></ng-container>
+    </ng-container>
+    <ng-template #checkStaticHeader>
+      <ng-container *ngIf="hasHeader; else defaultHeader">
+        <ng-content select="header"></ng-content>
+      </ng-container>
+    </ng-template>
+    <ng-template #defaultHeader>
+      <div>Default Header</div>
+    </ng-template>
+  </div>
+
+  <!-- Modal Body -->
+  <ng-content></ng-content>
+
+  <!-- Modal Footer -->
+  <div>
+    <!-- Check conditions for the footer -->
+    <ng-container *ngIf="footerTemplate; else checkStaticFooter">
+      <ng-container *ngTemplateOutlet="footerTemplate"></ng-container>
+    </ng-container>
+    <ng-template #checkStaticFooter>
+      <ng-container *ngIf="hasFooter; else defaultFooter">
+        <ng-content select="footer"></ng-content>
+      </ng-container>
+    </ng-template>
+    <ng-template #defaultFooter>
+      <div>Default Footer</div>
+    </ng-template>
+  </div>
 </div>
