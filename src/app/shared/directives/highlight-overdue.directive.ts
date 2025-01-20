@@ -5,7 +5,7 @@ import {
   Renderer2,
   OnChanges,
 } from '@angular/core';
-import { Todo } from 'src/app/shared/types/todo.model';
+import { Todo } from 'src/app/shared/types/todo';
 
 @Directive({
   selector: '[appHighlightOverdue]',

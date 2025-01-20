@@ -1,7 +1,7 @@
 import { Component, Input, SimpleChange, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import { TodoService } from 'src/app/core/todo.service';
-import { Todo } from 'src/app/shared/types/todo.model';
+import { Todo } from 'src/app/shared/types/todo';
 
 @Component({
   selector: 'app-todo-list',

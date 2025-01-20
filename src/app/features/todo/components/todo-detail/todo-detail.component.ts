@@ -21,7 +21,6 @@ export class TodoDetailComponent implements OnInit {
     // const todoId = +this.route.snapshot.paramMap.get('id')!; // Get 'id' from the URL
     // console.log(this.route);
     // this.todo = this.todoService.getTodoById(todoId); // Fetch todo by ID
-
     // Subscribe to paramMap to listen for dynamic changes in route parameters
     this.routeSub = this.route.paramMap.subscribe((paramMap) => {
       const todoId = +paramMap.get('id')!; // Get 'id' from the route parameter ,,make it number

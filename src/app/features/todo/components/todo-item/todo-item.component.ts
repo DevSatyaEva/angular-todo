@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { TooltipService } from 'src/app/shared/components/services/tooltip.service';
-import { Todo } from 'src/app/shared/types/todo.model';
+import { Todo } from 'src/app/shared/types/todo';
 
 @Component({
   selector: 'app-todo-item',
