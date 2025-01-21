@@ -1,0 +1,10 @@
+<form (ngSubmit)="onSubmit()">
+  <input
+    type="text"
+    [(ngModel)]="todo.text"
+    name="text"
+    placeholder="Enter to-do"
+    required
+  />
+  <button type="submit">{{ todo.id ? "Update" : "Add" }}</button>
+</form>

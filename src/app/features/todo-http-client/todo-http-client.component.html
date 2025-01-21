@@ -1,1 +1,15 @@
 <p>todo-http-client works!</p>
+<div class="row">
+  <div class="col-md-8">
+    <app-todo-form
+      [todo]="currentTodo"
+      (submitForm)="handleFormSubmit($event)"
+    ></app-todo-form>
+    <app-todo-list
+      [todos]="todos"
+      (toggleComplete)="handleToggleComplete($event)"
+      (edit)="handleEdit($event)"
+      (delete)="handleDelete($event)"
+    ></app-todo-list>
+  </div>
+</div>

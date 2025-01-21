@@ -1,0 +1,9 @@
+<div class="todo-list">
+  <app-todo-item
+    *ngFor="let todo of todos"
+    [todo]="todo"
+    (toggleComplete)="toggleComplete.emit($event)"
+    (edit)="edit.emit($event)"
+    (delete)="delete.emit($event)"
+  ></app-todo-item>
+</div>

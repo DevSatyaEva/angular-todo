@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { TodoDetailComponent } from './features/todo/components/todo-detail/todo-detail.component';
 
 const routes: Routes = [
-  { path: '**', redirectTo: '/todo' }, // Fallback for undefined routes
   { path: '', redirectTo: '/todo', pathMatch: 'full' }, // Redirect to todo list by default
   {
     path: 'todo',
@@ -73,6 +71,7 @@ const routes: Routes = [
         (m) => m.CustomComponentsModule
       ),
   },
+  { path: '**', redirectTo: '/todo' }, // Fallback for undefined routes
 ];
 
 @NgModule({
