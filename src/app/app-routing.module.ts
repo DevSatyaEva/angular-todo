@@ -30,13 +30,6 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'todo-reavtive-form',
-    loadChildren: () =>
-      import('./features/todo-reactive-form/todo-reactive-form.module').then(
-        (m) => m.TodoReactiveFormModule
-      ),
-  },
-  {
     path: 'todo-RBAC',
     loadChildren: () =>
       import('./features/todo-rbac/todo-rbac.module').then(
@@ -69,6 +62,13 @@ const routes: Routes = [
     loadChildren: () =>
       import('./shared/custom-components/custom-components.module').then(
         (m) => m.CustomComponentsModule
+      ),
+  },
+  {
+    path: 'reactive-form',
+    loadChildren: () =>
+      import('./features/reactive-form/reactive-form.module').then(
+        (m) => m.ReactiveFormModule
       ),
   },
   { path: '**', redirectTo: '/todo' }, // Fallback for undefined routes
