@@ -15,13 +15,13 @@ const routes: Routes = [
         (m) => m.TodoIndexdbModule
       ),
   },
-  {
-    path: 'todo-httpClient',
-    loadChildren: () =>
-      import('./features/todo-http-client/todo-http-client.module').then(
-        (m) => m.TodoHttpClientModule
-      ),
-  },
+  // {
+  //   path: 'todo-httpClient',
+  //   loadChildren: () =>
+  //     import('./features/todo-http-client/todo-http-client.module').then(
+  //       (m) => m.TodoHttpClientModule
+  //     ),
+  // },
   {
     path: 'todo-rxjs',
     loadChildren: () =>

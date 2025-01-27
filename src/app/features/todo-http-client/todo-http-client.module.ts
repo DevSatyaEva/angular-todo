@@ -10,12 +10,7 @@ import { HttpTodoService } from './services/http-todo.service';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [
-    TodoHttpClientComponent,
-    TodoListComponent,
-    TodoFormComponent,
-    TodoItemComponent,
-  ],
+  declarations: [TodoListComponent, TodoFormComponent, TodoItemComponent],
   imports: [
     CommonModule,
     TodoHttpClientRoutingModule,
