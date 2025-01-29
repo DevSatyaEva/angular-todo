@@ -29,4 +29,8 @@ import { ParentComponent } from './components/parent/parent.component';
   ],
   imports: [CommonModule, FormsModule, ReactiveFormsModule, TodoRoutingModule], // Import FormsModule if using two-way binding and  features service inside feature providers: [TodoService],
 })
-export class TodoModule {}
+export class TodoModule {
+  constructor() {
+    console.log('TodoModule initialized');
+  }
+}

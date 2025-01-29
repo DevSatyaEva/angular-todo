@@ -1,5 +1,5 @@
 <div class="container-fluid mt-5">
-  <div class="my-5 p-xl-5 border">
+  <!-- <div class="my-5 p-xl-5 border">
     <app-parent> </app-parent>
   </div>
 
@@ -8,13 +8,13 @@
     type="text"
     [(ngModel)]="searchTerm"
     placeholder="Search tasks"
-  />
+  /> -->
   <!-- Dropdown for filtering by completed status -->
-  <select class="form-select mb-4" [(ngModel)]="completedStatus">
+  <!-- <select class="form-select mb-4" [(ngModel)]="completedStatus">
     <option value="">All</option>
     <option [value]="true">Completed</option>
     <option [value]="false">Incomplete</option>
-  </select>
+  </select> -->
 
   <div class="row">
     <div class="col-md-8">
@@ -25,11 +25,11 @@
       ></app-todo-list>
     </div>
 
-    <div class="col-md-4">
+    <!-- <div class="col-md-4">
       <app-todo-dropdown
         [options]="list"
         (itemSelected)="onItemSelected($event)"
       ></app-todo-dropdown>
-    </div>
+    </div> -->
   </div>
 </div>

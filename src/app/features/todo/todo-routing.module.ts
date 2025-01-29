@@ -5,7 +5,7 @@ import { TodoListComponent } from './components/todo-list/todo-list.component';
 import { TodoDetailComponent } from './components/todo-detail/todo-detail.component';
 
 const routes: Routes = [
-  { path: '', component: TodoListComponent }, // Default route for the todo list
+  { path: '', component: TodoComponent }, // Default route for the todo list
   { path: ':id', component: TodoDetailComponent }, // Single todo item page by ID
 ];
 

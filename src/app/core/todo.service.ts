@@ -12,10 +12,12 @@ export class TodoService {
   }
 
   private saveTodos() {
+    console.log('saving------');
     localStorage.setItem('todos', JSON.stringify(this.todos));
   }
 
   private loadTodos() {
+    console.log('loading....');
     const data = localStorage.getItem('todos');
     this.todos = data ? JSON.parse(data) : [];
   }
@@ -43,6 +45,7 @@ export class TodoService {
 
     // Save to local storage
     this.saveTodos();
+    this.loadTodos();
   }
 
   updateTodo(index: number, updatedTodo: Todo) {
@@ -53,5 +56,6 @@ export class TodoService {
   deleteTodo(index: number) {
     this.todos.splice(index, 1);
     this.saveTodos();
+    this.loadTodos();
   }
 }
