@@ -13,6 +13,7 @@ import { TodoDropdownComponent } from './components/todo-dropdown/todo-dropdown.
 import { TodoDropdownContainerComponent } from './components/todo-dropdown-container/todo-dropdown-container.component';
 import { ChildComponent } from './components/child/child.component';
 import { ParentComponent } from './components/parent/parent.component';
+import { IconModule } from 'src/app/shared/icon/icon.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,13 @@ import { ParentComponent } from './components/parent/parent.component';
     ChildComponent,
     ParentComponent,
   ],
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, TodoRoutingModule], // Import FormsModule if using two-way binding and  features service inside feature providers: [TodoService],
+  imports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    TodoRoutingModule,
+    IconModule,
+  ], // Import FormsModule if using two-way binding and  features service inside feature providers: [TodoService],
 })
 export class TodoModule {
   constructor() {
