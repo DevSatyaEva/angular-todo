@@ -8,6 +8,7 @@ import { TodoItemComponent } from './components/todo-item/todo-item.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpTodoService } from './services/http-todo.service';
 import { FormsModule } from '@angular/forms';
+import { IconModule } from 'src/app/shared/icon/icon.module';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { FormsModule } from '@angular/forms';
     TodoHttpClientRoutingModule,
     HttpClientModule,
     FormsModule,
+    IconModule,
   ],
   providers: [HttpTodoService], // Register the service here
 })

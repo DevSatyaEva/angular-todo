@@ -1,7 +1,10 @@
 export const ICON_REGISTRY: { [key: string]: string } = {
-  home: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  home: (() => {
+    console.log('Home icon loaded');
+    return `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
              <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z" fill="currentColor"/>
-           </svg>`,
+           </svg>`;
+  })(),
   user: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
              <circle cx="12" cy="8" r="4" fill="currentColor"/>
              <path d="M4 20v-2c0-3 4-5 8-5s8 2 8 5v2H4z" fill="currentColor"/>
