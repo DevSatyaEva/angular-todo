@@ -8,3 +8,6 @@ import { IconComponent } from './components/icon.component';
   exports: [IconComponent],
 })
 export class IconModule {}
+
+// Dynamic Icon Management
+// iconRegistryService.addIcon('new-icon', `<svg>...</svg>`);

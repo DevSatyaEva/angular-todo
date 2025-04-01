@@ -11,10 +11,10 @@
       (edit)="handleEdit($event)"
       (delete)="handleDelete($event)"
     ></app-todo-list>
-    <!-- <app-icon name="bell"></app-icon> -->
-    <app-icon name="settings"></app-icon>
-    <!-- <app-icon name="search"></app-icon> -->
-    <app-icon name="star"></app-icon>
-    <!-- <app-icon name="heart"></app-icon> -->
+
+    <app-icon [category]="'user'" [prefix]="'fa'" [name]="'home'"> </app-icon>
+    <!-- <app-icon [category]="'system'" [prefix]="'fa'" [name]="'settings'">
+    </app-icon> -->
+    <!-- <app-icon [category]="'social'" [prefix]="'fa'" [name]="'star'"> </app-icon> -->
   </div>
 </div>
