@@ -7,33 +7,57 @@ import { IconDefinition, IconRegistry } from '../models/icon.model';
 
 @Injectable({ providedIn: 'root' })
 export class IconService {
-  // private registry = new Map<string, SafeHtml>();
+  private definitions: IconRegistry = {};
 
-  private definitions: IconRegistry = {
-    social: {},
-    ui: {},
-    navigation: {},
-    // Other categories can be added dynamically
-  };
-  constructor(private sanitizer: DomSanitizer) {
-    this.loadIcons(USER_ICONS, 'user', 'fa'); // Example of loading icons with category & prefix
-    this.loadIcons(SYSTEM_ICONS, 'system', 'fa');
-    this.loadIcons(SOCIAL_ICONS, 'social', 'fa');
-  }
+  constructor(private sanitizer: DomSanitizer) {}
 
   // Load icons from a set into the specified category and prefix
-  private loadIcons(
-    iconSet: { [key: string]: string },
-    category: string,
-    prefix: string
-  ) {
-    Object.entries(iconSet).forEach(([name, svg]) => {
-      const icon: IconDefinition = { iconName: name, icon: svg }; // Example icon structure
-      this.addIcons(category, prefix, icon);
+  loadIcons(category: string, prefix: string) {
+    if (this.definitions[category]?.[prefix]) {
+      return; // Icons already loaded, no need to load again
+    }
+    let iconSet: Record<string, Record<string, string>> | null = null;
+
+    switch (category) {
+      case 'user':
+        iconSet = USER_ICONS;
+        break;
+      case 'system':
+        iconSet = SYSTEM_ICONS;
+        break;
+      case 'social':
+        iconSet = SOCIAL_ICONS;
+        break;
+      default:
+        console.warn(`Icon category "${category}" not found`);
+        return;
+    }
+
+    const prefixIcons = iconSet[prefix];
+    if (!prefixIcons) {
+      console.warn(`Prefix "${prefix}" not found in category "${category}"`);
+      return;
+    }
+    // if (!this.definitions[category]) {
+    //   this.definitions[category] = {}; // Ensure category exists
+    // }
+    // this.definitions[category][prefix] = {}; // Initialize prefix
+
+    Object.entries(prefixIcons).forEach(([name, svg]) => {
+      this.addIcon(category, prefix, name, svg);
     });
+
+    console.log(`Icons for "${category}" loaded.`);
+    console.log('updated-definitions --', this.definitions);
   }
 
-  // Add icons to a specific category with prefix and name
+  /** Adds an icon dynamically */
+  addIcon(category: string, prefix: string, name: string, svg: string) {
+    const icon: IconDefinition = { iconName: name, icon: svg };
+    this.addIcons(category, prefix, icon);
+  }
+
+  /** Add multiple icons at once */
   addIcons(category: string, prefix: string, ...icons: IconDefinition[]) {
     if (!this.definitions[category]) {
       this.definitions[category] = {};
@@ -49,31 +73,46 @@ export class IconService {
     }
   }
 
-  // Add icon packs (a collection of icons) to a specific category
+  //** Add icon packs (a collection of icons) to a specific category */
   addIconPacks(category: string, prefix: string, pack: IconDefinition[]) {
     this.addIcons(category, prefix, ...pack);
   }
 
-  // Retrieve icon definition by category, prefix, and name
-  getIconDefinition(
-    category: string,
-    prefix: string,
-    name: string
-  ): SafeHtml | null {
-    const iconDef = this.definitions[category]?.[prefix]?.[name];
-    return iconDef
-      ? this.sanitizer.bypassSecurityTrustHtml(iconDef.icon[0])
-      : null;
-  }
-
-  // Method to fetch icon based on category, prefix, and name
+  //** lazyy Loads Icons: Prevent loading an icon if the category and prefix are not loaded */
   getIcon(category: string, prefix: string, name: string): SafeHtml | null {
-    return this.getIconDefinition(category, prefix, name);
-  }
-
-  // Dynamically add a new icon
-  addIcon(category: string, prefix: string, name: string, svg: string) {
-    const icon: IconDefinition = { iconName: name, icon: svg };
-    this.addIcons(category, prefix, icon);
+    if (!this.definitions[category]?.[prefix]?.[name]) {
+      return null;
+    }
+    return this.sanitizer.bypassSecurityTrustHtml(
+      this.definitions[category][prefix][name].icon
+    );
   }
 }
+
+//Example uses
+
+// this.iconService.loadIcons('user'); // Only loads the category, no prefix
+
+// this.iconService.addIcon('user', 'fa', 'settings', '<svg>...</svg>');
+// // 'fa' is now dynamically added under 'user'
+
+// this.iconService.getIcon('user', 'fa', 'settings'); // Returns the icon
+
+// this.iconService.addIcons('custom', 'fa', ...this.customIcons);
+
+// this.iconService.addIconPacks('social', 'fa', [
+//   ...this.userIcons,
+//   ...this.systemIcons,
+// ]);
+
+// this.iconService.getIcon('user', 'wrong-prefix', 'settings'); // Returns null
+// .
+// .
+// .
+// .
+// .
+// .
+// .
+// <app-icon [category]="'social'" [prefix]="'sm'" [name]="'star'"> </app-icon>
+// <app-icon [category]="'system'" [prefix]="'sm'" [name]="'search'"> </app-icon>
+// <app-icon [category]="'user'" [prefix]="'fw'" [name]="'home'"> </app-icon>

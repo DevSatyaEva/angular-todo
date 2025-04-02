@@ -28,11 +28,15 @@ export class TodoIndexdbComponent implements OnInit {
   constructor(private iconService: IconService) {}
 
   ngOnInit(): void {
-    this.iconService.addIcons('custom', 'fa', ...this.customIcons);
-    this.iconService.addIconPacks('social', 'fa', [
-      ...this.userIcons,
-      ...this.systemIcons,
-    ]);
-    this.iconService.addIcon('custom', 'fa', 'upload-icon', this.customSvg);
+    this.iconService.loadIcons('user', 'fw');
+    // this.iconService.loadIcons('user', 'sm');
+    // this.iconService.loadIcons('social', 'sm');
+    // this.iconService.loadIcons('system', 'sm');
+    // this.iconService.addIcons('custom', 'fa', ...this.customIcons);
+    // this.iconService.addIconPacks('social', 'fa', [
+    //   ...this.userIcons,
+    //   ...this.systemIcons,
+    // ]);
+    // this.iconService.addIcon('custom', 'fa', 'upload-icon', this.customSvg);
   }
 }
