@@ -99,6 +99,20 @@ The `<app-icon>` component is used to display icons dynamically by specifying th
 <app-icon [category]="'user'" [prefix]="'fw'" [name]="'home'"></app-icon>
 ```
 
+```html
+<app-icon category="system" prefix="fa" name="settings" [containerStyle]="{ width: '48px', height: '48px', color: 'red' }"> </app-icon>
+
+<app-icon category="social" prefix="fa" name="search" containerClass="rounded-icon" [containerStyle]="{ backgroundColor: 'lightgray', padding: '8px' }"> </app-icon>
+```
+
+```css
+.rounded-icon {
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+}
+```
+
 ---
 
 ## **Internal Structure**

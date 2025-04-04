@@ -17,6 +17,10 @@ export class IconComponent implements OnChanges {
   @Input() category!: string; // social, user, etc.
   @Input() prefix!: string; // e.g., 'fa'
   @Input() name!: string; // e.g., 'home'
+
+  @Input() containerClass: string = '';
+  @Input() containerStyle: { [key: string]: any } = {};
+
   icon: SafeHtml | null = null;
   constructor(private iconService: IconService) {}
 

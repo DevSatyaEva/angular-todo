@@ -31,7 +31,7 @@ export class TodoIndexdbComponent implements OnInit {
     this.iconService.loadIcons('user', 'fw');
     // this.iconService.loadIcons('user', 'sm');
     // this.iconService.loadIcons('social', 'sm');
-    // this.iconService.loadIcons('system', 'sm');
+    this.iconService.loadIcons('system', 'sm');
     // this.iconService.addIcons('custom', 'fa', ...this.customIcons);
     // this.iconService.addIconPacks('social', 'fa', [
     //   ...this.userIcons,
