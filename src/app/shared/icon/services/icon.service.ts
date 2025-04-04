@@ -3,7 +3,11 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { USER_ICONS } from '../utils/user-icons';
 import { SYSTEM_ICONS } from '../utils/system-icons';
 import { SOCIAL_ICONS } from '../utils/social-icons';
-import { IconDefinition, IconRegistry } from '../models/icon.model';
+import {
+  IconCategory,
+  IconDefinition,
+  IconRegistry,
+} from '../models/icon.model';
 
 @Injectable({ providedIn: 'root' })
 export class IconService {
@@ -11,26 +15,38 @@ export class IconService {
 
   constructor(private sanitizer: DomSanitizer) {}
 
+  ICON_SETS: Record<IconCategory, Record<string, Record<string, string>>> = {
+    [IconCategory.SYSTEM]: SYSTEM_ICONS,
+    [IconCategory.SOCIAL]: SOCIAL_ICONS,
+    [IconCategory.USER]: USER_ICONS,
+  };
+
   // Load icons from a set into the specified category and prefix
-  loadIcons(category: string, prefix: string) {
+  loadIcons(category: IconCategory, prefix: string) {
     if (this.definitions[category]?.[prefix]) {
       return; // Icons already loaded, no need to load again
     }
-    let iconSet: Record<string, Record<string, string>> | null = null;
+    // let iconSet: Record<string, Record<string, string>> | null = null;
+    const iconSet = this.ICON_SETS[category];
 
-    switch (category) {
-      case 'user':
-        iconSet = USER_ICONS;
-        break;
-      case 'system':
-        iconSet = SYSTEM_ICONS;
-        break;
-      case 'social':
-        iconSet = SOCIAL_ICONS;
-        break;
-      default:
-        console.warn(`Icon category "${category}" not found`);
-        return;
+    // switch (category) {
+    //   case 'user':
+    //     iconSet = USER_ICONS;
+    //     break;
+    //   case 'system':
+    //     iconSet = SYSTEM_ICONS;
+    //     break;
+    //   case 'social':
+    //     iconSet = SOCIAL_ICONS;
+    //     break;
+    //   default:
+    //     console.warn(`Icon category "${category}" not found`);
+    //     return;
+    // }
+
+    if (!iconSet) {
+      console.warn(`Icon category "${category}" not found`);
+      return;
     }
 
     const prefixIcons = iconSet[prefix];

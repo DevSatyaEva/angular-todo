@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { IconDefinition } from 'src/app/shared/icon/models/icon.model';
+import {
+  IconCategory,
+  IconDefinition,
+} from 'src/app/shared/icon/models/icon.model';
 import { IconService } from 'src/app/shared/icon/services/icon.service';
 
 @Component({
@@ -28,10 +31,10 @@ export class TodoIndexdbComponent implements OnInit {
   constructor(private iconService: IconService) {}
 
   ngOnInit(): void {
-    this.iconService.loadIcons('user', 'fw');
+    this.iconService.loadIcons(IconCategory.USER, 'fw');
     // this.iconService.loadIcons('user', 'sm');
     // this.iconService.loadIcons('social', 'sm');
-    this.iconService.loadIcons('system', 'sm');
+    this.iconService.loadIcons(IconCategory.SYSTEM, 'sm');
     // this.iconService.addIcons('custom', 'fa', ...this.customIcons);
     // this.iconService.addIconPacks('social', 'fa', [
     //   ...this.userIcons,

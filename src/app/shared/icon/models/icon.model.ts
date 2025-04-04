@@ -10,3 +10,9 @@ export interface IconRegistry {
     };
   };
 }
+
+export enum IconCategory {
+  SYSTEM = 'system',
+  SOCIAL = 'social',
+  USER = 'user',
+}
