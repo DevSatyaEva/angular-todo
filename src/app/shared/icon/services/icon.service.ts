@@ -59,13 +59,13 @@ export class IconService {
       this.definitions[category] = {};
     }
 
-    if (!this.definitions[category][prefix]) {
-      this.definitions[category][prefix] = {};
+    if (!this.definitions[category]![prefix]) {
+      this.definitions[category]![prefix] = {};
     }
 
     // Add each icon to the appropriate category and prefix
     for (const icon of icons) {
-      this.definitions[category][prefix][icon.iconName] = icon;
+      this.definitions[category]![prefix]![icon.iconName] = icon;
     }
   }
 
@@ -88,7 +88,7 @@ export class IconService {
       return null;
     }
     return this.sanitizer.bypassSecurityTrustHtml(
-      this.definitions[category][prefix][name].icon
+      this.definitions[category]![prefix]![name].icon
     );
   }
 }

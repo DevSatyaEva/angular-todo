@@ -13,22 +13,16 @@ export const IconKeys = {
   MULLION_ICON_10: 'multipleIJoint',
 } as const;
 
-export type IconKey = typeof IconKeys[keyof typeof IconKeys];
+export type IconKey = (typeof IconKeys)[keyof typeof IconKeys];
 
-export const MULLION_ICONS: Record<IconPrefixType, Partial<Record<IconKey, string>>> = {
+export const MULLION_ICONS: Record<
+  IconPrefixType,
+  Partial<Record<IconKey, string>>
+> = {
   [IconPrefix.MULLION_DROPDOWN]: {
-    [IconKeys.MULLION_ICON_1]: `<svg xmlns="http://www.w3.org/2000/svg" width="19" height="22" viewBox="0 0 19 22">
-              <g transform="translate(-21 -139)">
-                <g transform="translate(21 139)" class="cls-2" fill="none" stroke-width="1.5">
-                  <rect width="7" height="22" rx="0.7" stroke="none" />
-                  <rect x="0.75" y="0.75" width="5.5" height="20.5" rx="0.05" fill="none" />
-                </g>
-                <g transform="translate(33 139)" class="cls-2" fill="none" stroke-width="1.5">
-                  <rect width="7" height="22" rx="0.7" stroke="none" />
-                  <rect x="0.75" y="0.75" width="5.5" height="20.5" rx="0.05" fill="none" />
-                </g>
-              </g>
-            </svg>`,
+    [IconKeys.MULLION_ICON_1]: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+               <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="currentColor"/>
+             </svg>`,
   },
   [IconPrefix.DIVIDER]: {
     [IconKeys.MULLION_ICON_2]: `<svg

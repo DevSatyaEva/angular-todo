@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import {
   IconCategory,
   IconDefinition,
+  IconPrefix,
 } from 'src/app/shared/icon/models/icon.model';
 import { IconService } from 'src/app/shared/icon/services/icon.service';
+import { IconKeys } from 'src/app/shared/icon/utils/mullion-icons';
 
 @Component({
   selector: 'app-todo-indexdb',
@@ -28,10 +30,17 @@ export class TodoIndexdbComponent implements OnInit {
 
   // customSvg = '<svg>...</svg>';
 
+  category = IconCategory;
+  prefix = IconPrefix;
+  iconkey = IconKeys;
+
   constructor(private iconService: IconService) {}
 
   ngOnInit(): void {
-    // this.iconService.loadIcons(IconCategory.USER, 'fw');
+    this.iconService.loadIcons(
+      IconCategory.MULLION,
+      IconPrefix.MULLION_DROPDOWN
+    );
     // this.iconService.loadIcons('user', 'sm');
     // this.iconService.loadIcons('social', 'sm');
     // this.iconService.loadIcons(IconCategory.SYSTEM, 'sm');
