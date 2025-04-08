@@ -30,17 +30,30 @@ export class TodoIndexdbComponent implements OnInit {
 
   // customSvg = '<svg>...</svg>';
 
-  category = IconCategory;
-  prefix = IconPrefix;
-  iconkey = IconKeys;
+  get category() {
+    return IconCategory;
+  }
+  get prefix() {
+    return IconPrefix;
+  }
+  get iconkey() {
+    return IconKeys;
+  }
 
   constructor(private iconService: IconService) {}
 
   ngOnInit(): void {
-    this.iconService.loadIcons(
-      IconCategory.MULLION,
-      IconPrefix.MULLION_DROPDOWN
-    );
+    // this.iconService.loadIcons(
+    //   IconCategory.MULLION,
+    //   IconPrefix.MULLION_DROPDOWN
+    // );
+    // this.iconService.loadIconsByMultipleprefixes(IconCategory.MULLION, [
+    //   IconPrefix.MULLION_DROPDOWN,
+    //   IconPrefix.DIVIDER,
+    // ]);
+    // this.iconService.loadIconsByCategory(IconCategory.MULLION);
+    this.iconService.loadAllIcons();
+    // this.iconService.loadIcons(IconCategory.MULLION, IconPrefix.DIVIDER);
     // this.iconService.loadIcons('user', 'sm');
     // this.iconService.loadIcons('social', 'sm');
     // this.iconService.loadIcons(IconCategory.SYSTEM, 'sm');

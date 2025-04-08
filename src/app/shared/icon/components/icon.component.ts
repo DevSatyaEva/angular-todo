@@ -1,4 +1,10 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 import { IconService } from '../services/icon.service';
 import { SafeHtml } from '@angular/platform-browser';
 import { IconCategoryType, IconPrefixType } from '../models/icon.model';
@@ -20,8 +26,18 @@ export class IconComponent implements OnChanges {
   constructor(private iconService: IconService) {}
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (this.category && this.prefix && this.name && changes['name']?.currentValue) {
-      this.icon = this.iconService.getIcon(this.category, this.prefix, this.name);
+    if (
+      this.category &&
+      this.prefix &&
+      this.name &&
+      changes['name']?.currentValue
+    ) {
+      this.icon = this.iconService.getIcon(
+        this.category,
+        this.prefix,
+        this.name
+      );
+      console.log(this.icon);
     }
   }
 }

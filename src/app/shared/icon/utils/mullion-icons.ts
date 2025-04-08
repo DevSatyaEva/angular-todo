@@ -15,85 +15,83 @@ export const IconKeys = {
 
 export type IconKey = (typeof IconKeys)[keyof typeof IconKeys];
 
-export const MULLION_ICONS: Record<
-  IconPrefixType,
-  Partial<Record<IconKey, string>>
+export const MULLION_ICONS: Partial<
+  Record<IconPrefixType, Partial<Record<IconKey, string>>>
 > = {
   [IconPrefix.MULLION_DROPDOWN]: {
-    [IconKeys.MULLION_ICON_1]: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-               <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="currentColor"/>
-             </svg>`,
-  },
-  [IconPrefix.DIVIDER]: {
-    [IconKeys.MULLION_ICON_2]: `<svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      xmlns:xlink="http://www.w3.org/1999/xlink"
-                      width="36"
-                      height="36"
-                      viewBox="0 0 36 36"
-                    >
-                      <g transform="translate(297.912 -185) rotate(90)">
-                        <g>
-                          <g>
-                            <line
-                              x2="3"
-                              y2="3"
-                              transform="translate(185.5 262.412)"
-                              fill="none"
-                              stroke="#96a0b5"
-                              stroke-width="1"
-                            />
-                            <line
-                              y1="3"
-                              x2="3"
-                              transform="translate(185.5 294.412)"
-                              fill="none"
-                              stroke="#96a0b5"
-                              stroke-width="1"
-                            />
-                            <line
-                              x2="3"
-                              y2="3"
-                              transform="translate(217.5 294.412)"
-                              fill="none"
-                              stroke="#96a0b5"
-                              stroke-width="1"
-                            />
-                            <line
-                              y1="3"
-                              x2="3"
-                              transform="translate(217.5 262.412)"
-                              fill="none"
-                              stroke="#96a0b5"
-                              stroke-width="1"
-                            />
-                            <g transform="translate(496 -550.088) rotate(90)">
-                              <g transform="translate(995.882 260.25) rotate(90)">
-                                <g transform="translate(14.75 147.882)" fill="none" stroke="#96a0b5" stroke-width="1.2">
-                                  <rect width="36" height="36" stroke="none" />
-                                  <rect x="0.6" y="0.6" width="34.8" height="34.8" fill="none" />
-                                </g>
-                              </g>
-                              <g transform="translate(815 278)" stroke="#96a0b5" stroke-width="1.2" fill="none">
-                                <rect width="30" height="30" stroke="none" />
-                                <rect x="0.6" y="0.6" width="28.8" height="28.8" fill="none" />
-                              </g>
-                            </g>
-                            <g transform="translate(188 277)" fill="#fff" stroke="#96a0b5" stroke-width="1.2">
-                              <rect width="30" height="5" stroke="none" />
-                              <rect x="0.6" y="0.6" width="28.8" height="3.8" fill="none" />
-                            </g>
+    [IconKeys.MULLION_ICON_1]: `<svg xmlns="http://www.w3.org/2000/svg" width="53" height="50" viewBox="0 0 53 60">
+                        <g id="Group_178893" data-name="Group 178893" transform="translate(-200 -776)">
+                          <g
+                            id="Rectangle_4467"
+                            data-name="Rectangle 4467"
+                            transform="translate(200 776)"
+                            fill="#fff"
+                            stroke="#96a0b5"
+                            stroke-width="1"
+                          >
+                            <rect width="53" height="60" stroke="none" />
+                            <rect x="0.5" y="0.5" width="52" height="59" fill="none" />
                           </g>
-                          <path
-                            d="M3.5,0"
-                            transform="translate(217 279.5)"
+                          <rect
+                            id="Rectangle_4469"
+                            data-name="Rectangle 4469"
+                            width="4"
+                            height="10"
+                            transform="translate(228.5 811) rotate(180)"
+                            fill="#96a0b5"
+                          />
+                          <line
+                            id="Line_1823"
+                            data-name="Line 1823"
+                            y1="59"
+                            transform="translate(226.5 776.5)"
                             fill="none"
                             stroke="#96a0b5"
-                            stroke-width="1.2"
+                            stroke-width="1"
+                          />
+                          <path
+                            id="Path_77903"
+                            data-name="Path 77903"
+                            d="M134.894,268.829l-24.457-28.664,24.457-28.528"
+                            transform="translate(116.832 565.871)"
+                            fill="none"
+                            stroke="#96a0b5"
+                            stroke-width="1"
+                            stroke-dasharray="3 2"
+                          />
+                          <path
+                            id="Path_77904"
+                            data-name="Path 77904"
+                            d="M110.437,268.829l24.457-28.664-24.457-28.528"
+                            transform="translate(90.718 565.871)"
+                            fill="none"
+                            stroke="#96a0b5"
+                            stroke-width="1"
+                            stroke-dasharray="3 2"
+                          />
+                          <rect
+                            id="Rectangle_73894"
+                            data-name="Rectangle 73894"
+                            width="3"
+                            height="10"
+                            transform="translate(227.5 805.762)"
+                            fill="#96a0b5"
+                          />
+                          <rect
+                            id="Rectangle_73895"
+                            data-name="Rectangle 73895"
+                            width="3"
+                            height="10"
+                            transform="translate(222.5 805.762)"
+                            fill="#96a0b5"
                           />
                         </g>
-                      </g>
-                    </svg>`,
+                      </svg>`,
+  },
+  [IconPrefix.DIVIDER]: {
+    [IconKeys.MULLION_ICON_2]: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+               <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="currentColor"/>
+             </svg>`,
     [IconKeys.MULLION_ICON_3]: ` <svg
                       xmlns="http://www.w3.org/2000/svg"
                       xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -434,122 +432,112 @@ export const MULLION_ICONS: Record<
                         </g>
                       </g>
                     </svg>`,
-    [IconKeys.MULLION_ICON_9]: `<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
-                      <g transform="translate(-323 -264)">
-                        <g transform="translate(72 -74)">
-                          <g transform="translate(81 -6.707)">
-                            <line
-                              x2="3"
-                              y2="3"
-                              transform="translate(170.5 345.207)"
-                              fill="none"
-                              stroke="#96a0b5"
-                              stroke-width="1"
-                            />
-                            <line
-                              y1="3"
-                              x2="3"
-                              transform="translate(170.5 377.207)"
-                              fill="none"
-                              stroke="#96a0b5"
-                              stroke-width="1"
-                            />
-                            <line
-                              x2="3"
-                              y2="3"
-                              transform="translate(202.5 377.207)"
-                              fill="none"
-                              stroke="#96a0b5"
-                              stroke-width="1"
-                            />
-                            <line
-                              y1="3"
-                              x2="3"
-                              transform="translate(202.5 345.207)"
-                              fill="none"
-                              stroke="#96a0b5"
-                              stroke-width="1"
-                            />
-                            <g
-                              transform="translate(206 380.707) rotate(180)"
-                              fill="none"
-                              stroke="#96a0b5"
-                              stroke-width="1.2"
-                            >
-                              <rect width="36" height="36" stroke="none" />
-                              <rect x="0.6" y="0.6" width="34.8" height="34.8" fill="none" />
-                            </g>
-                            <g
-                              transform="translate(203 347.707) rotate(90)"
-                              fill="none"
-                              stroke="#96a0b5"
-                              stroke-width="1.2"
-                            >
-                              <rect width="30" height="30" stroke="none" />
-                              <rect x="0.6" y="0.6" width="28.8" height="28.8" fill="none" />
-                            </g>
+    [IconKeys.MULLION_ICON_9]: `  <svg
+                        *ngIf="!viewHandleFromOutside"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="40"
+                        height="50"
+                        viewBox="0 0 46 60"
+                      >
+                        <g id="Group_178892" data-name="Group 178892" transform="translate(-127 -776)">
+                          <g
+                            id="Rectangle_4467"
+                            data-name="Rectangle 4467"
+                            transform="translate(127 776)"
+                            fill="#fff"
+                            stroke="#96a0b5"
+                            stroke-width="1"
+                          >
+                            <rect width="46" height="60" stroke="none" />
+                            <rect x="0.5" y="0.5" width="45" height="59" fill="none" />
                           </g>
+                          <path
+                            id="Path_20366"
+                            data-name="Path 20366"
+                            d="M116.487,271.661l42.663-27.572-42.664-28.938"
+                            transform="translate(288.151 1049.168) rotate(180)"
+                            fill="none"
+                            stroke="#96a0b5"
+                            stroke-width="1"
+                            stroke-dasharray="3 2"
+                          />
+                          <rect
+                            id="Rectangle_4469"
+                            data-name="Rectangle 4469"
+                            width="4"
+                            height="10"
+                            transform="translate(127 801)"
+                            fill="#96a0b5"
+                          />
+                          <rect
+                            id="Rectangle_9994"
+                            data-name="Rectangle 9994"
+                            width="3"
+                            height="10"
+                            transform="translate(130 806)"
+                            fill="#96a0b5"
+                          />
                         </g>
-                        <g transform="translate(342.215 277.212) rotate(45)">
-                          <g transform="translate(0 0.002)">
+                      </svg>`,
+    [IconKeys.MULLION_ICON_10]: ` <svg
+                        *ngIf="arrowTowardsHandle && viewHandleFromOutside"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="40"
+                        height="50"
+                        viewBox="0 0 46 60"
+                      >
+                        <g id="Group_37587" data-name="Group 37587" transform="translate(-0.498 0.231)">
+                          <g id="Group_14072" data-name="Group 14072" transform="translate(0.216 -0.498)">
+                            <g
+                              id="Rectangle_4467"
+                              data-name="Rectangle 4467"
+                              transform="translate(0.282 0.267)"
+                              fill="#fff"
+                              stroke="#96a0b5"
+                              stroke-width="1"
+                            >
+                              <rect width="46" height="60" stroke="none" />
+                              <rect x="0.5" y="0.5" width="45" height="59" fill="none" />
+                            </g>
+                            <g
+                              id="Rectangle_4468"
+                              data-name="Rectangle 4468"
+                              transform="translate(5.282 5.267)"
+                              fill="#fff"
+                              stroke="#96a0b5"
+                              stroke-width="1"
+                            >
+                              <rect width="36" height="50" stroke="none" />
+                              <rect x="0.5" y="0.5" width="35" height="49" fill="none" />
+                            </g>
                             <path
-                              d="M15.4,2.569,13.238.41a1.47,1.47,0,0,0-2.034,0L1.542,10.169a.362.362,0,0,0-.091.155L.013,15.36a.36.36,0,0,0,.444.445L5.49,14.366a.361.361,0,0,0,.154-.091L15.4,4.6a1.439,1.439,0,0,0,0-2.035Zm-5.758.457,1.323,1.323L7.843,7.467,4.052,11.258l-.5-.992a.36.36,0,0,0-.322-.2H2.659ZM.883,14.936,1.351,13.3l1.171,1.171Zm4.15-1.185-1.72.491L1.577,12.506l.491-1.72h.945l.62,1.239a.36.36,0,0,0,.161.161l1.239.62v.945Zm.719-.591v-.576a.36.36,0,0,0-.2-.322l-.992-.5,6.908-6.908,1.323,1.323ZM14.888,4.1,13.3,5.675,10.144,2.516,11.713.932a.736.736,0,0,1,1.017,0l2.157,2.157a.719.719,0,0,1,0,1.016Z"
-                              transform="translate(0 -0.002)"
+                              id="Path_20366"
+                              data-name="Path 20366"
+                              d="M116.487,260.085l30.555-21.924-30.555-23.01"
+                              transform="translate(154.958 267.535) rotate(180)"
+                              fill="none"
+                              stroke="#96a0b5"
+                              stroke-width="1"
+                              stroke-dasharray="3 2"
+                            />
+                            <rect
+                              id="Rectangle_4469"
+                              data-name="Rectangle 4469"
+                              width="6"
+                              height="10"
+                              transform="translate(0.282 25.267)"
+                              fill="#96a0b5"
+                            />
+                            <rect
+                              id="Rectangle_9994"
+                              data-name="Rectangle 9994"
+                              width="3"
+                              height="10"
+                              transform="translate(6.18 30.267)"
                               fill="#96a0b5"
                             />
                           </g>
                         </g>
-                        <line
-                          y1="13"
-                          x2="14"
-                          transform="translate(326.5 267.5)"
-                          fill="none"
-                          stroke="#96a0b5"
-                          stroke-width="1"
-                        />
-                        <line
-                          y1="17"
-                          x2="18"
-                          transform="translate(326.5 267.5)"
-                          fill="none"
-                          stroke="#96a0b5"
-                          stroke-width="1"
-                        />
-                        <line
-                          x2="17"
-                          y2="5"
-                          transform="translate(338.5 273.5)"
-                          fill="none"
-                          stroke="#96a0b5"
-                          stroke-width="1"
-                        />
-                        <path
-                          d="M0,0H0L1.2.378,19.15,6.041"
-                          transform="translate(336.35 275.459)"
-                          fill="none"
-                          stroke="#96a0b5"
-                          stroke-width="1"
-                        />
-                      </g>
-                    </svg>`,
-    [IconKeys.MULLION_ICON_10]: `<svg width="36" height="36" viewBox="0 0 45 51" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <g clip-path="url(#clip0_302_441)">
-                        <path
-                          d="M22.4769 0.261822H1.10696C0.974992 0.226576 0.83639 0.22407 0.70323 0.254524C0.57007 0.284978 0.446392 0.347466 0.342973 0.436545C0.234422 0.530448 0.147555 0.646715 0.088354 0.777339C0.0291535 0.907963 -0.000972849 1.04984 4.77856e-05 1.1932V49.8068C-0.00136203 49.9503 0.028439 50.0924 0.0873936 50.2233C0.146348 50.3542 0.233053 50.4707 0.341527 50.5649C0.444945 50.654 0.568624 50.7165 0.701784 50.7469C0.834944 50.7774 0.973546 50.7749 1.10551 50.7396H22.4769C22.676 50.6791 22.8498 50.5551 22.9715 50.3866C23.0933 50.2181 23.1564 50.0145 23.1512 49.8068V1.1932C23.1564 0.985534 23.0933 0.781875 22.9715 0.613402C22.8498 0.444929 22.676 0.320927 22.4769 0.260378V0.261822ZM21.37 48.604L1.774 48.5679V2.42349L21.3642 2.3484L21.37 48.604Z"
-                          fill="#96A0B5"
-                        />
-                        <path
-                          d="M44.3259 0.261822H22.956C22.824 0.226576 22.6854 0.22407 22.5522 0.254524C22.4191 0.284978 22.2954 0.347466 22.192 0.436545C22.0834 0.530448 21.9966 0.646715 21.9374 0.777339C21.8782 0.907963 21.848 1.04984 21.8491 1.1932V49.8068C21.8477 49.9503 21.8775 50.0924 21.9364 50.2233C21.9954 50.3542 22.0821 50.4707 22.1905 50.5649C22.294 50.654 22.4176 50.7165 22.5508 50.7469C22.684 50.7774 22.8226 50.7749 22.9545 50.7396H44.3259C44.525 50.6791 44.6988 50.5551 44.8206 50.3866C44.9423 50.2181 45.0054 50.0145 45.0002 49.8068V1.1932C45.0054 0.985534 44.9423 0.781875 44.8206 0.613402C44.6988 0.444929 44.525 0.320927 44.3259 0.260378V0.261822ZM43.219 48.604L23.623 48.5679V2.42349L43.2132 2.3484L43.219 48.604Z"
-                          fill="#96A0B5"
-                        />
-                        <line x1="12.3077" y1="2.07617" x2="12.3077" y2="49.1531" stroke="#96A0B5" stroke-width="2" />
-                        <line x1="32.8462" y1="2.07617" x2="32.8462" y2="49.1531" stroke="#96A0B5" stroke-width="2" />
-                      </g>
-                      <defs>
-                        <clipPath id="clip0_302_441">
-                          <rect width="45" height="50.5385" fill="white" transform="translate(0 0.230469)" />
-                        </clipPath>
-                      </defs>
-                    </svg>`,
+                      </svg>`,
   },
 };
