@@ -40,9 +40,31 @@ export class TodoIndexdbComponent implements OnInit {
     return IconKeys;
   }
 
+  arrowTowardsHandle = false;
+  viewHandleFromOutside = false;
+
+  get iconClass(): string {
+    if (this.arrowTowardsHandle && this.viewHandleFromOutside) {
+      return '';
+    }
+
+    if (this.arrowTowardsHandle && !this.viewHandleFromOutside) {
+      return 'flip-vertical';
+    }
+
+    if (!this.arrowTowardsHandle && this.viewHandleFromOutside) {
+      return 'rotate-90';
+    }
+
+    if (!this.arrowTowardsHandle && !this.viewHandleFromOutside) {
+      return 'flip-horizontal';
+    }
+    return '';
+  }
   constructor(private iconService: IconService) {}
 
   ngOnInit(): void {
+    this.iconService.loadAllIcons();
     // this.iconService.loadIcons(
     //   IconCategory.MULLION,
     //   IconPrefix.MULLION_DROPDOWN
@@ -52,7 +74,6 @@ export class TodoIndexdbComponent implements OnInit {
     //   IconPrefix.DIVIDER,
     // ]);
     // this.iconService.loadIconsByCategory(IconCategory.MULLION);
-    this.iconService.loadAllIcons();
     // this.iconService.loadIcons(IconCategory.MULLION, IconPrefix.DIVIDER);
     // this.iconService.loadIcons('user', 'sm');
     // this.iconService.loadIcons('social', 'sm');
