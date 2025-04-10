@@ -41,7 +41,7 @@ export class TodoIndexdbComponent implements OnInit {
   }
 
   arrowTowardsHandle = false;
-  viewHandleFromOutside = false;
+  viewHandleFromOutside = true;
 
   get iconClass(): string {
     if (this.arrowTowardsHandle && this.viewHandleFromOutside) {
@@ -61,6 +61,86 @@ export class TodoIndexdbComponent implements OnInit {
     }
     return '';
   }
+
+  get a() {
+    return !this.arrowTowardsHandle && this.viewHandleFromOutside;
+  }
+  get b() {
+    return !this.arrowTowardsHandle && !this.viewHandleFromOutside;
+  }
+  get c() {
+    return this.arrowTowardsHandle && this.viewHandleFromOutside;
+  }
+  get d() {
+    return this.arrowTowardsHandle && !this.viewHandleFromOutside;
+  }
+
+  get iconArrowToward(): string {
+    return this.b ? 'flip-horizontal' : '';
+  }
+
+  get iconArrowAway(): string {
+    return this.d ? 'flip-horizontal' : '';
+  }
+
+  get iconArrowTowardReverse(): string {
+    return this.a ? 'flip-horizontal' : '';
+  }
+
+  get iconArrowAwayReverse(): string {
+    return this.c ? 'flip-horizontal' : '';
+  }
+
+  // get iconArrowToward(): string {
+  //   if (this.a) {
+  //     return '';
+  //   }
+  //   if (this.b) {
+  //     return 'flip-horizontal';
+  //   }
+  //   return '';
+  // }
+
+  // get iconArrowAway(): string {
+  //   if (this.c) {
+  //     return '';
+  //   }
+  //   if (this.d) {
+  //     return 'flip-horizontal';
+  //   }
+  //   return '';
+  // }
+
+  // get iconArrowTowardReverse(): string {
+  //   if (this.a) {
+  //     return 'flip-horizontal';
+  //   }
+  //   if (this.b) {
+  //     return '';
+  //   }
+  //   return '';
+  // }
+
+  // get iconArrowAwayReverse(): string {
+  //   if (this.c) {
+  //     return 'flip-horizontal';
+  //   }
+  //   if (this.d) {
+  //     return '';
+  //   }
+  //   return '';
+  // }
+
+  // get insideOutsideClass(): string {
+  //   if (this.viewHandleFromOutside) {
+  //     return '';
+  //   }
+
+  //   if (!this.viewHandleFromOutside) {
+  //     return 'flip-horizontal';
+  //   }
+  //   return '';
+  // }
   constructor(private iconService: IconService) {}
 
   ngOnInit(): void {
