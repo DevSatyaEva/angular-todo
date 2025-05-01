@@ -5,6 +5,7 @@ import {
   IconPrefix,
 } from 'src/app/shared/icon/models/icon.model';
 import { IconService } from 'src/app/shared/icon/services/icon.service';
+import { designIconKeys } from 'src/app/shared/icon/utils/design-icons';
 import { IconKeys } from 'src/app/shared/icon/utils/mullion-icons';
 
 @Component({
@@ -40,27 +41,12 @@ export class TodoIndexdbComponent implements OnInit {
     return IconKeys;
   }
 
-  arrowTowardsHandle = false;
-  viewHandleFromOutside = true;
-
-  get iconClass(): string {
-    if (this.arrowTowardsHandle && this.viewHandleFromOutside) {
-      return '';
-    }
-
-    if (this.arrowTowardsHandle && !this.viewHandleFromOutside) {
-      return 'flip-vertical';
-    }
-
-    if (!this.arrowTowardsHandle && this.viewHandleFromOutside) {
-      return 'rotate-90';
-    }
-
-    if (!this.arrowTowardsHandle && !this.viewHandleFromOutside) {
-      return 'flip-horizontal';
-    }
-    return '';
+  get designIcons() {
+    return designIconKeys;
   }
+
+  arrowTowardsHandle = false;
+  viewHandleFromOutside = false;
 
   get a() {
     return !this.arrowTowardsHandle && this.viewHandleFromOutside;
@@ -75,20 +61,25 @@ export class TodoIndexdbComponent implements OnInit {
     return this.arrowTowardsHandle && !this.viewHandleFromOutside;
   }
 
-  get iconArrowToward(): string {
+  // thease put accordingly as suitable if left keep put for rigth and if right put for left
+  get iconArrowTowardsHingeInsideView(): string {
     return this.b ? 'flip-horizontal' : '';
   }
 
-  get iconArrowAway(): string {
+  get iconArrowTowardsHandleInsideView(): string {
     return this.d ? 'flip-horizontal' : '';
   }
 
-  get iconArrowTowardReverse(): string {
+  get iconArrowTowardsHingeInsideViewReverse(): string {
     return this.a ? 'flip-horizontal' : '';
   }
 
-  get iconArrowAwayReverse(): string {
+  get iconArrowTowardsHandleInsideViewReverse(): string {
     return this.c ? 'flip-horizontal' : '';
+  }
+
+  get insideOutsideClass(): string {
+    return this.viewHandleFromOutside ? '' : 'flip-horizontal';
   }
 
   // get iconArrowToward(): string {

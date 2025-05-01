@@ -13,6 +13,134 @@
 
 <app-icon category="icon" prefix="fw" name="home" containerClass="custom-icon">
 </app-icon> -->
+
+... ... ..
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="22"
+  height="22"
+  viewBox="0 0 22 22"
+  stroke="#44546f"
+>
+  <g transform="translate(-22 -242)">
+    <g transform="translate(22 242)" fill="none" stroke-width="1.5">
+      <path
+        d="M1,0H7A0,0,0,0,1,7,0V21a1,1,0,0,1-1,1H1a1,1,0,0,1-1-1V1A1,1,0,0,1,1,0Z"
+        stroke="none"
+      />
+      <path
+        d="M1,.75H5.5a.75.75,0,0,1,.75.75V21a.25.25,0,0,1-.25.25H1A.25.25,0,0,1,.75,21V1A.25.25,0,0,1,1,.75Z"
+        fill="none"
+      />
+    </g>
+    <g transform="translate(31.375 242)" fill="none">
+      <path d="M0,0H12.625V9H0Z" stroke="none" />
+      <path
+        d="M 1.5 1.5 L 1.5 7.5 L 11.125 7.5 L 11.125 1.5 L 1.5 1.5 M 0 0 L 12.625 0 L 12.625 9 L 0 9 L 0 0 Z"
+        stroke="none"
+        fill="currentColor"
+      />
+    </g>
+    <g transform="translate(28 242)" fill="none" stroke-width="1.2">
+      <rect width="5" height="9" stroke="none" />
+      <rect x="0.6" y="0.6" width="3.8" height="7.8" fill="none" />
+    </g>
+  </g>
+</svg>
+
+<app-icon
+  *ngIf="!arrowTowardsHandle && viewHandleFromOutside"
+  [category]="category.DESIGN"
+  [prefix]="prefix.OPENABLE_DESIGNS"
+  [name]="designIcons.LEFT_OPENABLE_ARROW_HINGE_OUTSIDE"
+></app-icon>
+
+<app-icon
+  *ngIf="arrowTowardsHandle && viewHandleFromOutside"
+  [category]="category.DESIGN"
+  [prefix]="prefix.OPENABLE_DESIGNS"
+  [name]="designIcons.LEFT_OPENABLE_ARROW_HANDLE_OUTSIDE"
+></app-icon>
+
+<app-icon
+  *ngIf="arrowTowardsHandle && !viewHandleFromOutside"
+  [category]="category.DESIGN"
+  [prefix]="prefix.OPENABLE_DESIGNS"
+  [name]="designIcons.LEFT_OPENABLE_ARROW_HANDLE_OUTSIDE"
+  [containerClass]="insideOutsideClass"
+></app-icon>
+
+<app-icon
+  *ngIf="!arrowTowardsHandle && !viewHandleFromOutside"
+  [category]="category.DESIGN"
+  [prefix]="prefix.OPENABLE_DESIGNS"
+  [name]="designIcons.LEFT_OPENABLE_ARROW_HINGE_OUTSIDE"
+  [containerClass]="insideOutsideClass"
+></app-icon>
+
+.......................................................
+<!-- <app-icon
+  *ngIf="!arrowTowardsHandle && viewHandleFromOutside"
+  [category]="category.DESIGN"
+  [prefix]="prefix.OPENABLE_DESIGNS"
+  [name]="designIcons.RIGHT_OPENABLE_ARROW_HINGE_OUTSIDE"
+></app-icon>
+
+<app-icon
+  *ngIf="!arrowTowardsHandle && viewHandleFromOutside"
+  [category]="category.DESIGN"
+  [prefix]="prefix.OPENABLE_DESIGNS"
+  [name]="designIcons.LEFT_OPENABLE_ARROW_HINGE_OUTSIDE"
+  [containerClass]="iconArrowTowardsHingeInsideViewReverse"
+></app-icon> -->
+
+<!-- <app-icon
+  *ngIf="arrowTowardsHandle && viewHandleFromOutside"
+  [category]="category.DESIGN"
+  [prefix]="prefix.OPENABLE_DESIGNS"
+  [name]="designIcons.RIGHT_OPENABLE_ARROW_HANDLE_OUTSIDE"
+></app-icon>
+
+<app-icon
+  *ngIf="arrowTowardsHandle && viewHandleFromOutside"
+  [category]="category.DESIGN"
+  [prefix]="prefix.OPENABLE_DESIGNS"
+  [name]="designIcons.LEFT_OPENABLE_ARROW_HANDLE_OUTSIDE"
+  [containerClass]="iconArrowTowardsHandleInsideViewReverse"
+></app-icon> -->
+
+<!-- // wrong -->
+<!-- <app-icon
+  *ngIf="arrowTowardsHandle && !viewHandleFromOutside"
+  [category]="category.DESIGN"
+  [prefix]="prefix.OPENABLE_DESIGNS"
+  [name]="designIcons.RIGHT_OPENABLE_ARROW_HANDLE_OUTSIDE"
+></app-icon>
+
+<app-icon
+  *ngIf="arrowTowardsHandle && !viewHandleFromOutside"
+  [category]="category.DESIGN"
+  [prefix]="prefix.OPENABLE_DESIGNS"
+  [name]="designIcons.LEFT_OPENABLE_ARROW_HANDLE_OUTSIDE"
+></app-icon> -->
+
+<app-icon
+  *ngIf="!arrowTowardsHandle && !viewHandleFromOutside"
+  [category]="category.DESIGN"
+  [prefix]="prefix.OPENABLE_DESIGNS"
+  [name]="designIcons.LEFT_OPENABLE_ARROW_HINGE_OUTSIDE"
+  [containerClass]="iconArrowTowardsHingeInsideView"
+></app-icon>
+............................................ ..................
+<!-- <app-icon
+  [category]="category.DESIGN"
+  [prefix]="prefix.OPENABLE_DESIGNS"
+  [name]="designIcons.LEFT_OPENABLE_ARROW_HINGE_OUTSIDE"
+  [containerClass]="insideOutsideClass"
+></app-icon> -->
+<!-- 
+
 <app-icon
   [category]="category.MULLION"
   [prefix]="prefix.MULLION_DROPDOWN"
@@ -33,13 +161,9 @@
   [category]="category.MULLION"
   [prefix]="prefix.DIVIDER"
   [name]="iconkey.MULLION_ICON_9"
-></app-icon>
-<app-icon
-  [category]="category.MULLION"
-  [prefix]="prefix.DIVIDER"
-  [name]="iconkey.MULLION_ICON_10"
-  [containerClass]="iconClass"
-></app-icon>
+></app-icon> -->
+
+.......................................................................... ...
 
 <p>Left Openable----</p>
 <p>!arrowTowardsHandle && !viewHandleFromOutside</p>
@@ -319,7 +443,8 @@
     </g>
   </g>
 </svg>
-
+.................................................................
+..................
 <p>"Right Openable---</p>
 
 <p>!arrowTowardsHandle && !viewHandleFromOutside</p>
@@ -827,7 +952,7 @@
 </svg>
 
 <p>!arrowTowardsHandle && viewHandleFromOutside</p>
-<svg
+<!-- <svg
   xmlns="http://www.w3.org/2000/svg"
   width="40"
   height="50"
@@ -902,9 +1027,9 @@
       stroke-dasharray="3 2"
     />
   </g>
-</svg>
+</svg> -->
 
-<p>t and t left hanlde ------</p>
+<!-- <p>t and t left hanlde ------</p>
 
 <p>arrowTowardsHandle && viewHandleFromOutside</p>
 <svg
@@ -1216,4 +1341,1418 @@
       stroke-dasharray="3 2"
     />
   </g>
+</svg> -->
+<!-- 
+<a
+  class="menu-item c-pointer"
+  placement="right"
+  container="body"
+  tooltip="Mullion"
+  data-bs-toggle="dropdown"
+>
+  <app-icon
+    [category]="category.MULLION"
+    [prefix]="prefix.DIVIDER"
+    [name]="iconkey.MULLION_ICON_3"
+    [containerClass]="iconArrowToward"
+  ></app-icon>
+</a> -->
+
+.......................................................>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="40"
+  height="50"
+  viewBox="0 0 40 50"
+>
+  <g id="Group_37024" data-name="Group 37024" transform="translate(-5 -509)">
+    <g id="Group_14376" data-name="Group 14376" transform="translate(-175 261)">
+      <g
+        id="Rectangle_4467"
+        data-name="Rectangle 4467"
+        transform="translate(180 248)"
+        fill="#fff"
+        stroke="#96a0b5"
+        stroke-linejoin="round"
+        stroke-width="1"
+      >
+        <rect width="40" height="50" stroke="none" />
+        <rect x="0.5" y="0.5" width="39" height="49" fill="none" />
+      </g>
+      <g
+        id="Path_20488"
+        data-name="Path 20488"
+        transform="translate(184 251.846)"
+      >
+        <path
+          id="Path_60099"
+          data-name="Path 60099"
+          d="M31.5,41.808H.5V.5h31Z"
+          fill="none"
+        />
+        <path
+          id="Path_60100"
+          data-name="Path 60100"
+          d="M1,1V41.308H31V1H1M0,0H32V42.308H0Z"
+          fill="#96a0b5"
+        />
+      </g>
+      <path
+        id="Path_20366"
+        data-name="Path 20366"
+        d="M117.059,253.8l29.506-19.64-30.177-19.925"
+        transform="translate(68.513 39.003)"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+        stroke-dasharray="3 2"
+      />
+      <rect
+        id="Rectangle_4469"
+        data-name="Rectangle 4469"
+        width="4.04"
+        height="7.692"
+        transform="translate(180.96 269.154)"
+        fill="#96a0b5"
+      />
+      <rect
+        id="Rectangle_4488"
+        data-name="Rectangle 4488"
+        width="2"
+        height="8.654"
+        transform="translate(185 273)"
+        fill="#96a0b5"
+      />
+    </g>
+    <g id="Group_37018" data-name="Group 37018">
+      <line
+        id="Line_1649"
+        data-name="Line 1649"
+        y1="28"
+        x2="39"
+        transform="translate(5.5 530.5)"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+      />
+      <line
+        id="Line_1650"
+        data-name="Line 1650"
+        y2="26"
+        transform="translate(40.5 532.5)"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+      />
+      <line
+        id="Line_1651"
+        data-name="Line 1651"
+        y2="23.5"
+        transform="translate(37.5 535.5)"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+      />
+      <line
+        id="Line_1652"
+        data-name="Line 1652"
+        y2="21"
+        transform="translate(34.5 537.5)"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+      />
+      <line
+        id="Line_1653"
+        data-name="Line 1653"
+        y2="19.5"
+        transform="translate(31.5 539.5)"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+      />
+      <path
+        id="Path_60103"
+        data-name="Path 60103"
+        d="M0,.824V16.986"
+        transform="translate(28.5 541.514)"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+      />
+      <line
+        id="Line_1655"
+        data-name="Line 1655"
+        y2="15"
+        transform="translate(25.5 543.5)"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+      />
+      <line
+        id="Line_1657"
+        data-name="Line 1657"
+        y2="12.5"
+        transform="translate(22.5 546.5)"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+      />
+      <line
+        id="Line_1658"
+        data-name="Line 1658"
+        y2="10.5"
+        transform="translate(19.5 548.5)"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+      />
+      <line
+        id="Line_1659"
+        data-name="Line 1659"
+        y2="8"
+        transform="translate(16.5 550.5)"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+      />
+      <line
+        id="Line_1660"
+        data-name="Line 1660"
+        y2="5.625"
+        transform="translate(13.5 552.5)"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+      />
+      <line
+        id="Line_1662"
+        data-name="Line 1662"
+        y2="3.25"
+        transform="translate(10.5 555.25)"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+      />
+      <line
+        id="Line_1661"
+        data-name="Line 1661"
+        y1="25"
+        x2="34"
+        transform="translate(10.5 533.5)"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+      />
+      <line
+        id="Line_1669"
+        data-name="Line 1669"
+        y1="28"
+        x2="39"
+        transform="translate(5.5 530.5)"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+      />
+      <line
+        id="Line_1663"
+        data-name="Line 1663"
+        y1="22"
+        x2="29"
+        transform="translate(15.5 536.5)"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+      />
+      <line
+        id="Line_1664"
+        data-name="Line 1664"
+        y1="19"
+        x2="24"
+        transform="translate(20.5 539.5)"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+      />
+      <line
+        id="Line_1665"
+        data-name="Line 1665"
+        y1="15"
+        x2="20"
+        transform="translate(24.5 543.5)"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+      />
+      <line
+        id="Line_1666"
+        data-name="Line 1666"
+        y1="12"
+        x2="15"
+        transform="translate(29.5 546.5)"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+      />
+      <line
+        id="Line_1667"
+        data-name="Line 1667"
+        y1="8"
+        x2="10"
+        transform="translate(34.5 550.5)"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+      />
+      <line
+        id="Line_1668"
+        data-name="Line 1668"
+        y1="5"
+        x2="6"
+        transform="translate(38.5 553.5)"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+      />
+      <line
+        id="Line_1670"
+        data-name="Line 1670"
+        y1="2.25"
+        x2="3"
+        transform="translate(41.5 556.25)"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+      />
+    </g>
+  </g>
+</svg>
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="40"
+  height="50"
+  viewBox="0 0 40 50"
+>
+  <g id="Group_37023" data-name="Group 37023" transform="translate(-3 -445)">
+    <g id="Group_14373" data-name="Group 14373" transform="translate(-101 197)">
+      <g
+        id="Rectangle_4467"
+        data-name="Rectangle 4467"
+        transform="translate(104 248)"
+        fill="#fff"
+        stroke="#96a0b5"
+        stroke-linejoin="round"
+        stroke-width="1"
+      >
+        <rect width="40" height="50" stroke="none" />
+        <rect x="0.5" y="0.5" width="39" height="49" fill="none" />
+      </g>
+      <g
+        id="Path_20487"
+        data-name="Path 20487"
+        transform="translate(108 251.846)"
+      >
+        <path
+          id="Path_60097"
+          data-name="Path 60097"
+          d="M31.5,41.808H.5V.5h31Z"
+          fill="none"
+        />
+        <path
+          id="Path_60098"
+          data-name="Path 60098"
+          d="M1,1V41.308H31V1H1M0,0H32V42.308H0Z"
+          fill="#96a0b5"
+        />
+      </g>
+      <path
+        id="Path_20366"
+        data-name="Path 20366"
+        d="M145.8,253.515,116.583,234.45l29.874-19.3"
+        transform="translate(-7.457 39.003)"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+        stroke-dasharray="3 2"
+      />
+      <rect
+        id="Rectangle_4469"
+        data-name="Rectangle 4469"
+        width="4.04"
+        height="7.692"
+        transform="translate(139 269.154)"
+        fill="#96a0b5"
+      />
+      <rect
+        id="Rectangle_4488"
+        data-name="Rectangle 4488"
+        width="2"
+        height="8.654"
+        transform="translate(137 273)"
+        fill="#96a0b5"
+      />
+    </g>
+    <g
+      id="Group_37022"
+      data-name="Group 37022"
+      transform="translate(3.5 466.5)"
+    >
+      <line
+        id="Line_1649"
+        data-name="Line 1649"
+        x1="39"
+        y1="28"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+      />
+      <line
+        id="Line_1650"
+        data-name="Line 1650"
+        y2="26"
+        transform="translate(4 2)"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+      />
+      <line
+        id="Line_1651"
+        data-name="Line 1651"
+        y2="23.5"
+        transform="translate(7 5)"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+      />
+      <line
+        id="Line_1652"
+        data-name="Line 1652"
+        y2="21"
+        transform="translate(10 7)"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+      />
+      <line
+        id="Line_1653"
+        data-name="Line 1653"
+        y2="19.5"
+        transform="translate(13 9)"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+      />
+      <path
+        id="Path_60103"
+        data-name="Path 60103"
+        d="M0,.824V16.986"
+        transform="translate(16 11.014)"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+      />
+      <line
+        id="Line_1655"
+        data-name="Line 1655"
+        y2="15"
+        transform="translate(19 13)"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+      />
+      <line
+        id="Line_1657"
+        data-name="Line 1657"
+        y2="12.5"
+        transform="translate(22 16)"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+      />
+      <line
+        id="Line_1658"
+        data-name="Line 1658"
+        y2="10.5"
+        transform="translate(25 18)"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+      />
+      <line
+        id="Line_1659"
+        data-name="Line 1659"
+        y2="8"
+        transform="translate(28 20)"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+      />
+      <line
+        id="Line_1660"
+        data-name="Line 1660"
+        y2="5.625"
+        transform="translate(31 22)"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+      />
+      <line
+        id="Line_1662"
+        data-name="Line 1662"
+        y2="3.25"
+        transform="translate(34 24.75)"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+      />
+      <line
+        id="Line_1661"
+        data-name="Line 1661"
+        x1="34"
+        y1="25"
+        transform="translate(0 3)"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+      />
+      <line
+        id="Line_1669"
+        data-name="Line 1669"
+        x1="39"
+        y1="28"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+      />
+      <line
+        id="Line_1663"
+        data-name="Line 1663"
+        x1="29"
+        y1="22"
+        transform="translate(0 6)"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+      />
+      <line
+        id="Line_1664"
+        data-name="Line 1664"
+        x1="24"
+        y1="19"
+        transform="translate(0 9)"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+      />
+      <line
+        id="Line_1665"
+        data-name="Line 1665"
+        x1="20"
+        y1="15"
+        transform="translate(0 13)"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+      />
+      <line
+        id="Line_1666"
+        data-name="Line 1666"
+        x1="15"
+        y1="12"
+        transform="translate(0 16)"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+      />
+      <line
+        id="Line_1667"
+        data-name="Line 1667"
+        x1="10"
+        y1="8"
+        transform="translate(0 20)"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+      />
+      <line
+        id="Line_1668"
+        data-name="Line 1668"
+        x1="6"
+        y1="5"
+        transform="translate(0 23)"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+      />
+      <line
+        id="Line_1670"
+        data-name="Line 1670"
+        x1="3"
+        y1="2.25"
+        transform="translate(0 25.75)"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+      />
+    </g>
+  </g>
+</svg>
+
+................ >>> > >> >>
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="40"
+  height="50"
+  viewBox="0 0 40 50"
+>
+  <g id="Group_37272" data-name="Group 37272" transform="translate(4185 -2022)">
+    <g
+      id="Group_14372"
+      data-name="Group 14372"
+      transform="translate(-4442 1774)"
+    >
+      <g
+        id="Rectangle_4467"
+        data-name="Rectangle 4467"
+        transform="translate(257 248)"
+        fill="#fff"
+        stroke="#96a0b5"
+        stroke-linejoin="round"
+        stroke-width="1"
+      >
+        <rect width="40" height="50" stroke="none" />
+        <rect x="0.5" y="0.5" width="39" height="49" fill="none" />
+      </g>
+      <g
+        id="Rectangle_4468"
+        data-name="Rectangle 4468"
+        transform="translate(261 251.846)"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-linejoin="round"
+        stroke-width="1"
+      >
+        <rect width="32" height="42.308" stroke="none" />
+        <rect x="0.5" y="0.5" width="31" height="41.308" fill="none" />
+      </g>
+      <path
+        id="Path_20366"
+        data-name="Path 20366"
+        d="M38.12,0,0,13.708,38.12,27.613"
+        transform="translate(290.906 254.044) rotate(90)"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+        stroke-dasharray="3 2"
+      />
+      <rect
+        id="Rectangle_4469"
+        data-name="Rectangle 4469"
+        width="3.535"
+        height="8"
+        transform="translate(273.099 297.208) rotate(-90)"
+        fill="#96a0b5"
+      />
+      <rect
+        id="Rectangle_4488"
+        data-name="Rectangle 4488"
+        width="1.923"
+        height="9"
+        transform="translate(276.5 293.126) rotate(-90)"
+        fill="#96a0b5"
+      />
+    </g>
+    <g
+      id="Group_37022"
+      data-name="Group 37022"
+      transform="translate(-4184.5 2043.5)"
+    >
+      <line
+        id="Line_1649"
+        data-name="Line 1649"
+        x1="39"
+        y1="28"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+      />
+      <line
+        id="Line_1650"
+        data-name="Line 1650"
+        y2="26"
+        transform="translate(4 2)"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+      />
+      <line
+        id="Line_1651"
+        data-name="Line 1651"
+        y2="23.5"
+        transform="translate(7 5)"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+      />
+      <line
+        id="Line_1652"
+        data-name="Line 1652"
+        y2="21"
+        transform="translate(10 7)"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+      />
+      <line
+        id="Line_1653"
+        data-name="Line 1653"
+        y2="19.5"
+        transform="translate(13 9)"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+      />
+      <path
+        id="Path_60103"
+        data-name="Path 60103"
+        d="M0,.824V16.986"
+        transform="translate(16 11.014)"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+      />
+      <line
+        id="Line_1655"
+        data-name="Line 1655"
+        y2="15"
+        transform="translate(19 13)"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+      />
+      <line
+        id="Line_1657"
+        data-name="Line 1657"
+        y2="12.5"
+        transform="translate(22 16)"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+      />
+      <line
+        id="Line_1658"
+        data-name="Line 1658"
+        y2="10.5"
+        transform="translate(25 18)"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+      />
+      <line
+        id="Line_1659"
+        data-name="Line 1659"
+        y2="8"
+        transform="translate(28 20)"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+      />
+      <line
+        id="Line_1660"
+        data-name="Line 1660"
+        y2="5.625"
+        transform="translate(31 22)"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+      />
+      <line
+        id="Line_1662"
+        data-name="Line 1662"
+        y2="3.25"
+        transform="translate(34 24.75)"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+      />
+      <line
+        id="Line_1661"
+        data-name="Line 1661"
+        x1="34"
+        y1="25"
+        transform="translate(0 3)"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+      />
+      <line
+        id="Line_1669"
+        data-name="Line 1669"
+        x1="39"
+        y1="28"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+      />
+      <line
+        id="Line_1663"
+        data-name="Line 1663"
+        x1="29"
+        y1="22"
+        transform="translate(0 6)"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+      />
+      <line
+        id="Line_1664"
+        data-name="Line 1664"
+        x1="24"
+        y1="19"
+        transform="translate(0 9)"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+      />
+      <line
+        id="Line_1665"
+        data-name="Line 1665"
+        x1="20"
+        y1="15"
+        transform="translate(0 13)"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+      />
+      <line
+        id="Line_1666"
+        data-name="Line 1666"
+        x1="15"
+        y1="12"
+        transform="translate(0 16)"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+      />
+      <line
+        id="Line_1667"
+        data-name="Line 1667"
+        x1="10"
+        y1="8"
+        transform="translate(0 20)"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+      />
+      <line
+        id="Line_1668"
+        data-name="Line 1668"
+        x1="6"
+        y1="5"
+        transform="translate(0 23)"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+      />
+      <line
+        id="Line_1670"
+        data-name="Line 1670"
+        x1="3"
+        y1="2.25"
+        transform="translate(0 25.75)"
+        fill="none"
+        stroke="#96a0b5"
+        stroke-width="1"
+      />
+    </g>
+  </g>
+</svg>
+
+...
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="40"
+  height="50"
+  viewBox="0 0 40 50"
+>
+  <g id="Group_37273" data-name="Group 37273" transform="translate(4133 -2022)">
+    <g id="Group_37276" data-name="Group 37276">
+      <g
+        id="Group_14377"
+        data-name="Group 14377"
+        transform="translate(-4468 1774)"
+      >
+        <g
+          id="Rectangle_4467"
+          data-name="Rectangle 4467"
+          transform="translate(335 248)"
+          fill="#fff"
+          stroke="#96a0b5"
+          stroke-linejoin="round"
+          stroke-width="1"
+        >
+          <rect width="40" height="50" stroke="none" />
+          <rect x="0.5" y="0.5" width="39" height="49" fill="none" />
+        </g>
+        <g
+          id="Rectangle_4468"
+          data-name="Rectangle 4468"
+          transform="translate(339 251.846)"
+          fill="none"
+          stroke="#96a0b5"
+          stroke-linejoin="round"
+          stroke-width="1"
+        >
+          <rect width="32" height="42.308" stroke="none" />
+          <rect x="0.5" y="0.5" width="31" height="41.308" fill="none" />
+        </g>
+        <path
+          id="Path_20366"
+          data-name="Path 20366"
+          d="M38.12,27.613,0,13.9,38.12,0"
+          transform="translate(341.292 291.956) rotate(-90)"
+          fill="none"
+          stroke="#96a0b5"
+          stroke-linejoin="round"
+          stroke-width="1"
+          stroke-dasharray="3 2"
+        />
+        <rect
+          id="Rectangle_4469"
+          data-name="Rectangle 4469"
+          width="3.67"
+          height="8"
+          transform="translate(359.099 248.657) rotate(90)"
+          fill="#96a0b5"
+        />
+        <rect
+          id="Rectangle_4488"
+          data-name="Rectangle 4488"
+          width="1.923"
+          height="9"
+          transform="translate(363.5 252.874) rotate(90)"
+          fill="#96a0b5"
+        />
+      </g>
+      <g
+        id="Group_37022"
+        data-name="Group 37022"
+        transform="translate(-4132.5 2043.5)"
+      >
+        <line
+          id="Line_1649"
+          data-name="Line 1649"
+          x1="39"
+          y1="28"
+          fill="none"
+          stroke="#96a0b5"
+          stroke-width="1"
+        />
+        <line
+          id="Line_1650"
+          data-name="Line 1650"
+          y2="26"
+          transform="translate(4 2)"
+          fill="none"
+          stroke="#96a0b5"
+          stroke-width="1"
+        />
+        <line
+          id="Line_1651"
+          data-name="Line 1651"
+          y2="23.5"
+          transform="translate(7 5)"
+          fill="none"
+          stroke="#96a0b5"
+          stroke-width="1"
+        />
+        <line
+          id="Line_1652"
+          data-name="Line 1652"
+          y2="21"
+          transform="translate(10 7)"
+          fill="none"
+          stroke="#96a0b5"
+          stroke-width="1"
+        />
+        <line
+          id="Line_1653"
+          data-name="Line 1653"
+          y2="19.5"
+          transform="translate(13 9)"
+          fill="none"
+          stroke="#96a0b5"
+          stroke-width="1"
+        />
+        <path
+          id="Path_60103"
+          data-name="Path 60103"
+          d="M0,.824V16.986"
+          transform="translate(16 11.014)"
+          fill="none"
+          stroke="#96a0b5"
+          stroke-width="1"
+        />
+        <line
+          id="Line_1655"
+          data-name="Line 1655"
+          y2="15"
+          transform="translate(19 13)"
+          fill="none"
+          stroke="#96a0b5"
+          stroke-width="1"
+        />
+        <line
+          id="Line_1657"
+          data-name="Line 1657"
+          y2="12.5"
+          transform="translate(22 16)"
+          fill="none"
+          stroke="#96a0b5"
+          stroke-width="1"
+        />
+        <line
+          id="Line_1658"
+          data-name="Line 1658"
+          y2="10.5"
+          transform="translate(25 18)"
+          fill="none"
+          stroke="#96a0b5"
+          stroke-width="1"
+        />
+        <line
+          id="Line_1659"
+          data-name="Line 1659"
+          y2="8"
+          transform="translate(28 20)"
+          fill="none"
+          stroke="#96a0b5"
+          stroke-width="1"
+        />
+        <line
+          id="Line_1660"
+          data-name="Line 1660"
+          y2="5.625"
+          transform="translate(31 22)"
+          fill="none"
+          stroke="#96a0b5"
+          stroke-width="1"
+        />
+        <line
+          id="Line_1662"
+          data-name="Line 1662"
+          y2="3.25"
+          transform="translate(34 24.75)"
+          fill="none"
+          stroke="#96a0b5"
+          stroke-width="1"
+        />
+        <line
+          id="Line_1661"
+          data-name="Line 1661"
+          x1="34"
+          y1="25"
+          transform="translate(0 3)"
+          fill="none"
+          stroke="#96a0b5"
+          stroke-width="1"
+        />
+        <line
+          id="Line_1669"
+          data-name="Line 1669"
+          x1="39"
+          y1="28"
+          fill="none"
+          stroke="#96a0b5"
+          stroke-width="1"
+        />
+        <line
+          id="Line_1663"
+          data-name="Line 1663"
+          x1="29"
+          y1="22"
+          transform="translate(0 6)"
+          fill="none"
+          stroke="#96a0b5"
+          stroke-width="1"
+        />
+        <line
+          id="Line_1664"
+          data-name="Line 1664"
+          x1="24"
+          y1="19"
+          transform="translate(0 9)"
+          fill="none"
+          stroke="#96a0b5"
+          stroke-width="1"
+        />
+        <line
+          id="Line_1665"
+          data-name="Line 1665"
+          x1="20"
+          y1="15"
+          transform="translate(0 13)"
+          fill="none"
+          stroke="#96a0b5"
+          stroke-width="1"
+        />
+        <line
+          id="Line_1666"
+          data-name="Line 1666"
+          x1="15"
+          y1="12"
+          transform="translate(0 16)"
+          fill="none"
+          stroke="#96a0b5"
+          stroke-width="1"
+        />
+        <line
+          id="Line_1667"
+          data-name="Line 1667"
+          x1="10"
+          y1="8"
+          transform="translate(0 20)"
+          fill="none"
+          stroke="#96a0b5"
+          stroke-width="1"
+        />
+        <line
+          id="Line_1668"
+          data-name="Line 1668"
+          x1="6"
+          y1="5"
+          transform="translate(0 23)"
+          fill="none"
+          stroke="#96a0b5"
+          stroke-width="1"
+        />
+        <line
+          id="Line_1670"
+          data-name="Line 1670"
+          x1="3"
+          y1="2.25"
+          transform="translate(0 25.75)"
+          fill="none"
+          stroke="#96a0b5"
+          stroke-width="1"
+        />
+      </g>
+    </g>
+  </g>
+</svg>
+
+../////////////// XC CD FD
+<b> .,,,, ,,,,,,,,,,,,,,,,, ............. > >>........... </b>
+,,,,,,,,,,,,,,, ,,,,,,,,,,,,
+<br />
+
+*ngIf="arrowTowardsHandle && !viewHandleFromOutside"
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="40"
+  height="50"
+  viewBox="0 0 40 50"
+>
+  <g id="Group_37585" data-name="Group 37585" transform="translate(-0.001)">
+    <g id="Path_77877" data-name="Path 77877" transform="translate(0.001)">
+      <path
+        id="Path_99547"
+        data-name="Path 99547"
+        d="M39.25,49.25H.75V.75h38.5Z"
+        fill="#fff"
+      />
+      <path
+        id="Path_99548"
+        data-name="Path 99548"
+        d="M1.5,1.5v47h37V1.5H1.5M0,0H40V50H0Z"
+        fill="#96a0b5"
+      />
+    </g>
+    <g id="Path_77878" data-name="Path 77878" transform="translate(4.001 4)">
+      <path
+        id="Path_99549"
+        data-name="Path 99549"
+        d="M31.25,41.25H.75V.75h30.5Z"
+        fill="#fff"
+      />
+      <path
+        id="Path_99550"
+        data-name="Path 99550"
+        d="M1.5,1.5v39h29V1.5H1.5M0,0H32V42H0Z"
+        fill="#96a0b5"
+      />
+    </g>
+    <rect
+      id="Rectangle_9989"
+      data-name="Rectangle 9989"
+      width="3.746"
+      height="7"
+      transform="translate(24.001 45.5) rotate(90)"
+      fill="#96a0b5"
+    />
+    <rect
+      id="Rectangle_9990"
+      data-name="Rectangle 9990"
+      width="3"
+      height="11"
+      transform="translate(17.001 45) rotate(-90)"
+      fill="#96a0b5"
+    />
+    <path
+      id="Path_77880"
+      data-name="Path 77880"
+      d="M19.6,24.238l-15.4-20"
+      transform="translate(15.899 0.5)"
+      fill="none"
+      stroke="#96a0b5"
+      stroke-width="1.5"
+      stroke-dasharray="3 2"
+    />
+    <path
+      id="Path_77881"
+      data-name="Path 77881"
+      d="M19.328-.587l-15.4,20.8"
+      transform="translate(0.835 5.5)"
+      fill="none"
+      stroke="#96a0b5"
+      stroke-width="1.5"
+      stroke-dasharray="3 2"
+    />
+    <line
+      id="Line_1820"
+      data-name="Line 1820"
+      x1="15"
+      y2="20"
+      transform="translate(20.5 25.5)"
+      fill="none"
+      stroke="#96a0b5"
+      stroke-width="1.5"
+    />
+    <path
+      id="Path_77882"
+      data-name="Path 77882"
+      d="M15,20,0,0"
+      transform="translate(4.501 25.5)"
+      fill="none"
+      stroke="#96a0b5"
+      stroke-width="1.5"
+    />
+    <line
+      id="Line_1821"
+      data-name="Line 1821"
+      x2="30"
+      transform="translate(4.5 25.5)"
+      fill="none"
+      stroke="#96a0b5"
+      stroke-width="1.5"
+      stroke-dasharray="3 2"
+    />
+  </g>
+</svg>
+
+*ngIf="arrowTowardsHandle && !viewHandleFromOutside"
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="40"
+  height="50"
+  viewBox="0 0 40 50"
+>
+  <g id="Path_77877" data-name="Path 77877">
+    <path
+      id="Path_99551"
+      data-name="Path 99551"
+      d="M39.25,49.25H.75V.75h38.5Z"
+      fill="#fff"
+    />
+    <path
+      id="Path_99552"
+      data-name="Path 99552"
+      d="M38.5,48.5V1.5H1.5v47h37M40,50H0V0H40Z"
+      fill="#96a0b5"
+    />
+  </g>
+  <g id="Path_77878" data-name="Path 77878" transform="translate(4 4)">
+    <path
+      id="Path_99553"
+      data-name="Path 99553"
+      d="M31.25,41.25H.75V.75h30.5Z"
+      fill="#fff"
+    />
+    <path
+      id="Path_99554"
+      data-name="Path 99554"
+      d="M30.5,40.5V1.5H1.5v39h29M32,42H0V0H32Z"
+      fill="#96a0b5"
+    />
+  </g>
+  <rect
+    id="Rectangle_9989"
+    data-name="Rectangle 9989"
+    width="3.746"
+    height="7"
+    transform="translate(17 4.5) rotate(-90)"
+    fill="#96a0b5"
+  />
+  <rect
+    id="Rectangle_9990"
+    data-name="Rectangle 9990"
+    width="3"
+    height="11"
+    transform="translate(28 5) rotate(90)"
+    fill="#96a0b5"
+  />
+  <path
+    id="Path_77880"
+    data-name="Path 77880"
+    d="M19.6,4.233l-15.4,20"
+    transform="translate(15.898 21.029)"
+    fill="none"
+    stroke="#96a0b5"
+    stroke-width="1.5"
+    stroke-dasharray="3 2"
+  />
+  <path
+    id="Path_77881"
+    data-name="Path 77881"
+    d="M19.328,20.212,3.928-.587"
+    transform="translate(0.834 24.875)"
+    fill="none"
+    stroke="#96a0b5"
+    stroke-width="1.5"
+    stroke-dasharray="3 2"
+  />
+  <line
+    id="Line_1820"
+    data-name="Line 1820"
+    x1="15"
+    y1="20"
+    transform="translate(20.499 4.5)"
+    fill="none"
+    stroke="#96a0b5"
+    stroke-width="1.5"
+  />
+  <path
+    id="Path_77882"
+    data-name="Path 77882"
+    d="M15,0,0,20"
+    transform="translate(4.5 4.5)"
+    fill="none"
+    stroke="#96a0b5"
+    stroke-width="1.5"
+  />
+  <line
+    id="Line_1822"
+    data-name="Line 1822"
+    x2="30"
+    transform="translate(5.5 25.5)"
+    fill="none"
+    stroke="#96a0b5"
+    stroke-width="1.5"
+    stroke-dasharray="3 2"
+  />
+</svg>
+
+*ngIf="arrowTowardsHandle && viewHandleFromOutside"
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="40"
+  height="50"
+  viewBox="0 0 40 50"
+>
+  <g id="Path_77877" data-name="Path 77877">
+    <path
+      id="Path_99551"
+      data-name="Path 99551"
+      d="M39.25,49.25H.75V.75h38.5Z"
+      fill="#fff"
+    />
+    <path
+      id="Path_99552"
+      data-name="Path 99552"
+      d="M38.5,48.5V1.5H1.5v47h37M40,50H0V0H40Z"
+      fill="#96a0b5"
+    />
+  </g>
+  <g id="Path_77878" data-name="Path 77878" transform="translate(4 4)">
+    <path
+      id="Path_99553"
+      data-name="Path 99553"
+      d="M31.25,41.25H.75V.75h30.5Z"
+      fill="#fff"
+    />
+    <path
+      id="Path_99554"
+      data-name="Path 99554"
+      d="M30.5,40.5V1.5H1.5v39h29M32,42H0V0H32Z"
+      fill="#96a0b5"
+    />
+  </g>
+  <rect
+    id="Rectangle_9989"
+    data-name="Rectangle 9989"
+    width="3.746"
+    height="7"
+    transform="translate(17 4.5) rotate(-90)"
+    fill="#96a0b5"
+  />
+  <rect
+    id="Rectangle_9990"
+    data-name="Rectangle 9990"
+    width="3"
+    height="11"
+    transform="translate(28 5) rotate(90)"
+    fill="#96a0b5"
+  />
+  <path
+    id="Path_77880"
+    data-name="Path 77880"
+    d="M19.6,4.233l-15.4,20"
+    transform="translate(24.102 28.733) rotate(180)"
+    fill="none"
+    stroke="#96a0b5"
+    stroke-width="1.5"
+    stroke-dasharray="3 2"
+  />
+  <path
+    id="Path_77881"
+    data-name="Path 77881"
+    d="M19.328,20.212,3.928-.587"
+    transform="translate(39.166 24.887) rotate(180)"
+    fill="none"
+    stroke="#96a0b5"
+    stroke-width="1.5"
+    stroke-dasharray="3 2"
+  />
+  <line
+    id="Line_1820"
+    data-name="Line 1820"
+    x1="15"
+    y1="20"
+    transform="translate(19.501 45.262) rotate(180)"
+    fill="none"
+    stroke="#96a0b5"
+    stroke-width="1.5"
+  />
+  <path
+    id="Path_77882"
+    data-name="Path 77882"
+    d="M15,0,0,20"
+    transform="translate(35.5 45.262) rotate(180)"
+    fill="none"
+    stroke="#96a0b5"
+    stroke-width="1.5"
+  />
+  <line
+    id="Line_1822"
+    data-name="Line 1822"
+    x2="30"
+    transform="translate(34.5 24.262) rotate(180)"
+    fill="none"
+    stroke="#96a0b5"
+    stroke-width="1.5"
+    stroke-dasharray="3 2"
+  />
 </svg>
