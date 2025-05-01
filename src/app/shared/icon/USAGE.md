@@ -18,18 +18,14 @@ This documentation provides a detailed explanation of the icon library, includin
 
 ## API Reference
 
-### **1. `loadIcons(category: string, prefix?: string): void`**
+### **1. `loadIcons()`**
 
-Loads a set of icons based on category and prefix.
+Loads a set of icons
 
 #### **Usage:**
 
 ```ts
-this.iconService.loadIcons('user'); // Only loads the category, no prefix
-```
-
-```ts
-this.iconService.loadIcons('system', 'fa'); // Loads specific prefix within category
+this.iconService.loadIcons(); // loads icons
 ```
 
 ---
@@ -97,36 +93,24 @@ The `<app-icon>` component is used to display icons dynamically by specifying th
 ### **Example Usage:**
 
 ```html
-<app-icon [category]="'social'" [prefix]="'sm'" [name]="'star'"></app-icon>
-<app-icon [category]="'system'" [prefix]="'sm'" [name]="'search'"></app-icon>
-<app-icon [category]="'user'" [prefix]="'fw'" [name]="'home'"></app-icon>
-```
-
-```html
 <app-icon
-  category="system"
-  prefix="fa"
-  name="settings"
-  [containerStyle]="{ width: '48px', height: '48px', color: 'red' }"
->
-</app-icon>
-
+  [category]="category.SLIDING"
+  [prefix]="prefix.SLIDING_DESIGN"
+  [name]="slidingDesignIcons.TWO_TRACK_FOUR_PANEL_MEETING"
+  [containerClass]="insideOutsideClass"
+></app-icon>
 <app-icon
-  category="social"
-  prefix="fa"
-  name="search"
-  containerClass="rounded-icon"
-  [containerStyle]="{ backgroundColor: 'lightgray', padding: '8px' }"
->
-</app-icon>
-```
-
-```css
-.rounded-icon {
-  border-radius: 50%;
-  width: 36px;
-  height: 36px;
-}
+  [category]="category.DESIGN"
+  [prefix]="prefix.OPENABLE_DESIGNS"
+  [name]="designIcons.RIGHT_OPENABLE_ARROW_AWAY_OUTSIDE"
+  [containerClass]="iconArrowToward"
+></app-icon>
+<app-icon
+  [category]="category.MULLION"
+  [prefix]="prefix.DIVIDER"
+  [name]="mullionIcons.VERTICAL_MULLION"
+  [containerClass]="'rotate-90'"
+></app-icon>
 ```
 
 ---
@@ -138,7 +122,7 @@ The `<app-icon>` component is used to display icons dynamically by specifying th
 The icon data is stored in an object structure as follows:
 
 ```ts
-const ICONS: Record<string, Record<string, Record<string, string>>> = {
+const ICONS = {
   user: {
     fa: {
       settings: '<svg>...</svg>',

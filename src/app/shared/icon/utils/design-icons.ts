@@ -1,39 +1,24 @@
-import { IconPrefix, IconPrefixType } from '../models/icon.model';
+import { IconPrefix } from '../models/icon-prefix';
+import { IconPrefixType } from '../models/icon.model';
 
 export const designIconKeys = {
   FIXED_WINDOW: 'fixedWindow',
-
-  //the below are outside view, for inside view use mirror images of these 2 (total 4 svgs were present in dashboard)
   LEFT_OPENABLE_ARROW_HINGE_OUTSIDE: 'leftOpenableArrowHingeOutside',
   LEFT_OPENABLE_ARROW_HANDLE_OUTSIDE: 'leftOpenableArrowHandleOutside',
-
-  //the below are outside view, for inside view use mirror images of these 2 (total 4 svgs were present in dashboard)
-  RIGHT_OPENABLE_ARROW_HINGE_OUTSIDE: 'rightOpenableArrowHingeOutside',
-  RIGHT_OPENABLE_ARROW_HANDLE_OUTSIDE: 'rightOpenableArrowHandleOutside',
-
-  TOP_HUNG_ARROW_AWAY: 'topHungArrowAway', //kept topHungArrowAway, for bottomHungArrowAway use flip image (vertical scaleY(-1)) of this
-  TOP_HUNG_ARROW_TOWARDS: 'topHungArrowTowards', //kept bottomHungArrowTowards, for bottomHungArrowAway use flip image (vertical scaleY(-1)) of this
-
-  TOP_HUNG_WITH_LEFT_HANDLE: 'topHungWithLeftHandle', //kept topHungWithLeftHandle, for topHungWithRightHandle, use the mirror (flip) image of this
-
-  BOTTOM_HUNG_WITH_LEFT_HANDLE: 'bottomHungWithLeftHandle', //kept bottomHungWithLeftHandle, for bottomHungWithRightandle, use mirror image of this
-
-  //the below are outside view, for inside view use mirror images of these 2 (total 4 svgs were present in dashboard)
-  FRENCH_OPENABLE_ARROW_TOWARDS_OUTSIDE: 'frenchOpenableArrowTowardsOutside',
-  FRENCH_OPENABLE_ARROW_AWAY_OUTSIDE: 'frenchOpenableArrowAwayOutside',
-
+  TOP_HUNG_ARROW_TOWARDS_HINGE: 'topHungArrowTowardsHinge',
+  TOP_HUNG_ARROW_TOWARDS_HANDLE: 'topHungArrowTowardsTowardsHandle',
+  TOP_HUNG_WITH_LEFT_HANDLE: 'topHungWithLeftHandle',
+  BOTTOM_HUNG_WITH_LEFT_HANDLE: 'bottomHungWithLeftHandle',
+  FRENCH_OPENABLE_ARROW_HANDLE_OUTSIDE: 'frenchOpenableArrowHandleOutside',
+  FRENCH_OPENABLE_ARROW_HINGE_OUTSIDE: 'frenchOpenableArrowHingeOutside',
   PARALLEL_WINDOW: 'parallelWindow',
-
-  //steel openable
-  STEEL_LEFT_OPENABLE: 'steelLeftOpenable', // (can be mirrored for right + own side) — total 4 images (steelRightOpenable)
+  STEEL_LEFT_OPENABLE: 'steelLeftOpenable',
   STEEL_FRENCH_OPENABLE: 'steelFrenchOpenable',
 } as const;
 
-export type IconKey = (typeof designIconKeys)[keyof typeof designIconKeys];
+export type IconKey = typeof designIconKeys[keyof typeof designIconKeys];
 
-export const DESIGN_ICONS: Partial<
-  Record<IconPrefixType, Partial<Record<IconKey, string>>>
-> = {
+export const DESIGN_ICONS: Partial<Record<IconPrefixType, Partial<Record<IconKey, string>>>> = {
   [IconPrefix.OPENABLE_DESIGNS]: {
     [designIconKeys.FIXED_WINDOW]: ` <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -187,125 +172,7 @@ export const DESIGN_ICONS: Partial<
                           </g>
                         </g>
                       </svg>`,
-    [designIconKeys.RIGHT_OPENABLE_ARROW_HINGE_OUTSIDE]: `<svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="40"
-                        height="50"
-                        viewBox="0 0 46 60"
-                      >
-                        <g id="Group_37587" data-name="Group 37587" transform="translate(-0.498 0.231)">
-                          <g id="Group_14072" data-name="Group 14072" transform="translate(0.216 -0.498)">
-                            <g
-                              id="Rectangle_4467"
-                              data-name="Rectangle 4467"
-                              transform="translate(0.282 0.267)"
-                              fill="#fff"
-                              stroke="#96a0b5"
-                              stroke-width="1"
-                            >
-                              <rect width="46" height="60" stroke="none" />
-                              <rect x="0.5" y="0.5" width="45" height="59" fill="none" />
-                            </g>
-                            <g
-                              id="Rectangle_4468"
-                              data-name="Rectangle 4468"
-                              transform="translate(5.282 5.267)"
-                              fill="#fff"
-                              stroke="#96a0b5"
-                              stroke-width="1"
-                            >
-                              <rect width="36" height="50" stroke="none" />
-                              <rect x="0.5" y="0.5" width="35" height="49" fill="none" />
-                            </g>
-                            <path
-                              id="Path_20366"
-                              data-name="Path 20366"
-                              d="M116.487,260.085l30.555-21.924-30.555-23.01"
-                              transform="translate(154.958 267.535) rotate(180)"
-                              fill="none"
-                              stroke="#96a0b5"
-                              stroke-width="1"
-                              stroke-dasharray="3 2"
-                            />
-                            <rect
-                              id="Rectangle_4469"
-                              data-name="Rectangle 4469"
-                              width="6"
-                              height="10"
-                              transform="translate(40.282 25.267)"
-                              fill="#96a0b5"
-                            />
-                            <rect
-                              id="Rectangle_9994"
-                              data-name="Rectangle 9994"
-                              width="3"
-                              height="10"
-                              transform="translate(37.382 30.267)"
-                              fill="#96a0b5"
-                            />
-                          </g>
-                        </g>
-                      </svg>`,
-    [designIconKeys.RIGHT_OPENABLE_ARROW_HANDLE_OUTSIDE]: `<svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="40"
-                        height="50"
-                        viewBox="0 0 46 60"
-                      >
-                        <g id="Group_37587" data-name="Group 37587" transform="translate(-0.498 0.231)">
-                          <g id="Group_14072" data-name="Group 14072" transform="translate(0.216 -0.498)">
-                            <g
-                              id="Rectangle_4467"
-                              data-name="Rectangle 4467"
-                              transform="translate(0.282 0.267)"
-                              fill="#fff"
-                              stroke="#96a0b5"
-                              stroke-width="1"
-                            >
-                              <rect width="46" height="60" stroke="none" />
-                              <rect x="0.5" y="0.5" width="45" height="59" fill="none" />
-                            </g>
-                            <g
-                              id="Rectangle_4468"
-                              data-name="Rectangle 4468"
-                              transform="translate(5.282 5.267)"
-                              fill="#fff"
-                              stroke="#96a0b5"
-                              stroke-width="1"
-                            >
-                              <rect width="36" height="50" stroke="none" />
-                              <rect x="0.5" y="0.5" width="35" height="49" fill="none" />
-                            </g>
-                            <path
-                              id="Path_20366"
-                              data-name="Path 20366"
-                              d="M116.487,260.085l30.555-21.924-30.555-23.01"
-                              transform="translate(-108.571 -207.701)"
-                              fill="none"
-                              stroke="#96a0b5"
-                              stroke-width="1"
-                              stroke-dasharray="3 2"
-                            />
-                            <rect
-                              id="Rectangle_4469"
-                              data-name="Rectangle 4469"
-                              width="6"
-                              height="10"
-                              transform="translate(40.282 25.267)"
-                              fill="#96a0b5"
-                            />
-                            <rect
-                              id="Rectangle_9994"
-                              data-name="Rectangle 9994"
-                              width="3"
-                              height="10"
-                              transform="translate(37.382 30.267)"
-                              fill="#96a0b5"
-                            />
-                          </g>
-                        </g>
-                      </svg>`,
-    [designIconKeys.TOP_HUNG_ARROW_AWAY]: `<svg  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="50"
+    [designIconKeys.TOP_HUNG_ARROW_TOWARDS_HINGE]: `<svg  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="50"
     viewBox="0 0 40 50">
     <g id="Group_14372" data-name="Group 14372" transform="translate(-257 -248)">
       <g id="Rectangle_4467" data-name="Rectangle 4467" transform="translate(257 248)" fill="#fff" stroke="#96a0b5"
@@ -327,7 +194,7 @@ export const DESIGN_ICONS: Partial<
         transform="translate(276.5 293.126) rotate(-90)" fill="#96a0b5" />
     </g>
   </svg>`,
-    [designIconKeys.TOP_HUNG_ARROW_TOWARDS]: `<svg  xmlns="http://www.w3.org/2000/svg" width="40" height="50" viewBox="0 0 46 60">
+    [designIconKeys.TOP_HUNG_ARROW_TOWARDS_HANDLE]: `<svg  xmlns="http://www.w3.org/2000/svg" width="40" height="50" viewBox="0 0 46 60">
     <g id="Group_37589" data-name="Group 37589" transform="translate(-0.498 0.232)">
       <g id="Group_14072" data-name="Group 14072" transform="translate(0.216 -0.498)">
         <g id="Rectangle_4467" data-name="Rectangle 4467" transform="translate(0.282 0.267)" fill="#fff"
@@ -378,7 +245,7 @@ export const DESIGN_ICONS: Partial<
                         <path d="M1 20H4V28H1V20Z" fill="#96A0B5" />
                         <path d="M4 24H6V30H4V24Z" fill="#96A0B5" />
                       </svg>`,
-    [designIconKeys.FRENCH_OPENABLE_ARROW_TOWARDS_OUTSIDE]: `<svg
+    [designIconKeys.FRENCH_OPENABLE_ARROW_HANDLE_OUTSIDE]: `<svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="40"
                         height="50"
@@ -468,7 +335,7 @@ export const DESIGN_ICONS: Partial<
                           />
                         </g>
                       </svg>`,
-    [designIconKeys.FRENCH_OPENABLE_ARROW_AWAY_OUTSIDE]: `<svg
+    [designIconKeys.FRENCH_OPENABLE_ARROW_HINGE_OUTSIDE]: `<svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="40"
                         height="50"

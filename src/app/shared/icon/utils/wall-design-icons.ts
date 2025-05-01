@@ -1,30 +1,20 @@
-import { IconPrefix, IconPrefixType } from '../models/icon.model';
+import { IconPrefix } from '../models/icon-prefix';
+import { IconPrefixType } from '../models/icon.model';
 
 export const wallDesignIconKeys = {
   STICK_CURTAIN_WALL_FIXED_WINDOW: 'stickCurtainWallFixedWindow',
-
-  // Right handle sash (can be mirrored for left + own side) — total 8 images
-  STICK_CURTAIN_WALL_RIGHT_HANDLE_SASH_ARROW_AWAY_OUTSIDE:
-    'stickCurtainWallRightHandleSashArrowAwayOutside',
-  STICK_CURTAIN_WALL_RIGHT_HANDLE_SASH_ARROW_TOWARDS_OUTSIDE:
-    'stickCurtainWallRightHandleSashArrowTowardsOutside',
-
-  // Bottom handle sash (can be mirrored) — total 2 images
+  STICK_CURTAIN_WALL_RIGHT_HANDLE_SASH_ARROW_AWAY_OUTSIDE: 'stickCurtainWallRightHandleSashArrowAwayOutside',
+  STICK_CURTAIN_WALL_RIGHT_HANDLE_SASH_ARROW_TOWARDS_OUTSIDE: 'stickCurtainWallRightHandleSashArrowTowardsOutside',
   STICK_CURTAIN_WALL_BOTTOM_HANDLE_SASH: 'stickCurtainWallBottomHandleSash',
-
-  // Tilt & Turn right handle (can be mirrored for left + own side) — total 8 images
   STICK_CURTAIN_WALL_TILT_AND_TURN_RIGHT_HANDLE_ARROW_AWAY_OUTSIDE:
     'stickCurtainWallTiltAndTurnRightHandleArrowAwayOutside',
   STICK_CURTAIN_WALL_TILT_AND_TURN_RIGHT_HANDLE_ARROW_TOWARDS_OUTSIDE:
     'stickCurtainWallTiltAndTurnRightHandleArrowTowardsOutside',
 } as const;
 
-export type IconKey =
-  (typeof wallDesignIconKeys)[keyof typeof wallDesignIconKeys];
+export type IconKey = typeof wallDesignIconKeys[keyof typeof wallDesignIconKeys];
 
-export const WALL_DESIGN_ICONS: Partial<
-  Record<IconPrefixType, Partial<Record<IconKey, string>>>
-> = {
+export const WALL_DESIGN_ICONS: Partial<Record<IconPrefixType, Partial<Record<IconKey, string>>>> = {
   [IconPrefix.STICK_CURTAIN_WALL_DESIGN]: {
     [wallDesignIconKeys.STICK_CURTAIN_WALL_FIXED_WINDOW]: `<svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -61,7 +51,6 @@ export const WALL_DESIGN_ICONS: Partial<
                         </g>
                       </svg>`,
     [wallDesignIconKeys.STICK_CURTAIN_WALL_RIGHT_HANDLE_SASH_ARROW_AWAY_OUTSIDE]: `<svg
-                      *ngIf="!arrowTowardsHandle && viewHandleFromOutside"
                       xmlns="http://www.w3.org/2000/svg"
                       width="40"
                       height="50"
@@ -121,7 +110,6 @@ export const WALL_DESIGN_ICONS: Partial<
                       </g>
                     </svg>`,
     [wallDesignIconKeys.STICK_CURTAIN_WALL_RIGHT_HANDLE_SASH_ARROW_TOWARDS_OUTSIDE]: `<svg
-                      *ngIf="arrowTowardsHandle && viewHandleFromOutside"
                       xmlns="http://www.w3.org/2000/svg"
                       width="40"
                       height="50"
@@ -181,7 +169,6 @@ export const WALL_DESIGN_ICONS: Partial<
                       </g>
                     </svg>`,
     [wallDesignIconKeys.STICK_CURTAIN_WALL_BOTTOM_HANDLE_SASH]: `<svg
-                    *ngIf="arrowTowardsHandle"
                     xmlns="http://www.w3.org/2000/svg"
                     width="40"
                     height="50"
@@ -241,7 +228,6 @@ export const WALL_DESIGN_ICONS: Partial<
                     </g>
                   </svg>`,
     [wallDesignIconKeys.STICK_CURTAIN_WALL_TILT_AND_TURN_RIGHT_HANDLE_ARROW_TOWARDS_OUTSIDE]: `<svg
-                  *ngIf="arrowTowardsHandle && viewHandleFromOutside"
                   xmlns="http://www.w3.org/2000/svg"
                   width="40"
                   height="50"
@@ -314,7 +300,6 @@ export const WALL_DESIGN_ICONS: Partial<
                   </g>
                 </svg>`,
     [wallDesignIconKeys.STICK_CURTAIN_WALL_TILT_AND_TURN_RIGHT_HANDLE_ARROW_AWAY_OUTSIDE]: `<svg
-                  *ngIf="!arrowTowardsHandle && viewHandleFromOutside"
                   xmlns="http://www.w3.org/2000/svg"
                   width="40"
                   height="50"
