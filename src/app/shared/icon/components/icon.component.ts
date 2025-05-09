@@ -1,4 +1,11 @@
-import { Component, ElementRef, Input, OnChanges, Renderer2, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  Input,
+  OnChanges,
+  Renderer2,
+  SimpleChanges,
+} from '@angular/core';
 import { SafeHtml } from '@angular/platform-browser';
 import { IconConfig } from '../models/icon-config';
 import { IconCategoryType, IconPrefixType } from '../models/icon.model';
@@ -20,40 +27,54 @@ export class IconComponent implements OnChanges {
   icon: SafeHtml | null = null;
   private uniqueClass = 'icon-' + Math.random().toString(36).substring(2, 8);
 
-  constructor(private iconService: IconService, private renderer: Renderer2, private el: ElementRef) {}
+  constructor(
+    private iconService: IconService,
+    private renderer: Renderer2,
+    private el: ElementRef
+  ) {}
 
   ngAfterViewInit(): void {
     this.applyIconStyles();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (this.category && this.prefix && this.name && changes['name']?.currentValue) {
-      this.icon = this.iconService.getIcon(this.category, this.prefix, this.name);
+    if (
+      this.category &&
+      this.prefix &&
+      this.name &&
+      changes['name']?.currentValue
+    ) {
+      this.icon = this.iconService.getIcon(
+        this.category,
+        this.prefix,
+        this.name
+      );
     }
   }
 
   private applyIconStyles(): void {
     setTimeout(() => {
-      const svgEl: SVGElement | null = this.el.nativeElement.querySelector('svg');
+      const svgEl: SVGElement | null =
+        this.el.nativeElement.querySelector('svg');
       if (!svgEl || !this.config) return;
 
       this.renderer.addClass(svgEl, 'app-icon-svg');
       this.renderer.addClass(svgEl, this.uniqueClass);
 
-      this.setAttr(svgEl, 'stroke', this.config.stroke);
-      this.setAttr(svgEl, 'fill', this.config.fill);
-      this.setAttr(svgEl, 'stroke-width', this.config.strokeWidth);
-      // this.setAttr(svgEl, 'viewBox', this.config.viewBox);
-      // this.setAttr(svgEl, 'role', this.config.role || 'img');
-      // this.setAttr(svgEl, 'aria-label', this.config.ariaLabel || this.name);
-      // this.setAttr(svgEl, 'tabindex', this.config.tabIndex?.toString());
+      this.setAttr(svgEl, 'stroke', this.config?.stroke);
+      this.setAttr(svgEl, 'fill', this.config?.fill);
+      this.setAttr(svgEl, 'stroke-width', this.config?.strokeWidth);
+      // this.setAttr(svgEl, 'viewBox', this.config?.viewBox);
+      // this.setAttr(svgEl, 'role', this.config?.role || 'img');
+      // this.setAttr(svgEl, 'aria-label', this.config?.ariaLabel || this.name);
+      // this.setAttr(svgEl, 'tabindex', this.config?.tabIndex?.toString());
 
-      this.setStyle(svgEl, 'width', this.config.width);
-      this.setStyle(svgEl, 'height', this.config.height);
-      this.setStyle(svgEl, 'transition', this.config.transition);
+      this.setStyle(svgEl, 'width', this.config?.width);
+      this.setStyle(svgEl, 'height', this.config?.height);
+      this.setStyle(svgEl, 'transition', this.config?.transition);
 
-      if (this.config.customClass) {
-        this.renderer.addClass(svgEl, this.config.customClass);
+      if (this.config?.customClass) {
+        this.renderer.addClass(svgEl, this.config?.customClass);
       }
 
       this.injectDynamicCss();
@@ -75,18 +96,39 @@ export class IconComponent implements OnChanges {
   private injectDynamicCss(): void {
     let css = '';
 
-    const parentSelector = this.config.parentSelector;
-    const hover = this.config.hoverFill || this.config.hoverStroke || this.config.hoverScale;
-    const active = this.config.activeFill || this.config.activeStroke || this.config.activeScale;
-    const disabled = this.config.disabledFill || this.config.disabledStroke || this.config.disabledScale;
+    const parentSelector = this.config?.parentSelector;
+    const hover =
+      this.config?.hoverFill ||
+      this.config?.hoverStroke ||
+      this.config?.hoverScale;
+    const active =
+      this.config?.activeFill ||
+      this.config?.activeStroke ||
+      this.config?.activeScale;
+    const disabled =
+      this.config?.disabledFill ||
+      this.config?.disabledStroke ||
+      this.config?.disabledScale;
 
     if (hover) {
       css += `
         .${this.uniqueClass}:hover,
         ${parentSelector}:hover .${this.uniqueClass} {
-          ${this.config.hoverFill ? `fill: ${this.config.hoverFill} !important;` : ''}
-          ${this.config.hoverStroke ? `stroke: ${this.config.hoverStroke} !important;` : ''}
-          ${this.config.hoverScale ? `transform: scale(${this.config.hoverScale}) !important;` : ''}
+          ${
+            this.config?.hoverFill
+              ? `fill: ${this.config?.hoverFill} !important;`
+              : ''
+          }
+          ${
+            this.config?.hoverStroke
+              ? `stroke: ${this.config?.hoverStroke} !important;`
+              : ''
+          }
+          ${
+            this.config?.hoverScale
+              ? `transform: scale(${this.config?.hoverScale}) !important;`
+              : ''
+          }
         }
       `;
     }
@@ -98,9 +140,21 @@ export class IconComponent implements OnChanges {
          ${parentSelector}.active .${this.uniqueClass},
          ${parentSelector}.show .${this.uniqueClass},
          ${parentSelector}[aria-current="true"] .${this.uniqueClass} {
-          ${this.config.activeFill ? `fill: ${this.config.activeFill} !important;` : ''}
-          ${this.config.activeStroke ? `stroke: ${this.config.activeStroke} !important;` : ''}
-           ${this.config.activeScale ? `transform: scale(${this.config.activeScale}) !important;` : ''}
+          ${
+            this.config?.activeFill
+              ? `fill: ${this.config?.activeFill} !important;`
+              : ''
+          }
+          ${
+            this.config?.activeStroke
+              ? `stroke: ${this.config?.activeStroke} !important;`
+              : ''
+          }
+           ${
+             this.config?.activeScale
+               ? `transform: scale(${this.config?.activeScale}) !important;`
+               : ''
+           }
         }
       `;
     }
@@ -113,9 +167,21 @@ export class IconComponent implements OnChanges {
         ${parentSelector}[disabled] ${this.uniqueClass} {
           pointer-events: none;
           opacity: 0.6;
-          ${this.config.disabledFill ? `fill: ${this.config.disabledFill} !important;` : ''}
-          ${this.config.disabledStroke ? `stroke: ${this.config.disabledStroke} !important;` : ''}
-          ${this.config.disabledScale ? `transform: scale(${this.config.disabledScale}) !important;` : ''}
+          ${
+            this.config?.disabledFill
+              ? `fill: ${this.config?.disabledFill} !important;`
+              : ''
+          }
+          ${
+            this.config?.disabledStroke
+              ? `stroke: ${this.config?.disabledStroke} !important;`
+              : ''
+          }
+          ${
+            this.config?.disabledScale
+              ? `transform: scale(${this.config?.disabledScale}) !important;`
+              : ''
+          }
         }
       `;
     }
