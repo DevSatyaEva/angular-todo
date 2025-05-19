@@ -1,0 +1,1790 @@
+<div class="wrapper form-wrapper p-md-0">
+  <header>
+    <div class="container p-0">
+      <!-- // (•_•) // bradecrumb // // -->
+      <PageHeader headerName="Advance formula" [showBreadcrumbs]="true" [breadcrumbs]="breadcrumbData"></PageHeader>
+      <!-- // (•_•) // bradecrumb \\ \\ -->
+    </div>
+  </header>
+
+  <div class="container container-form p-0">
+    <div class="eds-form-style">
+      <section class="padding-top">
+        <div class="subtitle-1 mb-20" translate>Fabrication Labour</div>
+      </section>
+
+      <div class="d-flex align-items-center justify-content-between mb-20">
+        <div>
+          <span class="subtitle-2">Conditions</span>
+        </div>
+        <div class="rates">
+          <span class="subtitle-2">Rates</span>
+        </div>
+      </div>
+
+      <div class="accordion" id="accordionConditions" *ngFor="let block of blocks; let i = index">
+        <div class="accordion-item position-relative" *ngIf="block === 'IF'">
+          <div class="d-flex align-items-center justify-content-between row-condition-wrapper position-relative">
+            <div class="d-flex align-items-center justify-content-between row-condition w-100">
+              <div class="c-pointer header" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 25" fill="none">
+                  <path
+                    d="M6 9.04626L12 15.0463L18 9.04626"
+                    stroke="#44546F"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+              <div>
+                <span class="body-1 text-uppercase if-else d-block custom-lozenge text-center">IF</span>
+              </div>
+              <div class="w-100">
+                <app-select
+                  ngClass="mb-0"
+                  [options]="comparableOptions"
+                  optionId="id"
+                  optionValue="name"
+                  formControlName="comparable"
+                ></app-select>
+              </div>
+              <div class="w-100">
+                <app-select ngClass="mb-0" [options]="comparatorOptions" optionId="id" optionValue="name"></app-select>
+              </div>
+              <div class="w-100">
+                <app-select ngClass="mb-0" [options]="valueOptions" optionId="id" optionValue="name"></app-select>
+              </div>
+              <div>
+                <span class="body-1 text-uppercase">THEN</span>
+              </div>
+            </div>
+            <div>
+              <div class="rates d-flex align-items-center">
+                <div>
+                  <app-text-field ngClass="mb-0"></app-text-field>
+                </div>
+                <div
+                  class="c-pointer condition-icon disabled"
+                  [tooltip]="'Add condition' | translate"
+                  placement="top"
+                  container="body"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="14" viewBox="0 0 12 14" fill="none">
+                    <path
+                      d="M3.07947 11.0924V5.09241M3.41248 11.0924H6.99999M1.74613 1.09241H4.4128C4.78099 1.09241 5.07947 1.39088 5.07947 1.75907V4.42574C5.07947 4.79393 4.78099 5.09241 4.4128 5.09241H1.74613C1.37794 5.09241 1.07947 4.79393 1.07947 4.42574V1.75907C1.07947 1.39088 1.37794 1.09241 1.74613 1.09241ZM6.99999 12.4257V9.75907C6.99999 9.39088 7.29846 9.09241 7.66665 9.09241L10.3333 9.09241C10.7015 9.09241 11 9.39088 11 9.75907V12.4257C11 12.7939 10.7015 13.0924 10.3333 13.0924H7.66665C7.29846 13.0924 6.99999 12.7939 6.99999 12.4257Z"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionConditions">
+            <div class="accordion-body w-100">
+              <div
+                class="d-flex flex-column align-items-start justify-content-between row-condition-wrapper row-and position-relative"
+              >
+                <div class="d-flex align-items-center justify-content-between w-100">
+                  <div class="d-flex align-items-center justify-content-between row-condition w-100">
+                    <div>
+                      <span class="body-1 text-uppercase and-or d-block custom-lozenge text-center">And</span>
+                    </div>
+                    <div class="w-100">
+                      <app-select ngClass="mb-0"></app-select>
+                    </div>
+                    <div class="w-100">
+                      <app-select ngClass="mb-0"></app-select>
+                    </div>
+                    <div class="w-100">
+                      <app-select ngClass="mb-0"></app-select>
+                    </div>
+                    <div>
+                      <span class="body-1 text-uppercase">THEN</span>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="rates d-flex align-items-center">
+                      <div>
+                        <app-text-field ngClass="mb-0"></app-text-field>
+                      </div>
+                      <div
+                        class="c-pointer condition-icon disabled"
+                        [tooltip]="'Add condition' | translate"
+                        placement="top"
+                        container="body"
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="14" viewBox="0 0 12 14" fill="none">
+                          <path
+                            d="M3.07947 11.0924V5.09241M3.41248 11.0924H6.99999M1.74613 1.09241H4.4128C4.78099 1.09241 5.07947 1.39088 5.07947 1.75907V4.42574C5.07947 4.79393 4.78099 5.09241 4.4128 5.09241H1.74613C1.37794 5.09241 1.07947 4.79393 1.07947 4.42574V1.75907C1.07947 1.39088 1.37794 1.09241 1.74613 1.09241ZM6.99999 12.4257V9.75907C6.99999 9.39088 7.29846 9.09241 7.66665 9.09241L10.3333 9.09241C10.7015 9.09241 11 9.39088 11 9.75907V12.4257C11 12.7939 10.7015 13.0924 10.3333 13.0924H7.66665C7.29846 13.0924 6.99999 12.7939 6.99999 12.4257Z"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                      </div>
+                      <div
+                        class="c-pointer remove-icon"
+                        [tooltip]="'Remove condition' | translate"
+                        placement="top"
+                        container="body"
+                        (click)="deleteCondition()"
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
+                          <g>
+                            <path
+                              d="M2.66669 4.75903H13.3334"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <path
+                              d="M6.66669 7.42578V11.4258"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <path
+                              d="M9.33331 7.42578V11.4258"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <path
+                              d="M3.33331 4.75903L3.99998 12.759C3.99998 13.1127 4.14046 13.4518 4.3905 13.7018C4.64055 13.9519 4.97969 14.0924 5.33331 14.0924H10.6666C11.0203 14.0924 11.3594 13.9519 11.6095 13.7018C11.8595 13.4518 12 13.1127 12 12.759L12.6666 4.75903"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <path
+                              d="M6 4.75907V2.75907C6 2.58226 6.07024 2.41269 6.19526 2.28767C6.32029 2.16265 6.48986 2.09241 6.66667 2.09241H9.33333C9.51014 2.09241 9.67971 2.16265 9.80474 2.28767C9.92976 2.41269 10 2.58226 10 2.75907V4.75907"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </g>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion-body w-100">
+                  <div
+                    class="d-flex flex-column align-items-start justify-content-between row-condition-wrapper row-and position-relative"
+                  >
+                    <div class="d-flex align-items-center justify-content-between w-100">
+                      <div class="d-flex align-items-center justify-content-between row-condition w-100">
+                        <div>
+                          <span class="body-1 text-uppercase and-or d-block custom-lozenge text-center">And</span>
+                        </div>
+                        <div class="w-100">
+                          <app-select ngClass="mb-0"></app-select>
+                        </div>
+                        <div class="w-100">
+                          <app-select ngClass="mb-0"></app-select>
+                        </div>
+                        <div class="w-100">
+                          <app-select ngClass="mb-0"></app-select>
+                        </div>
+                        <div>
+                          <span class="body-1 text-uppercase">THEN</span>
+                        </div>
+                      </div>
+                      <div>
+                        <div class="rates d-flex align-items-center">
+                          <div>
+                            <app-text-field ngClass="mb-0"></app-text-field>
+                          </div>
+                          <div
+                            class="c-pointer condition-icon"
+                            [tooltip]="'Add condition' | translate"
+                            placement="top"
+                            container="body"
+                          >
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="12"
+                              height="14"
+                              viewBox="0 0 12 14"
+                              fill="none"
+                            >
+                              <path
+                                d="M3.07947 11.0924V5.09241M3.41248 11.0924H6.99999M1.74613 1.09241H4.4128C4.78099 1.09241 5.07947 1.39088 5.07947 1.75907V4.42574C5.07947 4.79393 4.78099 5.09241 4.4128 5.09241H1.74613C1.37794 5.09241 1.07947 4.79393 1.07947 4.42574V1.75907C1.07947 1.39088 1.37794 1.09241 1.74613 1.09241ZM6.99999 12.4257V9.75907C6.99999 9.39088 7.29846 9.09241 7.66665 9.09241L10.3333 9.09241C10.7015 9.09241 11 9.39088 11 9.75907V12.4257C11 12.7939 10.7015 13.0924 10.3333 13.0924H7.66665C7.29846 13.0924 6.99999 12.7939 6.99999 12.4257Z"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+                          </div>
+                          <div
+                            class="c-pointer remove-icon"
+                            [tooltip]="'Remove condition' | translate"
+                            placement="top"
+                            container="body"
+                          >
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="16"
+                              height="17"
+                              viewBox="0 0 16 17"
+                              fill="none"
+                            >
+                              <g>
+                                <path
+                                  d="M2.66669 4.75903H13.3334"
+                                  stroke-width="1.5"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                />
+                                <path
+                                  d="M6.66669 7.42578V11.4258"
+                                  stroke-width="1.5"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                />
+                                <path
+                                  d="M9.33331 7.42578V11.4258"
+                                  stroke-width="1.5"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                />
+                                <path
+                                  d="M3.33331 4.75903L3.99998 12.759C3.99998 13.1127 4.14046 13.4518 4.3905 13.7018C4.64055 13.9519 4.97969 14.0924 5.33331 14.0924H10.6666C11.0203 14.0924 11.3594 13.9519 11.6095 13.7018C11.8595 13.4518 12 13.1127 12 12.759L12.6666 4.75903"
+                                  stroke-width="1.5"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                />
+                                <path
+                                  d="M6 4.75907V2.75907C6 2.58226 6.07024 2.41269 6.19526 2.28767C6.32029 2.16265 6.48986 2.09241 6.66667 2.09241H9.33333C9.51014 2.09241 9.67971 2.16265 9.80474 2.28767C9.92976 2.41269 10 2.58226 10 2.75907V4.75907"
+                                  stroke-width="1.5"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                />
+                              </g>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="accordion-body w-100">
+                      <div
+                        class="d-flex flex-column align-items-start justify-content-between row-condition-wrapper row-and position-relative"
+                      >
+                        <div class="d-flex align-items-center justify-content-between w-100">
+                          <div class="d-flex align-items-center justify-content-between row-condition w-100">
+                            <div>
+                              <span class="body-1 text-uppercase and-or d-block custom-lozenge text-center">And</span>
+                            </div>
+                            <div class="w-100">
+                              <app-select ngClass="mb-0"></app-select>
+                            </div>
+                            <div class="w-100">
+                              <app-select ngClass="mb-0"></app-select>
+                            </div>
+                            <div class="w-100">
+                              <app-select ngClass="mb-0"></app-select>
+                            </div>
+                            <div>
+                              <span class="body-1 text-uppercase">THEN</span>
+                            </div>
+                          </div>
+                          <div>
+                            <div class="rates d-flex align-items-center">
+                              <div>
+                                <app-text-field ngClass="mb-0"></app-text-field>
+                              </div>
+                              <div
+                                class="c-pointer condition-icon"
+                                [tooltip]="'Add condition' | translate"
+                                placement="top"
+                                container="body"
+                              >
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="12"
+                                  height="14"
+                                  viewBox="0 0 12 14"
+                                  fill="none"
+                                >
+                                  <path
+                                    d="M3.07947 11.0924V5.09241M3.41248 11.0924H6.99999M1.74613 1.09241H4.4128C4.78099 1.09241 5.07947 1.39088 5.07947 1.75907V4.42574C5.07947 4.79393 4.78099 5.09241 4.4128 5.09241H1.74613C1.37794 5.09241 1.07947 4.79393 1.07947 4.42574V1.75907C1.07947 1.39088 1.37794 1.09241 1.74613 1.09241ZM6.99999 12.4257V9.75907C6.99999 9.39088 7.29846 9.09241 7.66665 9.09241L10.3333 9.09241C10.7015 9.09241 11 9.39088 11 9.75907V12.4257C11 12.7939 10.7015 13.0924 10.3333 13.0924H7.66665C7.29846 13.0924 6.99999 12.7939 6.99999 12.4257Z"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                  />
+                                </svg>
+                              </div>
+                              <div
+                                class="c-pointer remove-icon"
+                                [tooltip]="'Remove condition' | translate"
+                                placement="top"
+                                container="body"
+                                (click)="addCondition()"
+                              >
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="16"
+                                  height="17"
+                                  viewBox="0 0 16 17"
+                                  fill="none"
+                                >
+                                  <g>
+                                    <path
+                                      d="M2.66669 4.75903H13.3334"
+                                      stroke-width="1.5"
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                    />
+                                    <path
+                                      d="M6.66669 7.42578V11.4258"
+                                      stroke-width="1.5"
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                    />
+                                    <path
+                                      d="M9.33331 7.42578V11.4258"
+                                      stroke-width="1.5"
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                    />
+                                    <path
+                                      d="M3.33331 4.75903L3.99998 12.759C3.99998 13.1127 4.14046 13.4518 4.3905 13.7018C4.64055 13.9519 4.97969 14.0924 5.33331 14.0924H10.6666C11.0203 14.0924 11.3594 13.9519 11.6095 13.7018C11.8595 13.4518 12 13.1127 12 12.759L12.6666 4.75903"
+                                      stroke-width="1.5"
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                    />
+                                    <path
+                                      d="M6 4.75907V2.75907C6 2.58226 6.07024 2.41269 6.19526 2.28767C6.32029 2.16265 6.48986 2.09241 6.66667 2.09241H9.33333C9.51014 2.09241 9.67971 2.16265 9.80474 2.28767C9.92976 2.41269 10 2.58226 10 2.75907V4.75907"
+                                      stroke-width="1.5"
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                    />
+                                  </g>
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="d-flex flex-column align-items-center justify-content-between row-condition-wrapper row-or row-last position-relative"
+                      >
+                        <div class="d-flex align-items-center justify-content-between w-100">
+                          <div class="d-flex align-items-center justify-content-between row-condition w-100">
+                            <div>
+                              <span class="body-1 text-uppercase and-or d-block custom-lozenge text-center">Or</span>
+                            </div>
+                            <div class="w-100">
+                              <app-select ngClass="mb-0"></app-select>
+                            </div>
+                            <div class="w-100">
+                              <app-select ngClass="mb-0"></app-select>
+                            </div>
+                            <div class="w-100">
+                              <app-select ngClass="mb-0"></app-select>
+                            </div>
+                            <div>
+                              <span class="body-1 text-uppercase">THEN</span>
+                            </div>
+                          </div>
+                          <div>
+                            <div class="rates d-flex align-items-center">
+                              <div>
+                                <app-text-field ngClass="mb-0"></app-text-field>
+                              </div>
+                              <div
+                                class="c-pointer condition-icon"
+                                [tooltip]="'Add condition' | translate"
+                                placement="top"
+                                container="body"
+                              >
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="12"
+                                  height="14"
+                                  viewBox="0 0 12 14"
+                                  fill="none"
+                                >
+                                  <path
+                                    d="M3.07947 11.0924V5.09241M3.41248 11.0924H6.99999M1.74613 1.09241H4.4128C4.78099 1.09241 5.07947 1.39088 5.07947 1.75907V4.42574C5.07947 4.79393 4.78099 5.09241 4.4128 5.09241H1.74613C1.37794 5.09241 1.07947 4.79393 1.07947 4.42574V1.75907C1.07947 1.39088 1.37794 1.09241 1.74613 1.09241ZM6.99999 12.4257V9.75907C6.99999 9.39088 7.29846 9.09241 7.66665 9.09241L10.3333 9.09241C10.7015 9.09241 11 9.39088 11 9.75907V12.4257C11 12.7939 10.7015 13.0924 10.3333 13.0924H7.66665C7.29846 13.0924 6.99999 12.7939 6.99999 12.4257Z"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                  />
+                                </svg>
+                              </div>
+                              <div
+                                class="c-pointer remove-icon"
+                                [tooltip]="'Remove condition' | translate"
+                                placement="top"
+                                container="body"
+                              >
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="16"
+                                  height="17"
+                                  viewBox="0 0 16 17"
+                                  fill="none"
+                                >
+                                  <g>
+                                    <path
+                                      d="M2.66669 4.75903H13.3334"
+                                      stroke-width="1.5"
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                    />
+                                    <path
+                                      d="M6.66669 7.42578V11.4258"
+                                      stroke-width="1.5"
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                    />
+                                    <path
+                                      d="M9.33331 7.42578V11.4258"
+                                      stroke-width="1.5"
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                    />
+                                    <path
+                                      d="M3.33331 4.75903L3.99998 12.759C3.99998 13.1127 4.14046 13.4518 4.3905 13.7018C4.64055 13.9519 4.97969 14.0924 5.33331 14.0924H10.6666C11.0203 14.0924 11.3594 13.9519 11.6095 13.7018C11.8595 13.4518 12 13.1127 12 12.759L12.6666 4.75903"
+                                      stroke-width="1.5"
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                    />
+                                    <path
+                                      d="M6 4.75907V2.75907C6 2.58226 6.07024 2.41269 6.19526 2.28767C6.32029 2.16265 6.48986 2.09241 6.66667 2.09241H9.33333C9.51014 2.09241 9.67971 2.16265 9.80474 2.28767C9.92976 2.41269 10 2.58226 10 2.75907V4.75907"
+                                      stroke-width="1.5"
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                    />
+                                  </g>
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="new-condition position-relative">
+                        <button class="btn eva-btn body-1 eva-btn-link" translate>
+                          <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 17">
+                              <path
+                                fill-rule="evenodd"
+                                clip-rule="evenodd"
+                                d="M8.66667 7.83334V3.162C8.66596 2.98584 8.59535 2.81716 8.47035 2.69303C8.34534 2.5689 8.17617 2.49947 8 2.5C7.62934 2.5 7.33334 2.79667 7.33334 3.162V7.83334H2.662C2.48584 7.83404 2.31716 7.90466 2.19303 8.02966C2.0689 8.15467 1.99947 8.32384 2 8.5C2 8.87134 2.29667 9.16667 2.662 9.16667H7.33334V13.838C7.33334 14.2033 7.632 14.5 8 14.5C8.37067 14.5 8.66667 14.2033 8.66667 13.838V9.16667H13.338C13.5142 9.16596 13.6828 9.09535 13.807 8.97035C13.9311 8.84534 14.0005 8.67617 14 8.5C14 8.12934 13.7033 7.83334 13.338 7.83334H8.66667Z"
+                              />
+                            </svg>
+                          </span>
+                          Condition
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="d-flex flex-column align-items-center justify-content-between row-condition-wrapper row-or row-last position-relative"
+                  >
+                    <div class="d-flex align-items-center justify-content-between w-100">
+                      <div class="d-flex align-items-center justify-content-between row-condition w-100">
+                        <div>
+                          <span class="body-1 text-uppercase and-or d-block custom-lozenge text-center">Or</span>
+                        </div>
+                        <div class="w-100">
+                          <app-select ngClass="mb-0"></app-select>
+                        </div>
+                        <div class="w-100">
+                          <app-select ngClass="mb-0"></app-select>
+                        </div>
+                        <div class="w-100">
+                          <app-select ngClass="mb-0"></app-select>
+                        </div>
+                        <div>
+                          <span class="body-1 text-uppercase">THEN</span>
+                        </div>
+                      </div>
+                      <div>
+                        <div class="rates d-flex align-items-center">
+                          <div>
+                            <app-text-field ngClass="mb-0"></app-text-field>
+                          </div>
+                          <div
+                            class="c-pointer condition-icon"
+                            [tooltip]="'Add condition' | translate"
+                            placement="top"
+                            container="body"
+                          >
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="12"
+                              height="14"
+                              viewBox="0 0 12 14"
+                              fill="none"
+                            >
+                              <path
+                                d="M3.07947 11.0924V5.09241M3.41248 11.0924H6.99999M1.74613 1.09241H4.4128C4.78099 1.09241 5.07947 1.39088 5.07947 1.75907V4.42574C5.07947 4.79393 4.78099 5.09241 4.4128 5.09241H1.74613C1.37794 5.09241 1.07947 4.79393 1.07947 4.42574V1.75907C1.07947 1.39088 1.37794 1.09241 1.74613 1.09241ZM6.99999 12.4257V9.75907C6.99999 9.39088 7.29846 9.09241 7.66665 9.09241L10.3333 9.09241C10.7015 9.09241 11 9.39088 11 9.75907V12.4257C11 12.7939 10.7015 13.0924 10.3333 13.0924H7.66665C7.29846 13.0924 6.99999 12.7939 6.99999 12.4257Z"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+                          </div>
+                          <div
+                            class="c-pointer remove-icon"
+                            [tooltip]="'Remove condition' | translate"
+                            placement="top"
+                            container="body"
+                          >
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="16"
+                              height="17"
+                              viewBox="0 0 16 17"
+                              fill="none"
+                            >
+                              <g>
+                                <path
+                                  d="M2.66669 4.75903H13.3334"
+                                  stroke-width="1.5"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                />
+                                <path
+                                  d="M6.66669 7.42578V11.4258"
+                                  stroke-width="1.5"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                />
+                                <path
+                                  d="M9.33331 7.42578V11.4258"
+                                  stroke-width="1.5"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                />
+                                <path
+                                  d="M3.33331 4.75903L3.99998 12.759C3.99998 13.1127 4.14046 13.4518 4.3905 13.7018C4.64055 13.9519 4.97969 14.0924 5.33331 14.0924H10.6666C11.0203 14.0924 11.3594 13.9519 11.6095 13.7018C11.8595 13.4518 12 13.1127 12 12.759L12.6666 4.75903"
+                                  stroke-width="1.5"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                />
+                                <path
+                                  d="M6 4.75907V2.75907C6 2.58226 6.07024 2.41269 6.19526 2.28767C6.32029 2.16265 6.48986 2.09241 6.66667 2.09241H9.33333C9.51014 2.09241 9.67971 2.16265 9.80474 2.28767C9.92976 2.41269 10 2.58226 10 2.75907V4.75907"
+                                  stroke-width="1.5"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                />
+                              </g>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="accordion-body w-100">
+                      <div
+                        class="d-flex flex-column align-items-start justify-content-between row-condition-wrapper row-and position-relative"
+                      >
+                        <div class="d-flex align-items-center justify-content-between w-100">
+                          <div class="d-flex align-items-center justify-content-between row-condition w-100">
+                            <div>
+                              <span class="body-1 text-uppercase and-or d-block custom-lozenge text-center">And</span>
+                            </div>
+                            <div class="w-100">
+                              <app-select ngClass="mb-0"></app-select>
+                            </div>
+                            <div class="w-100">
+                              <app-select ngClass="mb-0"></app-select>
+                            </div>
+                            <div class="w-100">
+                              <app-select ngClass="mb-0"></app-select>
+                            </div>
+                            <div>
+                              <span class="body-1 text-uppercase">THEN</span>
+                            </div>
+                          </div>
+                          <div>
+                            <div class="rates d-flex align-items-center">
+                              <div>
+                                <app-text-field ngClass="mb-0"></app-text-field>
+                              </div>
+                              <div
+                                class="c-pointer condition-icon"
+                                [tooltip]="'Add condition' | translate"
+                                placement="top"
+                                container="body"
+                              >
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="12"
+                                  height="14"
+                                  viewBox="0 0 12 14"
+                                  fill="none"
+                                >
+                                  <path
+                                    d="M3.07947 11.0924V5.09241M3.41248 11.0924H6.99999M1.74613 1.09241H4.4128C4.78099 1.09241 5.07947 1.39088 5.07947 1.75907V4.42574C5.07947 4.79393 4.78099 5.09241 4.4128 5.09241H1.74613C1.37794 5.09241 1.07947 4.79393 1.07947 4.42574V1.75907C1.07947 1.39088 1.37794 1.09241 1.74613 1.09241ZM6.99999 12.4257V9.75907C6.99999 9.39088 7.29846 9.09241 7.66665 9.09241L10.3333 9.09241C10.7015 9.09241 11 9.39088 11 9.75907V12.4257C11 12.7939 10.7015 13.0924 10.3333 13.0924H7.66665C7.29846 13.0924 6.99999 12.7939 6.99999 12.4257Z"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                  />
+                                </svg>
+                              </div>
+                              <div
+                                class="c-pointer remove-icon"
+                                [tooltip]="'Remove condition' | translate"
+                                placement="top"
+                                container="body"
+                              >
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="16"
+                                  height="17"
+                                  viewBox="0 0 16 17"
+                                  fill="none"
+                                >
+                                  <g>
+                                    <path
+                                      d="M2.66669 4.75903H13.3334"
+                                      stroke-width="1.5"
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                    />
+                                    <path
+                                      d="M6.66669 7.42578V11.4258"
+                                      stroke-width="1.5"
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                    />
+                                    <path
+                                      d="M9.33331 7.42578V11.4258"
+                                      stroke-width="1.5"
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                    />
+                                    <path
+                                      d="M3.33331 4.75903L3.99998 12.759C3.99998 13.1127 4.14046 13.4518 4.3905 13.7018C4.64055 13.9519 4.97969 14.0924 5.33331 14.0924H10.6666C11.0203 14.0924 11.3594 13.9519 11.6095 13.7018C11.8595 13.4518 12 13.1127 12 12.759L12.6666 4.75903"
+                                      stroke-width="1.5"
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                    />
+                                    <path
+                                      d="M6 4.75907V2.75907C6 2.58226 6.07024 2.41269 6.19526 2.28767C6.32029 2.16265 6.48986 2.09241 6.66667 2.09241H9.33333C9.51014 2.09241 9.67971 2.16265 9.80474 2.28767C9.92976 2.41269 10 2.58226 10 2.75907V4.75907"
+                                      stroke-width="1.5"
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                    />
+                                  </g>
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="d-flex flex-column align-items-center justify-content-between row-condition-wrapper row-or row-last position-relative"
+                      >
+                        <div class="d-flex align-items-center justify-content-between w-100">
+                          <div class="d-flex align-items-center justify-content-between row-condition w-100">
+                            <div>
+                              <span class="body-1 text-uppercase and-or d-block custom-lozenge text-center">Or</span>
+                            </div>
+                            <div class="w-100">
+                              <app-select ngClass="mb-0"></app-select>
+                            </div>
+                            <div class="w-100">
+                              <app-select ngClass="mb-0"></app-select>
+                            </div>
+                            <div class="w-100">
+                              <app-select ngClass="mb-0"></app-select>
+                            </div>
+                            <div>
+                              <span class="body-1 text-uppercase">THEN</span>
+                            </div>
+                          </div>
+                          <div>
+                            <div class="rates d-flex align-items-center">
+                              <div>
+                                <app-text-field ngClass="mb-0"></app-text-field>
+                              </div>
+                              <div
+                                class="c-pointer condition-icon"
+                                [tooltip]="'Add condition' | translate"
+                                placement="top"
+                                container="body"
+                              >
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="12"
+                                  height="14"
+                                  viewBox="0 0 12 14"
+                                  fill="none"
+                                >
+                                  <path
+                                    d="M3.07947 11.0924V5.09241M3.41248 11.0924H6.99999M1.74613 1.09241H4.4128C4.78099 1.09241 5.07947 1.39088 5.07947 1.75907V4.42574C5.07947 4.79393 4.78099 5.09241 4.4128 5.09241H1.74613C1.37794 5.09241 1.07947 4.79393 1.07947 4.42574V1.75907C1.07947 1.39088 1.37794 1.09241 1.74613 1.09241ZM6.99999 12.4257V9.75907C6.99999 9.39088 7.29846 9.09241 7.66665 9.09241L10.3333 9.09241C10.7015 9.09241 11 9.39088 11 9.75907V12.4257C11 12.7939 10.7015 13.0924 10.3333 13.0924H7.66665C7.29846 13.0924 6.99999 12.7939 6.99999 12.4257Z"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                  />
+                                </svg>
+                              </div>
+                              <div
+                                class="c-pointer remove-icon"
+                                [tooltip]="'Remove condition' | translate"
+                                placement="top"
+                                container="body"
+                              >
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="16"
+                                  height="17"
+                                  viewBox="0 0 16 17"
+                                  fill="none"
+                                >
+                                  <g>
+                                    <path
+                                      d="M2.66669 4.75903H13.3334"
+                                      stroke-width="1.5"
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                    />
+                                    <path
+                                      d="M6.66669 7.42578V11.4258"
+                                      stroke-width="1.5"
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                    />
+                                    <path
+                                      d="M9.33331 7.42578V11.4258"
+                                      stroke-width="1.5"
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                    />
+                                    <path
+                                      d="M3.33331 4.75903L3.99998 12.759C3.99998 13.1127 4.14046 13.4518 4.3905 13.7018C4.64055 13.9519 4.97969 14.0924 5.33331 14.0924H10.6666C11.0203 14.0924 11.3594 13.9519 11.6095 13.7018C11.8595 13.4518 12 13.1127 12 12.759L12.6666 4.75903"
+                                      stroke-width="1.5"
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                    />
+                                    <path
+                                      d="M6 4.75907V2.75907C6 2.58226 6.07024 2.41269 6.19526 2.28767C6.32029 2.16265 6.48986 2.09241 6.66667 2.09241H9.33333C9.51014 2.09241 9.67971 2.16265 9.80474 2.28767C9.92976 2.41269 10 2.58226 10 2.75907V4.75907"
+                                      stroke-width="1.5"
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                    />
+                                  </g>
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="new-condition position-relative">
+                        <button class="btn eva-btn body-1 eva-btn-link" translate>
+                          <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 17">
+                              <path
+                                fill-rule="evenodd"
+                                clip-rule="evenodd"
+                                d="M8.66667 7.83334V3.162C8.66596 2.98584 8.59535 2.81716 8.47035 2.69303C8.34534 2.5689 8.17617 2.49947 8 2.5C7.62934 2.5 7.33334 2.79667 7.33334 3.162V7.83334H2.662C2.48584 7.83404 2.31716 7.90466 2.19303 8.02966C2.0689 8.15467 1.99947 8.32384 2 8.5C2 8.87134 2.29667 9.16667 2.662 9.16667H7.33334V13.838C7.33334 14.2033 7.632 14.5 8 14.5C8.37067 14.5 8.66667 14.2033 8.66667 13.838V9.16667H13.338C13.5142 9.16596 13.6828 9.09535 13.807 8.97035C13.9311 8.84534 14.0005 8.67617 14 8.5C14 8.12934 13.7033 7.83334 13.338 7.83334H8.66667Z"
+                              />
+                            </svg>
+                          </span>
+                          Condition
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="new-condition position-relative">
+                    <button class="btn eva-btn body-1 eva-btn-link" translate>
+                      <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 17">
+                          <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M8.66667 7.83334V3.162C8.66596 2.98584 8.59535 2.81716 8.47035 2.69303C8.34534 2.5689 8.17617 2.49947 8 2.5C7.62934 2.5 7.33334 2.79667 7.33334 3.162V7.83334H2.662C2.48584 7.83404 2.31716 7.90466 2.19303 8.02966C2.0689 8.15467 1.99947 8.32384 2 8.5C2 8.87134 2.29667 9.16667 2.662 9.16667H7.33334V13.838C7.33334 14.2033 7.632 14.5 8 14.5C8.37067 14.5 8.66667 14.2033 8.66667 13.838V9.16667H13.338C13.5142 9.16596 13.6828 9.09535 13.807 8.97035C13.9311 8.84534 14.0005 8.67617 14 8.5C14 8.12934 13.7033 7.83334 13.338 7.83334H8.66667Z"
+                          />
+                        </svg>
+                      </span>
+                      Condition
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="d-flex flex-column align-items-center justify-content-between row-condition-wrapper row-or row-last position-relative"
+              >
+                <div class="d-flex align-items-center justify-content-between w-100">
+                  <div class="d-flex align-items-center justify-content-between row-condition w-100">
+                    <div>
+                      <span class="body-1 text-uppercase and-or d-block custom-lozenge text-center">Or</span>
+                    </div>
+                    <div class="w-100">
+                      <app-select ngClass="mb-0"></app-select>
+                    </div>
+                    <div class="w-100">
+                      <app-select ngClass="mb-0"></app-select>
+                    </div>
+                    <div class="w-100">
+                      <app-select ngClass="mb-0"></app-select>
+                    </div>
+                    <div>
+                      <span class="body-1 text-uppercase">THEN</span>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="rates d-flex align-items-center">
+                      <div>
+                        <app-text-field ngClass="mb-0"></app-text-field>
+                      </div>
+                      <div
+                        class="c-pointer condition-icon"
+                        [tooltip]="'Add condition' | translate"
+                        placement="top"
+                        container="body"
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="14" viewBox="0 0 12 14" fill="none">
+                          <path
+                            d="M3.07947 11.0924V5.09241M3.41248 11.0924H6.99999M1.74613 1.09241H4.4128C4.78099 1.09241 5.07947 1.39088 5.07947 1.75907V4.42574C5.07947 4.79393 4.78099 5.09241 4.4128 5.09241H1.74613C1.37794 5.09241 1.07947 4.79393 1.07947 4.42574V1.75907C1.07947 1.39088 1.37794 1.09241 1.74613 1.09241ZM6.99999 12.4257V9.75907C6.99999 9.39088 7.29846 9.09241 7.66665 9.09241L10.3333 9.09241C10.7015 9.09241 11 9.39088 11 9.75907V12.4257C11 12.7939 10.7015 13.0924 10.3333 13.0924H7.66665C7.29846 13.0924 6.99999 12.7939 6.99999 12.4257Z"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                      </div>
+                      <div
+                        class="c-pointer remove-icon"
+                        [tooltip]="'Remove condition' | translate"
+                        placement="top"
+                        container="body"
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
+                          <g>
+                            <path
+                              d="M2.66669 4.75903H13.3334"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <path
+                              d="M6.66669 7.42578V11.4258"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <path
+                              d="M9.33331 7.42578V11.4258"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <path
+                              d="M3.33331 4.75903L3.99998 12.759C3.99998 13.1127 4.14046 13.4518 4.3905 13.7018C4.64055 13.9519 4.97969 14.0924 5.33331 14.0924H10.6666C11.0203 14.0924 11.3594 13.9519 11.6095 13.7018C11.8595 13.4518 12 13.1127 12 12.759L12.6666 4.75903"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <path
+                              d="M6 4.75907V2.75907C6 2.58226 6.07024 2.41269 6.19526 2.28767C6.32029 2.16265 6.48986 2.09241 6.66667 2.09241H9.33333C9.51014 2.09241 9.67971 2.16265 9.80474 2.28767C9.92976 2.41269 10 2.58226 10 2.75907V4.75907"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </g>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="new-condition position-relative">
+                <button class="btn eva-btn body-1 eva-btn-link" translate>
+                  <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 17">
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M8.66667 7.83334V3.162C8.66596 2.98584 8.59535 2.81716 8.47035 2.69303C8.34534 2.5689 8.17617 2.49947 8 2.5C7.62934 2.5 7.33334 2.79667 7.33334 3.162V7.83334H2.662C2.48584 7.83404 2.31716 7.90466 2.19303 8.02966C2.0689 8.15467 1.99947 8.32384 2 8.5C2 8.87134 2.29667 9.16667 2.662 9.16667H7.33334V13.838C7.33334 14.2033 7.632 14.5 8 14.5C8.37067 14.5 8.66667 14.2033 8.66667 13.838V9.16667H13.338C13.5142 9.16596 13.6828 9.09535 13.807 8.97035C13.9311 8.84534 14.0005 8.67617 14 8.5C14 8.12934 13.7033 7.83334 13.338 7.83334H8.66667Z"
+                      />
+                    </svg>
+                  </span>
+                  Condition
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item position-relative" *ngIf="block === 'ELSE IF'">
+          <div class="d-flex align-items-center justify-content-between row-condition-wrapper position-relative">
+            <div class="d-flex align-items-center justify-content-between row-condition w-100">
+              <div
+                class="c-pointer header collapsed"
+                data-bs-toggle="collapse"
+                [attr.data-bs-target]="'#collapseElseIf' + i"
+                [attr.aria-controls]="'collapseElseIf' + i"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 25" fill="none">
+                  <path
+                    d="M6 9.04626L12 15.0463L18 9.04626"
+                    stroke="#44546F"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+              <div>
+                <span class="body-1 text-uppercase if-else d-block custom-lozenge text-center">ELSE IF</span>
+              </div>
+              <div class="w-100">
+                <app-select ngClass="mb-0"></app-select>
+              </div>
+              <div class="w-100">
+                <app-select ngClass="mb-0"></app-select>
+              </div>
+              <div class="w-100">
+                <app-select ngClass="mb-0"></app-select>
+              </div>
+              <div>
+                <span class="body-1 text-uppercase d-block">THEN</span>
+              </div>
+            </div>
+            <div>
+              <div class="rates d-flex align-items-center">
+                <div>
+                  <app-text-field ngClass="mb-0"></app-text-field>
+                </div>
+                <div
+                  class="c-pointer condition-icon"
+                  [tooltip]="'Add condition' | translate"
+                  placement="top"
+                  container="body"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="14" viewBox="0 0 12 14" fill="none">
+                    <path
+                      d="M3.07947 11.0924V5.09241M3.41248 11.0924H6.99999M1.74613 1.09241H4.4128C4.78099 1.09241 5.07947 1.39088 5.07947 1.75907V4.42574C5.07947 4.79393 4.78099 5.09241 4.4128 5.09241H1.74613C1.37794 5.09241 1.07947 4.79393 1.07947 4.42574V1.75907C1.07947 1.39088 1.37794 1.09241 1.74613 1.09241ZM6.99999 12.4257V9.75907C6.99999 9.39088 7.29846 9.09241 7.66665 9.09241L10.3333 9.09241C10.7015 9.09241 11 9.39088 11 9.75907V12.4257C11 12.7939 10.7015 13.0924 10.3333 13.0924H7.66665C7.29846 13.0924 6.99999 12.7939 6.99999 12.4257Z"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
+                <div
+                  class="c-pointer remove-icon"
+                  [tooltip]="'Remove condition' | translate"
+                  placement="top"
+                  container="body"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
+                    <g>
+                      <path
+                        d="M2.66669 4.75903H13.3334"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M6.66669 7.42578V11.4258"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M9.33331 7.42578V11.4258"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M3.33331 4.75903L3.99998 12.759C3.99998 13.1127 4.14046 13.4518 4.3905 13.7018C4.64055 13.9519 4.97969 14.0924 5.33331 14.0924H10.6666C11.0203 14.0924 11.3594 13.9519 11.6095 13.7018C11.8595 13.4518 12 13.1127 12 12.759L12.6666 4.75903"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M6 4.75907V2.75907C6 2.58226 6.07024 2.41269 6.19526 2.28767C6.32029 2.16265 6.48986 2.09241 6.66667 2.09241H9.33333C9.51014 2.09241 9.67971 2.16265 9.80474 2.28767C9.92976 2.41269 10 2.58226 10 2.75907V4.75907"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </g>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            [attr.id]="'collapseElseIf' + i"
+            class="accordion-collapse collapse"
+            [attr.aria-labelledby]="'headingElseIf' + i"
+            [attr.data-bs-parent]="'#accordionConditions'"
+          >
+            <div class="accordion-body">
+              <div
+                class="d-flex flex-column align-items-start justify-content-between row-condition-wrapper row-and position-relative"
+              >
+                <div class="d-flex align-items-center justify-content-between w-100">
+                  <div class="d-flex align-items-center justify-content-between row-condition w-100">
+                    <div>
+                      <span class="body-1 text-uppercase and-or d-block custom-lozenge text-center">And</span>
+                    </div>
+                    <div class="w-100">
+                      <app-select ngClass="mb-0"></app-select>
+                    </div>
+                    <div class="w-100">
+                      <app-select ngClass="mb-0"></app-select>
+                    </div>
+                    <div class="w-100">
+                      <app-select ngClass="mb-0"></app-select>
+                    </div>
+                    <div>
+                      <span class="body-1 text-uppercase">THEN</span>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="rates d-flex align-items-center">
+                      <div>
+                        <app-text-field ngClass="mb-0"></app-text-field>
+                      </div>
+                      <div
+                        class="c-pointer condition-icon disabled"
+                        [tooltip]="'Add condition' | translate"
+                        placement="top"
+                        container="body"
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="14" viewBox="0 0 12 14" fill="none">
+                          <path
+                            d="M3.07947 11.0924V5.09241M3.41248 11.0924H6.99999M1.74613 1.09241H4.4128C4.78099 1.09241 5.07947 1.39088 5.07947 1.75907V4.42574C5.07947 4.79393 4.78099 5.09241 4.4128 5.09241H1.74613C1.37794 5.09241 1.07947 4.79393 1.07947 4.42574V1.75907C1.07947 1.39088 1.37794 1.09241 1.74613 1.09241ZM6.99999 12.4257V9.75907C6.99999 9.39088 7.29846 9.09241 7.66665 9.09241L10.3333 9.09241C10.7015 9.09241 11 9.39088 11 9.75907V12.4257C11 12.7939 10.7015 13.0924 10.3333 13.0924H7.66665C7.29846 13.0924 6.99999 12.7939 6.99999 12.4257Z"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                      </div>
+                      <div
+                        class="c-pointer remove-icon"
+                        [tooltip]="'Remove condition' | translate"
+                        placement="top"
+                        container="body"
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
+                          <g>
+                            <path
+                              d="M2.66669 4.75903H13.3334"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <path
+                              d="M6.66669 7.42578V11.4258"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <path
+                              d="M9.33331 7.42578V11.4258"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <path
+                              d="M3.33331 4.75903L3.99998 12.759C3.99998 13.1127 4.14046 13.4518 4.3905 13.7018C4.64055 13.9519 4.97969 14.0924 5.33331 14.0924H10.6666C11.0203 14.0924 11.3594 13.9519 11.6095 13.7018C11.8595 13.4518 12 13.1127 12 12.759L12.6666 4.75903"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <path
+                              d="M6 4.75907V2.75907C6 2.58226 6.07024 2.41269 6.19526 2.28767C6.32029 2.16265 6.48986 2.09241 6.66667 2.09241H9.33333C9.51014 2.09241 9.67971 2.16265 9.80474 2.28767C9.92976 2.41269 10 2.58226 10 2.75907V4.75907"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </g>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion-body w-100">
+                  <div
+                    class="d-flex flex-column align-items-start justify-content-between row-condition-wrapper row-and position-relative"
+                  >
+                    <div class="d-flex align-items-center justify-content-between w-100">
+                      <div class="d-flex align-items-center justify-content-between row-condition w-100">
+                        <div>
+                          <span class="body-1 text-uppercase and-or d-block custom-lozenge text-center">And</span>
+                        </div>
+                        <div class="w-100">
+                          <app-select ngClass="mb-0"></app-select>
+                        </div>
+                        <div class="w-100">
+                          <app-select ngClass="mb-0"></app-select>
+                        </div>
+                        <div class="w-100">
+                          <app-select ngClass="mb-0"></app-select>
+                        </div>
+                        <div>
+                          <span class="body-1 text-uppercase">THEN</span>
+                        </div>
+                      </div>
+                      <div>
+                        <div class="rates d-flex align-items-center">
+                          <div>
+                            <app-text-field ngClass="mb-0"></app-text-field>
+                          </div>
+                          <div
+                            class="c-pointer condition-icon"
+                            [tooltip]="'Add condition' | translate"
+                            placement="top"
+                            container="body"
+                          >
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="12"
+                              height="14"
+                              viewBox="0 0 12 14"
+                              fill="none"
+                            >
+                              <path
+                                d="M3.07947 11.0924V5.09241M3.41248 11.0924H6.99999M1.74613 1.09241H4.4128C4.78099 1.09241 5.07947 1.39088 5.07947 1.75907V4.42574C5.07947 4.79393 4.78099 5.09241 4.4128 5.09241H1.74613C1.37794 5.09241 1.07947 4.79393 1.07947 4.42574V1.75907C1.07947 1.39088 1.37794 1.09241 1.74613 1.09241ZM6.99999 12.4257V9.75907C6.99999 9.39088 7.29846 9.09241 7.66665 9.09241L10.3333 9.09241C10.7015 9.09241 11 9.39088 11 9.75907V12.4257C11 12.7939 10.7015 13.0924 10.3333 13.0924H7.66665C7.29846 13.0924 6.99999 12.7939 6.99999 12.4257Z"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+                          </div>
+                          <div
+                            class="c-pointer remove-icon"
+                            [tooltip]="'Remove condition' | translate"
+                            placement="top"
+                            container="body"
+                          >
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="16"
+                              height="17"
+                              viewBox="0 0 16 17"
+                              fill="none"
+                            >
+                              <g>
+                                <path
+                                  d="M2.66669 4.75903H13.3334"
+                                  stroke-width="1.5"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                />
+                                <path
+                                  d="M6.66669 7.42578V11.4258"
+                                  stroke-width="1.5"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                />
+                                <path
+                                  d="M9.33331 7.42578V11.4258"
+                                  stroke-width="1.5"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                />
+                                <path
+                                  d="M3.33331 4.75903L3.99998 12.759C3.99998 13.1127 4.14046 13.4518 4.3905 13.7018C4.64055 13.9519 4.97969 14.0924 5.33331 14.0924H10.6666C11.0203 14.0924 11.3594 13.9519 11.6095 13.7018C11.8595 13.4518 12 13.1127 12 12.759L12.6666 4.75903"
+                                  stroke-width="1.5"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                />
+                                <path
+                                  d="M6 4.75907V2.75907C6 2.58226 6.07024 2.41269 6.19526 2.28767C6.32029 2.16265 6.48986 2.09241 6.66667 2.09241H9.33333C9.51014 2.09241 9.67971 2.16265 9.80474 2.28767C9.92976 2.41269 10 2.58226 10 2.75907V4.75907"
+                                  stroke-width="1.5"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                />
+                              </g>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="accordion-body w-100">
+                      <div
+                        class="d-flex flex-column align-items-start justify-content-between row-condition-wrapper row-and position-relative"
+                      >
+                        <div class="d-flex align-items-center justify-content-between w-100">
+                          <div class="d-flex align-items-center justify-content-between row-condition w-100">
+                            <div>
+                              <span class="body-1 text-uppercase and-or d-block custom-lozenge text-center">And</span>
+                            </div>
+                            <div class="w-100">
+                              <app-select ngClass="mb-0"></app-select>
+                            </div>
+                            <div class="w-100">
+                              <app-select ngClass="mb-0"></app-select>
+                            </div>
+                            <div class="w-100">
+                              <app-select ngClass="mb-0"></app-select>
+                            </div>
+                            <div>
+                              <span class="body-1 text-uppercase">THEN</span>
+                            </div>
+                          </div>
+                          <div>
+                            <div class="rates d-flex align-items-center">
+                              <div>
+                                <app-text-field ngClass="mb-0"></app-text-field>
+                              </div>
+                              <div
+                                class="c-pointer condition-icon"
+                                [tooltip]="'Add condition' | translate"
+                                placement="top"
+                                container="body"
+                              >
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="12"
+                                  height="14"
+                                  viewBox="0 0 12 14"
+                                  fill="none"
+                                >
+                                  <path
+                                    d="M3.07947 11.0924V5.09241M3.41248 11.0924H6.99999M1.74613 1.09241H4.4128C4.78099 1.09241 5.07947 1.39088 5.07947 1.75907V4.42574C5.07947 4.79393 4.78099 5.09241 4.4128 5.09241H1.74613C1.37794 5.09241 1.07947 4.79393 1.07947 4.42574V1.75907C1.07947 1.39088 1.37794 1.09241 1.74613 1.09241ZM6.99999 12.4257V9.75907C6.99999 9.39088 7.29846 9.09241 7.66665 9.09241L10.3333 9.09241C10.7015 9.09241 11 9.39088 11 9.75907V12.4257C11 12.7939 10.7015 13.0924 10.3333 13.0924H7.66665C7.29846 13.0924 6.99999 12.7939 6.99999 12.4257Z"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                  />
+                                </svg>
+                              </div>
+                              <div
+                                class="c-pointer remove-icon"
+                                [tooltip]="'Remove condition' | translate"
+                                placement="top"
+                                container="body"
+                              >
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="16"
+                                  height="17"
+                                  viewBox="0 0 16 17"
+                                  fill="none"
+                                >
+                                  <g>
+                                    <path
+                                      d="M2.66669 4.75903H13.3334"
+                                      stroke-width="1.5"
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                    />
+                                    <path
+                                      d="M6.66669 7.42578V11.4258"
+                                      stroke-width="1.5"
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                    />
+                                    <path
+                                      d="M9.33331 7.42578V11.4258"
+                                      stroke-width="1.5"
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                    />
+                                    <path
+                                      d="M3.33331 4.75903L3.99998 12.759C3.99998 13.1127 4.14046 13.4518 4.3905 13.7018C4.64055 13.9519 4.97969 14.0924 5.33331 14.0924H10.6666C11.0203 14.0924 11.3594 13.9519 11.6095 13.7018C11.8595 13.4518 12 13.1127 12 12.759L12.6666 4.75903"
+                                      stroke-width="1.5"
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                    />
+                                    <path
+                                      d="M6 4.75907V2.75907C6 2.58226 6.07024 2.41269 6.19526 2.28767C6.32029 2.16265 6.48986 2.09241 6.66667 2.09241H9.33333C9.51014 2.09241 9.67971 2.16265 9.80474 2.28767C9.92976 2.41269 10 2.58226 10 2.75907V4.75907"
+                                      stroke-width="1.5"
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                    />
+                                  </g>
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="d-flex flex-column align-items-center justify-content-between row-condition-wrapper row-or row-last position-relative"
+                      >
+                        <div class="d-flex align-items-center justify-content-between w-100">
+                          <div class="d-flex align-items-center justify-content-between row-condition w-100">
+                            <div>
+                              <span class="body-1 text-uppercase and-or d-block custom-lozenge text-center">Or</span>
+                            </div>
+                            <div class="w-100">
+                              <app-select ngClass="mb-0"></app-select>
+                            </div>
+                            <div class="w-100">
+                              <app-select ngClass="mb-0"></app-select>
+                            </div>
+                            <div class="w-100">
+                              <app-select ngClass="mb-0"></app-select>
+                            </div>
+                            <div>
+                              <span class="body-1 text-uppercase">THEN</span>
+                            </div>
+                          </div>
+                          <div>
+                            <div class="rates d-flex align-items-center">
+                              <div>
+                                <app-text-field ngClass="mb-0"></app-text-field>
+                              </div>
+                              <div
+                                class="c-pointer condition-icon"
+                                [tooltip]="'Add condition' | translate"
+                                placement="top"
+                                container="body"
+                              >
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="12"
+                                  height="14"
+                                  viewBox="0 0 12 14"
+                                  fill="none"
+                                >
+                                  <path
+                                    d="M3.07947 11.0924V5.09241M3.41248 11.0924H6.99999M1.74613 1.09241H4.4128C4.78099 1.09241 5.07947 1.39088 5.07947 1.75907V4.42574C5.07947 4.79393 4.78099 5.09241 4.4128 5.09241H1.74613C1.37794 5.09241 1.07947 4.79393 1.07947 4.42574V1.75907C1.07947 1.39088 1.37794 1.09241 1.74613 1.09241ZM6.99999 12.4257V9.75907C6.99999 9.39088 7.29846 9.09241 7.66665 9.09241L10.3333 9.09241C10.7015 9.09241 11 9.39088 11 9.75907V12.4257C11 12.7939 10.7015 13.0924 10.3333 13.0924H7.66665C7.29846 13.0924 6.99999 12.7939 6.99999 12.4257Z"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                  />
+                                </svg>
+                              </div>
+                              <div
+                                class="c-pointer remove-icon"
+                                [tooltip]="'Remove condition' | translate"
+                                placement="top"
+                                container="body"
+                              >
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="16"
+                                  height="17"
+                                  viewBox="0 0 16 17"
+                                  fill="none"
+                                >
+                                  <g>
+                                    <path
+                                      d="M2.66669 4.75903H13.3334"
+                                      stroke-width="1.5"
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                    />
+                                    <path
+                                      d="M6.66669 7.42578V11.4258"
+                                      stroke-width="1.5"
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                    />
+                                    <path
+                                      d="M9.33331 7.42578V11.4258"
+                                      stroke-width="1.5"
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                    />
+                                    <path
+                                      d="M3.33331 4.75903L3.99998 12.759C3.99998 13.1127 4.14046 13.4518 4.3905 13.7018C4.64055 13.9519 4.97969 14.0924 5.33331 14.0924H10.6666C11.0203 14.0924 11.3594 13.9519 11.6095 13.7018C11.8595 13.4518 12 13.1127 12 12.759L12.6666 4.75903"
+                                      stroke-width="1.5"
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                    />
+                                    <path
+                                      d="M6 4.75907V2.75907C6 2.58226 6.07024 2.41269 6.19526 2.28767C6.32029 2.16265 6.48986 2.09241 6.66667 2.09241H9.33333C9.51014 2.09241 9.67971 2.16265 9.80474 2.28767C9.92976 2.41269 10 2.58226 10 2.75907V4.75907"
+                                      stroke-width="1.5"
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                    />
+                                  </g>
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="new-condition position-relative">
+                        <button class="btn eva-btn body-1 eva-btn-link" translate>
+                          <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 17">
+                              <path
+                                fill-rule="evenodd"
+                                clip-rule="evenodd"
+                                d="M8.66667 7.83334V3.162C8.66596 2.98584 8.59535 2.81716 8.47035 2.69303C8.34534 2.5689 8.17617 2.49947 8 2.5C7.62934 2.5 7.33334 2.79667 7.33334 3.162V7.83334H2.662C2.48584 7.83404 2.31716 7.90466 2.19303 8.02966C2.0689 8.15467 1.99947 8.32384 2 8.5C2 8.87134 2.29667 9.16667 2.662 9.16667H7.33334V13.838C7.33334 14.2033 7.632 14.5 8 14.5C8.37067 14.5 8.66667 14.2033 8.66667 13.838V9.16667H13.338C13.5142 9.16596 13.6828 9.09535 13.807 8.97035C13.9311 8.84534 14.0005 8.67617 14 8.5C14 8.12934 13.7033 7.83334 13.338 7.83334H8.66667Z"
+                              />
+                            </svg>
+                          </span>
+                          Condition
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="new-condition position-relative">
+                    <button class="btn eva-btn body-1 eva-btn-link" translate>
+                      <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 17">
+                          <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M8.66667 7.83334V3.162C8.66596 2.98584 8.59535 2.81716 8.47035 2.69303C8.34534 2.5689 8.17617 2.49947 8 2.5C7.62934 2.5 7.33334 2.79667 7.33334 3.162V7.83334H2.662C2.48584 7.83404 2.31716 7.90466 2.19303 8.02966C2.0689 8.15467 1.99947 8.32384 2 8.5C2 8.87134 2.29667 9.16667 2.662 9.16667H7.33334V13.838C7.33334 14.2033 7.632 14.5 8 14.5C8.37067 14.5 8.66667 14.2033 8.66667 13.838V9.16667H13.338C13.5142 9.16596 13.6828 9.09535 13.807 8.97035C13.9311 8.84534 14.0005 8.67617 14 8.5C14 8.12934 13.7033 7.83334 13.338 7.83334H8.66667Z"
+                          />
+                        </svg>
+                      </span>
+                      Condition
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="new-condition position-relative">
+                <button class="btn eva-btn body-1 eva-btn-link" translate>
+                  <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 17">
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M8.66667 7.83334V3.162C8.66596 2.98584 8.59535 2.81716 8.47035 2.69303C8.34534 2.5689 8.17617 2.49947 8 2.5C7.62934 2.5 7.33334 2.79667 7.33334 3.162V7.83334H2.662C2.48584 7.83404 2.31716 7.90466 2.19303 8.02966C2.0689 8.15467 1.99947 8.32384 2 8.5C2 8.87134 2.29667 9.16667 2.662 9.16667H7.33334V13.838C7.33334 14.2033 7.632 14.5 8 14.5C8.37067 14.5 8.66667 14.2033 8.66667 13.838V9.16667H13.338C13.5142 9.16596 13.6828 9.09535 13.807 8.97035C13.9311 8.84534 14.0005 8.67617 14 8.5C14 8.12934 13.7033 7.83334 13.338 7.83334H8.66667Z"
+                      />
+                    </svg>
+                  </span>
+                  Condition
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item position-relative" *ngIf="block === 'ELSE'">
+          <div class="d-flex align-items-center justify-content-between row-condition-wrapper position-relative">
+            <div class="d-flex align-items-center justify-content-between row-condition w-100">
+              <div class="c-pointer header collapsed" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 25" fill="none">
+                  <path
+                    d="M6 9.04626L12 15.0463L18 9.04626"
+                    stroke="#44546F"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+              <div>
+                <span class="body-1 text-uppercase if-else d-block custom-lozenge text-center">ELSE</span>
+              </div>
+              <div class="w-100">
+                <app-select ngClass="mb-0"></app-select>
+              </div>
+              <div class="w-100">
+                <app-select ngClass="mb-0"></app-select>
+              </div>
+              <div class="w-100">
+                <app-select ngClass="mb-0"></app-select>
+              </div>
+              <div>
+                <span class="body-1 text-uppercase d-block">THEN</span>
+              </div>
+            </div>
+            <div>
+              <div class="rates d-flex align-items-center">
+                <div>
+                  <app-text-field ngClass="mb-0"></app-text-field>
+                </div>
+                <div
+                  class="c-pointer condition-icon"
+                  [tooltip]="'Add condition' | translate"
+                  placement="top"
+                  container="body"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="14" viewBox="0 0 12 14" fill="none">
+                    <path
+                      d="M3.07947 11.0924V5.09241M3.41248 11.0924H6.99999M1.74613 1.09241H4.4128C4.78099 1.09241 5.07947 1.39088 5.07947 1.75907V4.42574C5.07947 4.79393 4.78099 5.09241 4.4128 5.09241H1.74613C1.37794 5.09241 1.07947 4.79393 1.07947 4.42574V1.75907C1.07947 1.39088 1.37794 1.09241 1.74613 1.09241ZM6.99999 12.4257V9.75907C6.99999 9.39088 7.29846 9.09241 7.66665 9.09241L10.3333 9.09241C10.7015 9.09241 11 9.39088 11 9.75907V12.4257C11 12.7939 10.7015 13.0924 10.3333 13.0924H7.66665C7.29846 13.0924 6.99999 12.7939 6.99999 12.4257Z"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
+                <div
+                  class="c-pointer remove-icon"
+                  [tooltip]="'Remove condition' | translate"
+                  placement="top"
+                  container="body"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
+                    <g>
+                      <path
+                        d="M2.66669 4.75903H13.3334"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M6.66669 7.42578V11.4258"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M9.33331 7.42578V11.4258"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M3.33331 4.75903L3.99998 12.759C3.99998 13.1127 4.14046 13.4518 4.3905 13.7018C4.64055 13.9519 4.97969 14.0924 5.33331 14.0924H10.6666C11.0203 14.0924 11.3594 13.9519 11.6095 13.7018C11.8595 13.4518 12 13.1127 12 12.759L12.6666 4.75903"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M6 4.75907V2.75907C6 2.58226 6.07024 2.41269 6.19526 2.28767C6.32029 2.16265 6.48986 2.09241 6.66667 2.09241H9.33333C9.51014 2.09241 9.67971 2.16265 9.80474 2.28767C9.92976 2.41269 10 2.58226 10 2.75907V4.75907"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </g>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionConditions">
+            <div class="accordion-body">
+              <div
+                class="d-flex flex-column align-items-start justify-content-between row-condition-wrapper row-and position-relative"
+              >
+                <div class="d-flex align-items-center justify-content-between w-100">
+                  <div class="d-flex align-items-center justify-content-between row-condition w-100">
+                    <div>
+                      <span class="body-1 text-uppercase and-or d-block custom-lozenge text-center">And</span>
+                    </div>
+                    <div class="w-100">
+                      <app-select ngClass="mb-0"></app-select>
+                    </div>
+                    <div class="w-100">
+                      <app-select ngClass="mb-0"></app-select>
+                    </div>
+                    <div class="w-100">
+                      <app-select ngClass="mb-0"></app-select>
+                    </div>
+                    <div>
+                      <span class="body-1 text-uppercase">THEN</span>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="rates d-flex align-items-center">
+                      <div>
+                        <app-text-field ngClass="mb-0"></app-text-field>
+                      </div>
+                      <div
+                        class="c-pointer condition-icon disabled"
+                        [tooltip]="'Add condition' | translate"
+                        placement="top"
+                        container="body"
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="14" viewBox="0 0 12 14" fill="none">
+                          <path
+                            d="M3.07947 11.0924V5.09241M3.41248 11.0924H6.99999M1.74613 1.09241H4.4128C4.78099 1.09241 5.07947 1.39088 5.07947 1.75907V4.42574C5.07947 4.79393 4.78099 5.09241 4.4128 5.09241H1.74613C1.37794 5.09241 1.07947 4.79393 1.07947 4.42574V1.75907C1.07947 1.39088 1.37794 1.09241 1.74613 1.09241ZM6.99999 12.4257V9.75907C6.99999 9.39088 7.29846 9.09241 7.66665 9.09241L10.3333 9.09241C10.7015 9.09241 11 9.39088 11 9.75907V12.4257C11 12.7939 10.7015 13.0924 10.3333 13.0924H7.66665C7.29846 13.0924 6.99999 12.7939 6.99999 12.4257Z"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                      </div>
+                      <div
+                        class="c-pointer remove-icon"
+                        [tooltip]="'Remove condition' | translate"
+                        placement="top"
+                        container="body"
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
+                          <g>
+                            <path
+                              d="M2.66669 4.75903H13.3334"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <path
+                              d="M6.66669 7.42578V11.4258"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <path
+                              d="M9.33331 7.42578V11.4258"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <path
+                              d="M3.33331 4.75903L3.99998 12.759C3.99998 13.1127 4.14046 13.4518 4.3905 13.7018C4.64055 13.9519 4.97969 14.0924 5.33331 14.0924H10.6666C11.0203 14.0924 11.3594 13.9519 11.6095 13.7018C11.8595 13.4518 12 13.1127 12 12.759L12.6666 4.75903"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <path
+                              d="M6 4.75907V2.75907C6 2.58226 6.07024 2.41269 6.19526 2.28767C6.32029 2.16265 6.48986 2.09241 6.66667 2.09241H9.33333C9.51014 2.09241 9.67971 2.16265 9.80474 2.28767C9.92976 2.41269 10 2.58226 10 2.75907V4.75907"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </g>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion-body w-100">
+                  <div
+                    class="d-flex flex-column align-items-start justify-content-between row-condition-wrapper row-and position-relative"
+                  >
+                    <div class="d-flex align-items-center justify-content-between w-100">
+                      <div class="d-flex align-items-center justify-content-between row-condition w-100">
+                        <div>
+                          <span class="body-1 text-uppercase and-or d-block custom-lozenge text-center">And</span>
+                        </div>
+                        <div class="w-100">
+                          <app-select ngClass="mb-0"></app-select>
+                        </div>
+                        <div class="w-100">
+                          <app-select ngClass="mb-0"></app-select>
+                        </div>
+                        <div class="w-100">
+                          <app-select ngClass="mb-0"></app-select>
+                        </div>
+                        <div>
+                          <span class="body-1 text-uppercase">THEN</span>
+                        </div>
+                      </div>
+                      <div>
+                        <div class="rates d-flex align-items-center">
+                          <div>
+                            <app-text-field ngClass="mb-0"></app-text-field>
+                          </div>
+                          <div
+                            class="c-pointer condition-icon"
+                            [tooltip]="'Add condition' | translate"
+                            placement="top"
+                            container="body"
+                          >
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="12"
+                              height="14"
+                              viewBox="0 0 12 14"
+                              fill="none"
+                            >
+                              <path
+                                d="M3.07947 11.0924V5.09241M3.41248 11.0924H6.99999M1.74613 1.09241H4.4128C4.78099 1.09241 5.07947 1.39088 5.07947 1.75907V4.42574C5.07947 4.79393 4.78099 5.09241 4.4128 5.09241H1.74613C1.37794 5.09241 1.07947 4.79393 1.07947 4.42574V1.75907C1.07947 1.39088 1.37794 1.09241 1.74613 1.09241ZM6.99999 12.4257V9.75907C6.99999 9.39088 7.29846 9.09241 7.66665 9.09241L10.3333 9.09241C10.7015 9.09241 11 9.39088 11 9.75907V12.4257C11 12.7939 10.7015 13.0924 10.3333 13.0924H7.66665C7.29846 13.0924 6.99999 12.7939 6.99999 12.4257Z"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+                          </div>
+                          <div
+                            class="c-pointer remove-icon"
+                            [tooltip]="'Remove condition' | translate"
+                            placement="top"
+                            container="body"
+                          >
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="16"
+                              height="17"
+                              viewBox="0 0 16 17"
+                              fill="none"
+                            >
+                              <g>
+                                <path
+                                  d="M2.66669 4.75903H13.3334"
+                                  stroke-width="1.5"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                />
+                                <path
+                                  d="M6.66669 7.42578V11.4258"
+                                  stroke-width="1.5"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                />
+                                <path
+                                  d="M9.33331 7.42578V11.4258"
+                                  stroke-width="1.5"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                />
+                                <path
+                                  d="M3.33331 4.75903L3.99998 12.759C3.99998 13.1127 4.14046 13.4518 4.3905 13.7018C4.64055 13.9519 4.97969 14.0924 5.33331 14.0924H10.6666C11.0203 14.0924 11.3594 13.9519 11.6095 13.7018C11.8595 13.4518 12 13.1127 12 12.759L12.6666 4.75903"
+                                  stroke-width="1.5"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                />
+                                <path
+                                  d="M6 4.75907V2.75907C6 2.58226 6.07024 2.41269 6.19526 2.28767C6.32029 2.16265 6.48986 2.09241 6.66667 2.09241H9.33333C9.51014 2.09241 9.67971 2.16265 9.80474 2.28767C9.92976 2.41269 10 2.58226 10 2.75907V4.75907"
+                                  stroke-width="1.5"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                />
+                              </g>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="new-condition position-relative">
+                    <button class="btn eva-btn body-1 eva-btn-link" translate>
+                      <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 17">
+                          <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M8.66667 7.83334V3.162C8.66596 2.98584 8.59535 2.81716 8.47035 2.69303C8.34534 2.5689 8.17617 2.49947 8 2.5C7.62934 2.5 7.33334 2.79667 7.33334 3.162V7.83334H2.662C2.48584 7.83404 2.31716 7.90466 2.19303 8.02966C2.0689 8.15467 1.99947 8.32384 2 8.5C2 8.87134 2.29667 9.16667 2.662 9.16667H7.33334V13.838C7.33334 14.2033 7.632 14.5 8 14.5C8.37067 14.5 8.66667 14.2033 8.66667 13.838V9.16667H13.338C13.5142 9.16596 13.6828 9.09535 13.807 8.97035C13.9311 8.84534 14.0005 8.67617 14 8.5C14 8.12934 13.7033 7.83334 13.338 7.83334H8.66667Z"
+                          />
+                        </svg>
+                      </span>
+                      Condition
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="new-condition position-relative">
+                <button class="btn eva-btn body-1 eva-btn-link" translate>
+                  <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 17">
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M8.66667 7.83334V3.162C8.66596 2.98584 8.59535 2.81716 8.47035 2.69303C8.34534 2.5689 8.17617 2.49947 8 2.5C7.62934 2.5 7.33334 2.79667 7.33334 3.162V7.83334H2.662C2.48584 7.83404 2.31716 7.90466 2.19303 8.02966C2.0689 8.15467 1.99947 8.32384 2 8.5C2 8.87134 2.29667 9.16667 2.662 9.16667H7.33334V13.838C7.33334 14.2033 7.632 14.5 8 14.5C8.37067 14.5 8.66667 14.2033 8.66667 13.838V9.16667H13.338C13.5142 9.16596 13.6828 9.09535 13.807 8.97035C13.9311 8.84534 14.0005 8.67617 14 8.5C14 8.12934 13.7033 7.83334 13.338 7.83334H8.66667Z"
+                      />
+                    </svg>
+                  </span>
+                  Condition
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item position-relative new-condition">
+        <button class="btn eva-btn body-1 eva-btn-link" translate (click)="addCondition()">
+          <span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 17">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M8.66667 7.83334V3.162C8.66596 2.98584 8.59535 2.81716 8.47035 2.69303C8.34534 2.5689 8.17617 2.49947 8 2.5C7.62934 2.5 7.33334 2.79667 7.33334 3.162V7.83334H2.662C2.48584 7.83404 2.31716 7.90466 2.19303 8.02966C2.0689 8.15467 1.99947 8.32384 2 8.5C2 8.87134 2.29667 9.16667 2.662 9.16667H7.33334V13.838C7.33334 14.2033 7.632 14.5 8 14.5C8.37067 14.5 8.66667 14.2033 8.66667 13.838V9.16667H13.338C13.5142 9.16596 13.6828 9.09535 13.807 8.97035C13.9311 8.84534 14.0005 8.67617 14 8.5C14 8.12934 13.7033 7.83334 13.338 7.83334H8.66667Z"
+              />
+            </svg>
+          </span>
+          Condition
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
